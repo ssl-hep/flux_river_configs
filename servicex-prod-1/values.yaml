@@ -1,0 +1,138 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: servicex-release
+  namespace: servicex-prod-1
+spec:
+  releaseName: servicex-release
+  serviceAccountName: servicex-prod-1
+  chart:
+    spec:
+      chart: servicex
+      sourceRef:
+        kind: HelmRepository
+        name: servicex-repo   
+      version: '1.0.12' 
+  interval: 1m
+  values:
+    # Default values for servicex.
+    # This is a YAML-formatted file.
+    # Declare variables to be passed into your templates.
+
+
+
+    # Enable deployment of Minio Object Store with this chart - use this if you
+    # want to have the option of delivering results as parquet files
+    objectStore:
+      enabled: true
+      publicURL: xaod-minio.servicex.ssl-hep.org
+
+
+    # Settings for the Flask App
+    app:
+      adminEmail: bengal1@illinois.edu
+      pullPolicy: Always
+      auth: true
+      replicas: 1
+      mailgunDomain: servicex.ssl-hep.org
+
+      ingress:
+        enabled: true
+        tls:
+          enabled: true
+          clusterIssuer: letsencrypt-prod
+      
+    rabbitmq:
+      metrics:
+        enabled: false
+        plugins: rabbitmq_prometheus
+        podAnnotations:
+          prometheus.io/port: '9419'
+          prometheus.io/scrape: "true"
+        prometheusRule:
+          additionalLabels: {}
+          enabled: false
+          namespace: ""
+          rules: []
+        serviceMonitor:
+          additionalLabels: {}
+          enabled: true
+          honorLabels: false
+          interval: 30s
+      persistence:
+        enabled: true
+        storageClass: rook-ceph-block
+      auth:
+        existingErlangSecret: servicex-release-rabbitmq
+        existingPasswordSecret: servicex-release-rabbitmq
+
+    # Settings for the DID Finder
+    didFinder:
+      rucio: 
+        enabled: true
+
+    # Settings for the preflight checker - this usually uses the same image as
+    # the transformer
+    preflight:
+      pullPolicy: Always
+
+    #
+    # Code Generator service
+    codeGen:
+      enabled: true
+      image: sslhep/servicex_code_gen_func_adl_xaod
+      # For uproot deployment
+      # image: sslhep/servicex_code_gen_func_adl_uproot
+      tag: develop
+      pullPolicy: Always
+
+
+    # Pull policy for the worker pods - the image and version are specified as
+    # part of the transform request
+    transformer:
+      autoscaler:
+        enabled: true
+        cpuScaleThreshold: 30
+        minReplicas: 10
+        maxReplicas: 750
+      pullPolicy: Always
+      cpuLimit: 1
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      # For uproot deployment
+      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+
+
+    # Values for the Postgresql Chart
+    postgres:
+      enabled: true
+    postgresql:
+      persistence:
+        enabled: true
+        storageClass: rook-ceph-block
+      master:
+        nodeSelector:
+          kernel-ml: "true"
+        
+
+    # Values for Minio Chart
+    minio:
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hosts:
+        - "xaod-minio.servicex.ssl-hep.org"
+        tls:
+        - hosts:
+          - xaod-minio.servicex.ssl-hep.org
+          secretName: xaod-minio-tls
+
+
+    ###### Settings for Authenticating with the CERN Infrastructure #######
+
+    gridAccount: ivukotic
+
+    rbacEnabled: true
