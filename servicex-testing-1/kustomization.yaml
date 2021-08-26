@@ -5,7 +5,7 @@ kind: Kustomization
 resources:
   - servicex-repository.yaml
   - servicex-release.yaml
-  - servicex-testing-1-sealed-secrets.yaml
+  - servicex-testing-1-sealed-secret.yaml
 
 secretGenerator:
   - name: servicex-secrets

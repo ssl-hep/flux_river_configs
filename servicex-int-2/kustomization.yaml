@@ -6,6 +6,7 @@ resources:
   - servicex-repository.yaml
   - servicex-release.yaml
   - values.yaml
+  - servicex-int-2-sealed-secret.yaml
 
 secretGenerator:
   - name: servicex-secrets
