@@ -3,10 +3,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: servicex-release
-  namespace: servicex-int-2
+  namespace: servicex-int-1
 spec:
   releaseName: servicex-release
-  serviceAccountName: servicex-int-2
+  serviceAccountName: servicex-int-1
   chart:
     spec:
       chart: servicex
@@ -31,6 +31,7 @@ spec:
 
     # Settings for the Flask App
     app:
+      image: sslhep/servicex-app:develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -75,13 +76,14 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       pullPolicy: Always
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+      image: sslhep/servicex_code_gen_func_adl_xaod:develop
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
