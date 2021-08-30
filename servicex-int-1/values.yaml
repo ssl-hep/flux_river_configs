@@ -31,7 +31,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      image: sslhep/servicex-app:develop
+      image: sslhep/servicex_app:develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
