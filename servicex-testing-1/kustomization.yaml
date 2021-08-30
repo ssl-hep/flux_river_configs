@@ -4,16 +4,14 @@ kind: Kustomization
 
 resources:
   - servicex-repository.yaml
-  - servicex-release.yaml
+    #- servicex-release.yaml
   - servicex-testing-1-sealed-secret.yaml
+  - values.yaml
 
 secretGenerator:
   - name: servicex-secrets
     namespace: servicex-testing-1
     type: Opaque
-
-resources:
-  - values.yaml
 
 configurations:
   - kustomizeconfig.yaml
