@@ -4,7 +4,7 @@ kind: Kustomization
 
 resources:
   - servicex-repository.yaml
-  - servicex-release.yaml
+    # - servicex-release.yaml
   - servicex-testing-3-sealed-secret.yaml
   - values.yaml
 
