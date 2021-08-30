@@ -31,7 +31,8 @@ spec:
 
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app:develop
+      image: sslhep/servicex_app
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -76,14 +77,15 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      tag: develop
       pullPolicy: Always
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod:develop
+      image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
@@ -100,7 +102,8 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      tag: develop
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
