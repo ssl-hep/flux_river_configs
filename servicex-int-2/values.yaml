@@ -2,11 +2,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-int-1
-  namespace: servicex-int-1
+  name: servicex-release-int-2
+  namespace: servicex-int-2
 spec:
-  releaseName: servicex-release-int-1
-  serviceAccountName: servicex-int-1
+  releaseName: servicex-release-int-2
+  serviceAccountName: servicex-int-2
   chart:
     spec:
       chart: servicex
