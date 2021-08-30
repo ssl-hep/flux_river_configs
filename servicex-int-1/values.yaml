@@ -66,8 +66,8 @@ spec:
         enabled: true
         storageClass: rook-ceph-block
       auth:
-        existingErlangSecret: servicex-rabbitmq-secret
-        existingPasswordSecret: servicex-rabbitmq-secret
+        existingErlangSecret: servicex-secrets
+        existingPasswordSecret: servicex-secrets
 
     # Settings for the DID Finder
     didFinder:
