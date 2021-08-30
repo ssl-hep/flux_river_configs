@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release
+  name: servicex-release-prod-1
   namespace: servicex-prod-1
 spec:
   interval: 1m
@@ -40,13 +40,13 @@ spec:
     - kind: Secret
       metadata:
         namespace: servicex-prod-1
-      name: servicex-rabbitmq-secret
+      name: servicex-secrets
       key: rabbitmq-erlang-cookie
       targetPath: app.rabbitmq_erlang_cookie
     - kind: Secret
       metadata:
         namespace: servicex-prod-1
-      name: servicex-rabbitmq-secret
+      name: servicex-secrets
       key: rabbitmq-password
       targetPath: app.rabbitmq_password
         

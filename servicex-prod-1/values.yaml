@@ -65,8 +65,8 @@ spec:
         enabled: true
         storageClass: rook-ceph-block
       auth:
-        existingErlangSecret: servicex-release-rabbitmq
-        existingPasswordSecret: servicex-release-rabbitmq
+        existingErlangSecret: servicex-secrets
+        existingPasswordSecret: servicex-secrets
 
     # Settings for the DID Finder
     didFinder:
@@ -86,7 +86,6 @@ spec:
       image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: develop
       pullPolicy: Always
 
 
@@ -135,6 +134,6 @@ spec:
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
-    gridAccount: ivukotic
+    gridAccount: bgalewsk
 
     rbacEnabled: true
