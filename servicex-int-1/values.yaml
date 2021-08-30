@@ -77,8 +77,7 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      tag: develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       pullPolicy: Always
 
     #
@@ -102,8 +101,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      tag: develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
