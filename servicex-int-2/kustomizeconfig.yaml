@@ -40,13 +40,13 @@ spec:
     - kind: Secret
       metadata:
         namespace: servicex-int-2
-      name: servicex-rabbitmq-secret
+      name: servicex-secrets
       key: rabbitmq-erlang-cookie
       targetPath: app.rabbitmq_erlang_cookie
     - kind: Secret
       metadata:
         namespace: servicex-int-2
-      name: servicex-rabbitmq-secret
+      name: servicex-secrets
       key: rabbitmq-password
       targetPath: app.rabbitmq_password
         
