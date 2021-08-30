@@ -2,10 +2,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release
+  name: servicex-release-testing-2
   namespace: servicex-testing-2
 spec:
-  releaseName: servicex-release
+  releaseName: servicex-release-testing-2
   serviceAccountName: servicex-testing-2
   chart:
     spec:
@@ -64,8 +64,8 @@ spec:
         enabled: true
         storageClass: rook-ceph-block
       auth:
-        existingErlangSecret: servicex-release-rabbitmq
-        existingPasswordSecret: servicex-release-rabbitmq
+        existingErlangSecret: servicex-secrets
+        existingPasswordSecret: servicex-secrets
 
     # Settings for the DID Finder
     didFinder:
@@ -133,6 +133,6 @@ spec:
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
-    gridAccount: ivukotic
+    gridAccount: bgalewsk
 
     rbacEnabled: true
