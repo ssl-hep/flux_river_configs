@@ -6,7 +6,7 @@ metadata:
   namespace: servicex-testing-1
 spec:
   type: slack
-  channel: servicex-flux-river
+  channel: servicex-river-flux
   secretRef:
     name: servicex-slack
 ---
