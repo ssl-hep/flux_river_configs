@@ -11,12 +11,5 @@ resources:
   - servicex-testing-1-sealed-slack.yaml
   - values.yaml
   - slack-notification.yaml
-secretGenerator:
-  - name: servicex-secrets
-    namespace: servicex-testing-1
-    type: Opaque
-  - name: servicex-slack
-    namespace: servicex-testing-1
-    type: Opaque
 configurations:
   - kustomizeconfig.yaml
