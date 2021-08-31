@@ -26,3 +26,6 @@ spec:
     - kind: Kustomization
       name: '*'
       namespace: servicex-int-1
+    - kind: HelmRelease
+      name: '*'
+      namespace: servicex-int-1
