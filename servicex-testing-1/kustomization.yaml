@@ -11,5 +11,6 @@ resources:
   - servicex-testing-1-sealed-slack.yaml
   - values.yaml
   - slack-notification.yaml
+  - docker-webhook.yaml
 configurations:
   - kustomizeconfig.yaml
