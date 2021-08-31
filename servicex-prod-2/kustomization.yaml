@@ -1,12 +1,17 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+metadata:
+  name: servicex-prod-1-kustomization
+  namespace: servicex-prod-1
 
 resources:
   - servicex-repository.yaml
     #- servicex-release.yaml
   - servicex-prod-2-sealed-secret.yaml
+  - servicex-prod-2-sealed-slack.yaml
   - values.yaml
+  - slack-notification.yaml
 
 secretGenerator:
   - name: servicex-secrets

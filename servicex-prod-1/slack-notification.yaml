@@ -1,0 +1,28 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: servicex-prod-1-slack
+  namespace: servicex-prod-1
+spec:
+  type: slack
+  channel: servicex-river-flux
+  secretRef:
+    name: servicex-slack
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: slack-notifications
+  namespace: servicex-prod-1
+spec:
+  providerRef:
+    name: servicex-prod-1-slack
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+      namespace: servicex-prod-1
+    - kind: Kustomization
+      name: '*'
+      namespace: servicex-prod-1

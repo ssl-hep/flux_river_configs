@@ -1,0 +1,22 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  creationTimestamp: null
+  name: servicex-slack
+  namespace: servicex-testing-2
+spec:
+  encryptedData:
+    address: AgAPGmVuF+D9jR8pUrn5ut8kdlA4OmHAyPSFDZZm7shaVtHCbykMZBt8NT7cGX4ftkgGPQtGphN8lcwHrgyt3LLOjTtRsH2lK1mITom1KqENWXsWmedRNS63JF9gDF43eGBMMAFLwbG6y6kH8n1blp6EJ8K4IgJjk5l2JpE7Ra3LiwUZ7+F0kJ6iGPb2cgNdXvNmm6dueQ3ytGm4Mv3YBYIBgonbKoWm6PuBoo2RtoabxuhkMT89MFG0FFnIs/E/2PKBWoqaDid3l7o+ng9bbN4mM3jU/uP9yse7lQEZ7RSyetBitlfW7OPXqzG9zMdKkmI1BACpiyWZkQN8zYnHyCYk1s6+QL52yGwiCDVflybeqqckCSiysDgmBY7exlgu2guTG43d4+JQQxwcbws14itYyMpOvq6YXSOD9ICBcSn8W7jHC0BEz26NLA2nAIIwMyi9VqlXdR1MU3v+CKdV0BmZvIZ466ej8W2k34SDynN9FOTAynYzaRTE3aVQJ9enOreORzkup4L4VvxSw4NQBUjIGf2NA7Nw1ASG5/sqgaMwfApVpjfGA5EgWGFV3KxWglGPUM6FSXOzheW03UC7dfhp8fH0xwaj5vc8DhqOjy9a1/Fu/eZoV4CQ5Pm2jSOJrfpYOSY1y4aqwvxXv6S0jvaVVuyLaU83SuwkZfGD9x5IFdLze4Xq3NdKcRRdEQBsMcwZSAPZraQi8OHiU6ZSKYfIAbjU0q3skqisbNVMMCsANB3S9eMuppyH3kFc6e43zDDC3V3TimZcrBwzCbUf9RmN0Uze5/WIhd7ez17MA93+
+  template:
+    data: null
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/managed: "true"
+        sealedsecrets.bitnami.com/namespace-wide: "true"
+      creationTimestamp: null
+      name: servicex-slack
+      namespace: servicex-testing-2
+    type: Opaque
+
