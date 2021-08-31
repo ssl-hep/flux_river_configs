@@ -18,6 +18,7 @@ metadata:
 spec:
   providerRef:
     name: servicex-testing-1-slack
+    namespace: service-testing-1
   eventSeverity: info
   eventSources:
     - kind: GitRepository
