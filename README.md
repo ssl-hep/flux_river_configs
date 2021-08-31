@@ -3,6 +3,13 @@ This repository holds configuration for servicex instances on river.  Each direc
 for a different instance.  The directory name corresponds to the namespace that
 the instance exists in.
 
+## Instances
+
+**Do not modify the prod-1/prod-2 or int-1/int-2** instances since they are used
+for CI of production and development code.  The testing-1/testing-2/testing-3
+instances can be used for testing purposes, just let the slack channel know in
+order to avoid using an instance that is being used by someone else.
+
 
 ## Creating secrets
 
