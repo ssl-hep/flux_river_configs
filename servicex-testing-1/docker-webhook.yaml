@@ -6,6 +6,8 @@ metadata:
   namespace: servicex-testing-1
 spec:
   type: dockerhub
+  secretRef:
+    name: servicex-docker
   resources:
     - kind: ImageRepository
       name: servicex-image-repo
