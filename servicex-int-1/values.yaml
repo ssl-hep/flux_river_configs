@@ -26,7 +26,7 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      publicURL: xaod-minio.servicex.ssl-hep.org
+      publicURL: int-1-minio.servicex.ssl-hep.org
 
 
     # Settings for the Flask App
@@ -41,6 +41,7 @@ spec:
 
       ingress:
         enabled: true
+        host: int-1.servicex.ssl-hep.org
         tls:
           enabled: true
           clusterIssuer: letsencrypt-prod
@@ -127,10 +128,10 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "xaod-minio.servicex.ssl-hep.org"
+        - "int-1-minio.servicex.ssl-hep.org"
         tls:
         - hosts:
-          - xaod-minio.servicex.ssl-hep.org
+          - int-1-minio.servicex.ssl-hep.org
           secretName: xaod-minio-tls
 
 
