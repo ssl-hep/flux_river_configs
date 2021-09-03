@@ -49,4 +49,9 @@ spec:
       name: servicex-secrets
       key: rabbitmq-password
       targetPath: app.rabbitmq_password
-        
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-1
+      name: servicex-secrets
+      key: rabbitmq-password
+      targetPath: rabbitmq.auth.password
