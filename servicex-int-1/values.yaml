@@ -41,7 +41,7 @@ spec:
 
       ingress:
         enabled: true
-        host: int-1.servicex.ssl-hep.org
+        host: servicex-release-int-1.servicex.ssl-hep.org
         tls:
           enabled: true
           clusterIssuer: letsencrypt-prod
@@ -138,5 +138,8 @@ spec:
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
     gridAccount: bgalewsk
-
     rbacEnabled: true
+
+    ## secrets location
+    secrets: servicex-secrets
+      
