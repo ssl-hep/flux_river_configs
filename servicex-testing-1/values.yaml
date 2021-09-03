@@ -20,7 +20,7 @@ spec:
     # This is a YAML-formatted file.
     # Declare variables to be passed into your templates.
 
-
+    
 
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
@@ -136,3 +136,6 @@ spec:
     gridAccount: bgalewsk
 
     rbacEnabled: true
+
+    ### secrets location
+    secrets: servicex-secrets
