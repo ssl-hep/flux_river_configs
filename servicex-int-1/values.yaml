@@ -41,9 +41,9 @@ spec:
 
       ingress:
         enabled: true
-        host: servicex-release-int-1.servicex.ssl-hep.org
         tls:
           enabled: true
+          host: servicex-release-int-1.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
       
     rabbitmq:
