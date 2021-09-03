@@ -41,7 +41,7 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: testing-3.servicex.ssl-hep.org
+          host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
       
     rabbitmq:
@@ -133,7 +133,9 @@ spec:
 
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
-
     gridAccount: bgalewsk
-
     rbacEnabled: true
+
+    ### secrets location
+    secrets: servicex-secrets
+      
