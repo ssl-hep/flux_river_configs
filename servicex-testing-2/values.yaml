@@ -137,3 +137,6 @@ spec:
     gridAccount: bgalewsk
 
     rbacEnabled: true
+
+    ### secrets location
+    secrets: servicex-secrets
