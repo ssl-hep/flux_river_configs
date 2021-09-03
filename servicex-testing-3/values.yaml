@@ -41,7 +41,7 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: testing-3.servicex.ssl-hep.org
+          host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
       
     rabbitmq:
