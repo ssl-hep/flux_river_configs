@@ -110,12 +110,15 @@ spec:
     postgres:
       enabled: true
     postgresql:
+      nodeSelector:
+        storage: "rook"
       persistence:
         enabled: true
         storageClass: rook-ceph-block
       master:
         nodeSelector:
           kernel-ml: "true"
+          storage: "rook"
       existingSecret: servicex-secrets
         
 
