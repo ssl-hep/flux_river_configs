@@ -67,6 +67,8 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
+      nodeselector: 
+        storage: rook
 
     # Settings for the DID Finder
     didFinder:
