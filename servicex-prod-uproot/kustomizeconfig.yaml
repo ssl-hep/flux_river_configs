@@ -2,50 +2,50 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-prod-2
-  namespace: servicex-prod-2
+  name: servicex-release-prod-uproot
+  namespace: servicex-prod-uproot
 spec:
   interval: 1m
-  serviceAccountName: servicex-prod-2
+  serviceAccountName: servicex-prod-uproot
   chart:
     spec:
       chart: servicex
-      version: '1.0.12'
+      version: '1.0.14'
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       interval: 1m
   values:
     replicaCount: 1
   valuesFrom:
     - kind: Secret
       metadata:
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       name: servicex-secrets
       key: postgresql-postgres-password
       targetPath: app.postgresql_password
     - kind: Secret
       metadata:
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       name: servicex-secrets
       key: minio-accesskey
       targetPath: app.minio_accesskey
     - kind: Secret
       metadata:
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       name: servicex-secrets
       key: minio.secretkey
       targetPath: app.minio_secretkey
     - kind: Secret
       metadata:
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       name: servicex-secrets
       key: rabbitmq-erlang-cookie
       targetPath: app.rabbitmq_erlang_cookie
     - kind: Secret
       metadata:
-        namespace: servicex-prod-2
+        namespace: servicex-prod-uproot
       name: servicex-secrets
       key: rabbitmq-password
       targetPath: app.rabbitmq_password

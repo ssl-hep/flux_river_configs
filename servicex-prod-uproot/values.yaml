@@ -2,18 +2,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-prod-2
-  namespace: servicex-prod-2
+  name: servicex-release-prod-uproot
+  namespace: servicex-prod-uproot
 spec:
-  releaseName: servicex-release-prod-2
-  serviceAccountName: servicex-prod-2
+  releaseName: servicex-release-prod-uproot
+  serviceAccountName: servicex-prod-uproot
   chart:
     spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.12' 
+      version: '1.0.14' 
   interval: 1m
   values:
     # Default values for servicex.
@@ -26,7 +26,7 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      publicURL: prod-2-minio.servicex.ssl-hep.org
+      publicURL: prod-uproot-minio.servicex.ssl-hep.org
 
 
     # Settings for the Flask App
@@ -42,9 +42,15 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-prod-2.servicex.ssl-hep.org
+          host: servicex-release-prod-uproot.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
       
+      
+    # ************************ IMPORTANT NOTE ***********************
+    # If you enable persistance, you must delete the pv claim if you 
+    # change the rabbitmq password, otherwise the prior password will 
+    # remain in effect and cause problems due to new pods trying to use
+            
     rabbitmq:
       metrics:
         enabled: false
@@ -68,6 +74,8 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
+      nodeselector:
+        storage: rook
 
     # Settings for the DID Finder
     didFinder:
@@ -77,16 +85,16 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       pullPolicy: Always
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+      # image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
-      # image: sslhep/servicex_code_gen_func_adl_uproot
+      image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
 
 
@@ -100,9 +108,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
-      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
 
     # Values for the Postgresql Chart
@@ -126,11 +134,11 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "prod-2-minio.servicex.ssl-hep.org"
+        - "prod-uproot-minio.servicex.ssl-hep.org"
         tls:
         - hosts:
-          - prod-2-minio.servicex.ssl-hep.org
-          secretName: xaod-minio-tls
+          - prod-uproot-minio.servicex.ssl-hep.org
+          secretName: uproot-minio-tls
 
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
