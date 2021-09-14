@@ -44,6 +44,10 @@ spec:
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
       
+    # ************************ IMPORTANT NOTE ***********************
+    # If you enable persistance, you must delete the pv claim if you 
+    # change the rabbitmq password, otherwise the prior password will 
+    # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
@@ -62,7 +66,7 @@ spec:
           honorLabels: false
           interval: 30s
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
@@ -107,13 +111,19 @@ spec:
 
 
     # Values for the Postgresql Chart
+    #
+    # ************************ IMPORTANT NOTE ***********************
+    # If you enable persistance, you must delete the pv claim if you 
+    # change the postgresql password, otherwise the prior password will 
+    # remain in effect and cause problems due to new pods trying to use
+    # the new password and then getting authorization error
     postgres:
       enabled: true
     postgresql:
       nodeSelector:
         storage: "rook"
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       master:
         nodeSelector:
