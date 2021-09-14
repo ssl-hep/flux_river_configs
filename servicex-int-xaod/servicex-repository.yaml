@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: servicex-repo
-  namespace: servicex-int-1
+  namespace: servicex-int-xaod
 spec:
   interval: 30s
   url: https://ssl-hep.github.io/ssl-helm-charts/

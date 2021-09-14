@@ -2,8 +2,8 @@
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Provider
 metadata:
-  name: servicex-int-1-slack
-  namespace: servicex-int-1
+  name: servicex-int-xaod-slack
+  namespace: servicex-int-xaod
 spec:
   type: slack
   channel: servicex-river-flux
@@ -14,18 +14,18 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
   name: slack-notifications
-  namespace: servicex-int-1
+  namespace: servicex-int-xaod
 spec:
   providerRef:
-    name: servicex-int-1-slack
+    name: servicex-int-xaod-slack
   eventSeverity: info
   eventSources:
     - kind: GitRepository
       name: '*'
-      namespace: servicex-int-1
+      namespace: servicex-int-xaod
     - kind: Kustomization
       name: '*'
-      namespace: servicex-int-1
+      namespace: servicex-int-xaod
     - kind: HelmRelease
       name: '*'
-      namespace: servicex-int-1
+      namespace: servicex-int-xaod

@@ -2,19 +2,19 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-int-1
-  namespace: servicex-int-1
+  name: servicex-release-int-xaod
+  namespace: servicex-int-xaod
 spec:
-  releaseName: servicex-release-int-1
-  serviceAccountName: servicex-int-1
+  releaseName: servicex-release-int-xaod
+  serviceAccountName: servicex-int-xaod
   chart:
     spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.12' 
-  interval: 1m
+      version: '1.0.14' 
+  interval: 30m
   values:
     # Default values for servicex.
     # This is a YAML-formatted file.
@@ -26,7 +26,7 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      publicURL: int-1-minio.servicex.ssl-hep.org
+      publicURL: int-xaod-minio.servicex.ssl-hep.org
 
 
     # Settings for the Flask App
@@ -43,9 +43,13 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-int-1.servicex.ssl-hep.org
+          host: servicex-release-int-xaod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-      
+            
+    # ************************ IMPORTANT NOTE ***********************
+    # If you enable persistance, you must delete the pv claim if you 
+    # change the rabbitmq password, otherwise the prior password will 
+    # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
@@ -69,6 +73,8 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
+      nodeSelector:
+        storage: "rook"
 
     # Settings for the DID Finder
     didFinder:
@@ -107,20 +113,32 @@ spec:
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
 
-    # Values for the Postgresql Chart
     postgres:
       enabled: true
+
+    # Values for the Postgresql Chart
+    #
+    # ************************ IMPORTANT NOTE ***********************
+    # If you enable persistance, you must delete the pv claim if you 
+    # change the postgresql password, otherwise the prior password will 
+    # remain in effect and cause problems due to new pods trying to use
+    # the new password and then getting authorization error
+        
     postgresql:
+      nodeSelector:
+        storage: "rook"
       persistence:
         enabled: true
         storageClass: rook-ceph-block
       master:
         nodeSelector:
           kernel-ml: "true"
+          storage: "rook"
         
 
     # Values for Minio Chart
     minio:
+      existingSecret: servicex-secrets
       ingress:
         enabled: true
         annotations:
@@ -128,10 +146,10 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "int-1-minio.servicex.ssl-hep.org"
+        - "int-xaod-minio.servicex.ssl-hep.org"
         tls:
         - hosts:
-          - int-1-minio.servicex.ssl-hep.org
+          - int-xaod-minio.servicex.ssl-hep.org
           secretName: xaod-minio-tls
 
 
