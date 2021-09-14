@@ -125,7 +125,7 @@ spec:
         nodeSelector:
           kernel-ml: "true"
           storage: "rook"
-        
+      existingSecret: servicex-secrets
 
     # Values for Minio Chart
     minio:
