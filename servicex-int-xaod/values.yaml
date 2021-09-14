@@ -129,7 +129,7 @@ spec:
       nodeSelector:
         storage: "rook"
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       master:
         nodeSelector:
