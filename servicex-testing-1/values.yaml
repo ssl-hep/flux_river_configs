@@ -31,8 +31,8 @@ spec:
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       # need dummy values so that it's in the config file 
-      slackSigningSecret: ""
-      newSignupWebhook: ""
+      slackSigningSecret: "dummy"
+      newSignupWebhook: "dummy"
       ingress:
         enabled: true
         tls:
