@@ -5,7 +5,7 @@ metadata:
   name: servicex-release-prod-uproot
   namespace: servicex-prod-uproot
 spec:
-  interval: 1m
+  interval: 60m
   serviceAccountName: servicex-prod-uproot
   chart:
     spec:
@@ -15,4 +15,4 @@ spec:
         kind: HelmRepository
         name: servicex-repo
         namespace: servicex-prod-uproot
-      interval: 1m
+      interval: 60m

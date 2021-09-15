@@ -5,7 +5,7 @@ metadata:
   name: servicex-release-prod-xaod
   namespace: servicex-prod-xaod
 spec:
-  interval: 1m
+  interval: 60m
   serviceAccountName: servicex-prod-xaod
   chart:
     spec:
@@ -15,4 +15,4 @@ spec:
         kind: HelmRepository
         name: servicex-repo
         namespace: servicex-prod-xaod
-      interval: 1m
+      interval: 60m

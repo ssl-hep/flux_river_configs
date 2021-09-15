@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: servicex-repo   
       version: '1.0.14' 
-  interval: 1m
+  interval: 60m
   values:
     # Default values for servicex.
     # This is a YAML-formatted file.
