@@ -36,7 +36,8 @@ spec:
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-
+      slackSigningSecret: "dummy"
+      newSignupWebhook: "dummy"
       ingress:
         enabled: true
         tls:
