@@ -5,7 +5,7 @@ metadata:
   name: servicex-release-testing-1
   namespace: servicex-testing-1
 spec:
-  interval: 1m
+  interval: 60m
   serviceAccountName: servicex-testing-1
   chart:
     spec:
@@ -15,4 +15,4 @@ spec:
         kind: HelmRepository
         name: servicex-repo
         namespace: servicex-testing-1
-      interval: 1m
+      interval: 60m
