@@ -77,6 +77,8 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
+      image: sslhep/servicex-did-finder
+      tag: move-to-metalink
       rucio: 
         enabled: true
 
