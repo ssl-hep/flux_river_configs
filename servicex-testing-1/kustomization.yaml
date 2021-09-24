@@ -13,5 +13,3 @@ resources:
   - values.yaml
   - slack-notification.yaml
   - docker-webhook.yaml
-configurations:
-  - kustomizeconfig.yaml
