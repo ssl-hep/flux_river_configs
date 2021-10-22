@@ -25,7 +25,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: dashboard-sort
+      tag: user-nav
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
