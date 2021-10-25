@@ -2,10 +2,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release
+  name: servicex-release-prod-xaod
   namespace: servicex-prod-xaod
 spec:
-  releaseName: servicex-release
+  releaseName: servicex-release-prod-xaod
   serviceAccountName: servicex-prod-xaod
   chart:
     spec:
