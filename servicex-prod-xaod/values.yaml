@@ -26,6 +26,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex-app
+      tag: "v1.0.0-rc.4"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -73,13 +74,18 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
+      image: sslhep/servicex-did-finder-cernopendata
+      tag: "v1.0.0-rc.4"
       rucio: 
+        image: sslhep/servicex_did_finder
+        tag: "v1.0.0-rc.4"
         enabled: true
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      tag: "v1.0.0-rc.4"
       pullPolicy: Always
 
     #
@@ -87,6 +93,7 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_xaod
+      tag: "v1.0.0-rc.4"
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
@@ -103,6 +110,7 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      tag: "v1.0.0-rc.4"
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
