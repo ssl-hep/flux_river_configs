@@ -7,7 +7,7 @@ metadata:
 
 resources:
   - servicex-repository.yaml
-    #- servicex-release.yaml
+  - servicex-release.yaml
   - servicex-prod-uproot-sealed-secret.yaml
   - servicex-prod-uproot-sealed-slack.yaml
   - values.yaml
