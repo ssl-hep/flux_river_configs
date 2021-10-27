@@ -85,7 +85,9 @@ spec:
     # the transformer
     preflight:
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      tag: "v1.0.0-rc.4"
+        # can't build rc.4 images right now
+        # tag: "v1.0.0-rc.4"
+      tag: develop
       pullPolicy: Always
 
     #
