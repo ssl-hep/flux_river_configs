@@ -94,7 +94,7 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+      image: sslhep/servicex_code_gen_atlas_xaod
       tag: "v1.0.0-rc.4"
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
