@@ -13,8 +13,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.14' 
-  interval: 60m
+      version: '1.0.20' 
+  interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
@@ -87,7 +87,7 @@ spec:
       image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: develop
+      tag: pr_metadata
       pullPolicy: Always
 
 
@@ -97,8 +97,8 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 10
-        maxReplicas: 750
+        minReplicas: 20
+        maxReplicas: 100
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
