@@ -25,6 +25,7 @@ spec:
 
     # Settings for the Flask App
     app:
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -72,19 +73,20 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
+      tag: develop
       rucio: 
         enabled: true
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      pullPolicy: Always
+      tag: develop
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+      image: sslhep/servicex_code_gen_atlas_xaod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
       tag: pr_metadata
