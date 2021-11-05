@@ -73,9 +73,9 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
-      tag: develop
       rucio: 
         enabled: true
+        tag: develop
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
