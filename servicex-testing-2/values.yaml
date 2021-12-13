@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.14' 
+      version: '1.0.20' 
   interval: 60m
   values:
     # Default values for servicex.
@@ -32,6 +32,7 @@ spec:
     # Settings for the Flask App
     app:
       adminEmail: bengal1@illinois.edu
+      tag: removing-kafka
       pullPolicy: Always
       auth: true
       replicas: 1
@@ -82,7 +83,7 @@ spec:
       rucio: 
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: move-to-metalink
+        tag: develop
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
@@ -103,6 +104,7 @@ spec:
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
+      tag: removing-kafka
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
