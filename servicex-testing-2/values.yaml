@@ -85,7 +85,7 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      tag: develop
+      tag: debugging
       pullPolicy: Always
 
     #
