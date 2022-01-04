@@ -109,7 +109,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:removing-kafka
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
