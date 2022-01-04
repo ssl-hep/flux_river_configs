@@ -85,9 +85,9 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      tag: develop
+      tag: kafka-removal
       pullPolicy: Always
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:kafka-removal
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
 
     #
     # Code Generator service
@@ -102,7 +102,7 @@ spec:
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
-      tag: removing-kafka
+      tag: kafka-removal
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -110,7 +110,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:kafka-removal
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
