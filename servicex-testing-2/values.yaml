@@ -87,6 +87,7 @@ spec:
     preflight:
       tag: develop
       pullPolicy: Always
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:kafka-removal
 
     #
     # Code Generator service
@@ -109,7 +110,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:removing-kafka
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:kafka-removal
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
