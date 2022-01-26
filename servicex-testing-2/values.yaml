@@ -29,7 +29,7 @@ spec:
     # Settings for the Flask App
     app:
       adminEmail: bengal1@illinois.edu
-      tag: develop
+      tag: multipath-support
       pullPolicy: Always
       auth: true
       replicas: 1
