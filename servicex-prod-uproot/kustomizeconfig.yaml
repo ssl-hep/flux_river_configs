@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: servicex
-      version: '1.0.14'
+      version: "1.0.20"
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
@@ -49,4 +49,3 @@ spec:
       name: servicex-secrets
       key: rabbitmq-password
       targetPath: app.rabbitmq_password
-        
