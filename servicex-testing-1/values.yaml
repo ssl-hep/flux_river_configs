@@ -27,6 +27,8 @@ spec:
 
     # Settings for the Flask App
     app:
+      image: sslhep/servicex_app
+      tag: minio_http_fixes
       tag: user-nav
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
@@ -75,6 +77,25 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
+      rucio:
+        enabled: false
+        image: sslhep/servicex-did-finder
+        tag: develop
+        pullPolicy: Always
+        rucio_host: https://voatlasrucio-server-prod.cern.ch:443
+        auth_host: https://voatlasrucio-auth-prod.cern.ch:443
+        servicex_latitude: 41.78
+        servicex_longitude: -87.7
+        cachePrefix:
+          
+    CERNOpenData:
+      enabled: true
+      image: sslhep/servicex-did-finder-cernopendata
+      tag: develop
+      pullPolicy: Always
+      cachePrefix:
+          
+    didFinder:
       rucio: 
         tag: develop
         enabled: true
@@ -84,14 +105,14 @@ spec:
     preflight:
       tag: develop
       pullPolicy: Always
-
+      image: sslhep/servicex_func_adl_uproot_transformer
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+      # image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
-      # image: sslhep/servicex_code_gen_func_adl_uproot
+      image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
 
@@ -106,9 +127,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
-      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
 
     # enable postgresql backend for servicex
