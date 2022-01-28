@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.20' 
+      version: '1.0.21' 
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -21,6 +21,8 @@ spec:
     objectStore:
       enabled: true
       publicURL: testing-1-minio.servicex.ssl-hep.org
+      useTLS: false
+      useClientTLS: false
 
 
     # Settings for the Flask App
