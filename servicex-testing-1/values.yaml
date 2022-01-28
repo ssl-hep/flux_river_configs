@@ -29,7 +29,6 @@ spec:
     app:
       image: sslhep/servicex_app
       tag: minio_http_fixes
-      tag: user-nav
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
