@@ -95,11 +95,6 @@ spec:
       pullPolicy: Always
       cachePrefix:
           
-    didFinder:
-      rucio: 
-        tag: develop
-        enabled: true
-
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
