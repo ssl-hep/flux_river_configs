@@ -1,4 +1,4 @@
----
+--
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -97,9 +97,8 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      tag: external_minio
       pullPolicy: Always
-      image: sslhep/servicex_func_adl_uproot_transformer
+      image: sslhep/servicex_func_adl_uproot_transformer:external_minio
     #
     # Code Generator service
     codeGen:
