@@ -77,7 +77,7 @@ spec:
     # Settings for the DID Finder
     didFinder:
       rucio:
-        enabled: false
+        enabled: true
         image: sslhep/servicex-did-finder
         tag: develop
         pullPolicy: Always
@@ -88,7 +88,7 @@ spec:
         cachePrefix:
           
     CERNOpenData:
-      enabled: true
+      enabled: false
       image: sslhep/servicex-did-finder-cernopendata
       tag: develop
       pullPolicy: Always
@@ -99,14 +99,15 @@ spec:
     preflight:
       tag: external_minio
       pullPolicy: Always
-      image: sslhep/servicex_func_adl_uproot_transformer
+      image: sslhep/servicex_func_adl_xaod_transformer:develop
+      # image: sslhep/servicex_func_adl_uproot_transformer
     #
     # Code Generator service
     codeGen:
       enabled: true
-      # image: sslhep/servicex_code_gen_func_adl_xaod
+      image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
-      image: sslhep/servicex_code_gen_func_adl_uproot
+      # image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
 
@@ -121,9 +122,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:external_minio
+      # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:external_minio
 
 
     # enable postgresql backend for servicex
