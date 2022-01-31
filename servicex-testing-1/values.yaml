@@ -97,8 +97,9 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
+      tag: develop
       pullPolicy: Always
-      image: sslhep/servicex_func_adl_xaod_transformer:develop
+      image: sslhep/servicex_func_adl_xaod_transformer
       # image: sslhep/servicex_func_adl_uproot_transformer
     #
     # Code Generator service
