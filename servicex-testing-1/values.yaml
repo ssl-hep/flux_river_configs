@@ -97,9 +97,9 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      tag: develop
+      tag: external_minio
       pullPolicy: Always
-      image: sslhep/servicex_func_adl_uproot_transformer:external_minio
+      image: sslhep/servicex_func_adl_uproot_transformer
     #
     # Code Generator service
     codeGen:
