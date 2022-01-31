@@ -94,7 +94,7 @@ spec:
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      tag: fix_import
+      tag: importsys
       pullPolicy: Always
       # image: sslhep/servicex_func_adl_xaod_transformer
       image: sslhep/servicex_func_adl_uproot_transformer
@@ -122,7 +122,7 @@ spec:
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
       # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop        
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:fix_import        
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:importsys        
 
 
     # enable postgresql backend for servicex
