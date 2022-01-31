@@ -123,7 +123,7 @@ spec:
       cpuLimit: 1
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:sha256:6454442a90995ad9fbe109bd24cd4ffda02b5602591bb894fc3f729542a8da52
 
 
     # enable postgresql backend for servicex
