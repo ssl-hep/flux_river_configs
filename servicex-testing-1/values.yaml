@@ -20,6 +20,8 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
+      internal: false
+      publicURL: xaod-minio.servicex.af.uchicago.edu
       publicURL: testing-1-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
@@ -152,7 +154,7 @@ spec:
     minio:
       existingSecret: servicex-secrets
       ingress:
-        enabled: true
+        enabled: false
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
