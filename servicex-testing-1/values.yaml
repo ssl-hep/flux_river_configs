@@ -22,7 +22,6 @@ spec:
       enabled: true
       internal: false
       publicURL: xaod-minio.servicex.af.uchicago.edu
-      publicURL: testing-1-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
 
