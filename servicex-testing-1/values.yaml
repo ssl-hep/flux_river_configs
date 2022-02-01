@@ -22,7 +22,7 @@ spec:
       enabled: true
       publicURL: testing-1-minio.servicex.ssl-hep.org
       useTLS: false
-      useClientTLS: false
+      useClientTLS: true
 
 
     # Settings for the Flask App
