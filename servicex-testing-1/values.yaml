@@ -20,8 +20,8 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      internal: false
-      publicURL: xaod-minio.servicex.af.uchicago.edu
+      internal: true
+      publicURL: testing-2-minio.servicex.ssl-hep.org
       useTLS: true
       useClientTLS: true
 
@@ -29,7 +29,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: minio_http_fixes
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -123,7 +123,7 @@ spec:
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
       # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop        
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:importsys        
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
 
     # enable postgresql backend for servicex
@@ -153,7 +153,18 @@ spec:
     minio:
       existingSecret: servicex-secrets
       ingress:
-        enabled: false
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hosts:
+          - "testing-1-minio.servicex.ssl-hep.org"
+        tls:
+          - hosts:
+              - testing-1-minio.servicex.ssl-hep.org
+            secretName: xaod-minio-tls
+
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
