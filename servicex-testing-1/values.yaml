@@ -159,10 +159,10 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "testing-1-minio.servicex.ssl-hep.org"
+        - "xaod-minio.servicex.af.uchicago.edu"
         tls:
         - hosts:
-          - testing-1-minio.servicex.ssl-hep.org
+          - xaod-minio.servicex.af.uchicago.edu
           secretName: xaod-minio-tls
 
 
