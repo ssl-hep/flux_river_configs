@@ -22,7 +22,7 @@ spec:
       enabled: true
       internal: false
       publicURL: xaod-minio.servicex.af.uchicago.edu
-      useTLS: false
+      useTLS: true
       useClientTLS: true
 
 
@@ -154,17 +154,6 @@ spec:
       existingSecret: servicex-secrets
       ingress:
         enabled: false
-        annotations:
-          kubernetes.io/ingress.class: nginx
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
-        - "xaod-minio.servicex.af.uchicago.edu"
-        tls:
-        - hosts:
-          - xaod-minio.servicex.af.uchicago.edu
-          secretName: xaod-minio-tls
-
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
