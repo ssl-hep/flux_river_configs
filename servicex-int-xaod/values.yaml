@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.14' 
+      version: '1.0.22'
   interval: 60m
   values:
     # Default values for servicex.
@@ -80,22 +80,22 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
-      rucio: 
+      rucio:
         enabled: true
+        tag: develop
+        pullPolicy: Always
 
-    # Settings for the preflight checker - this usually uses the same image as
-    # the transformer
-    preflight:
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
-      pullPolicy: Always
+      CERNOpenData:
+        enabled: true
+        tag: develop
+        pullPolicy: Always
+
 
     #
     # Code Generator service
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_xaod
-      # For uproot deployment
-      # image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
 
@@ -111,8 +111,6 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
-      # For uproot deployment
-      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
 
     postgres:
