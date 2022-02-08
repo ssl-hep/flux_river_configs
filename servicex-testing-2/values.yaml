@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.20"
+      version: "1.0.22"
   interval: 60m
   values:
     # Default values for servicex.
@@ -40,7 +40,7 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: sercicex-release-testing-2.servicex.ssl-hep.org
+          host: servicex-release-testing-2.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
     # ************************ IMPORTANT NOTE ***********************
@@ -81,13 +81,6 @@ spec:
         enabled: true
         image: sslhep/servicex-did-finder
         tag: multireplica-support
-
-    # Settings for the preflight checker - this usually uses the same image as
-    # the transformer
-    preflight:
-      tag: develop
-      pullPolicy: Always
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
 
     #
     # Code Generator service
