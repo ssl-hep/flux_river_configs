@@ -81,6 +81,7 @@ spec:
     didFinder:
       image: sslhep/servicex-did-finder
       tag: develop
+      pullPolicy: Always
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
@@ -102,14 +103,14 @@ spec:
     # part of the transform request
     transformer:
       tag: develop
+      pullPolicy: Always
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
-      pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer: develop
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
