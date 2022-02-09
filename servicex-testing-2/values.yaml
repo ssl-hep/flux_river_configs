@@ -24,7 +24,10 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
+      internal: true
       publicURL: testing-2-minio.servicex.ssl-hep.org
+      useTLS: false
+      useClientTLS: true
 
     # Settings for the Flask App
     app:
@@ -82,6 +85,8 @@ spec:
         enabled: true
         image: sslhep/servicex-did-finder
         # tag: multireplica-support
+        pullPolicy: Always
+        cachePrefix: root://192.170.240.18:1094//
 
     #
     # Code Generator service
