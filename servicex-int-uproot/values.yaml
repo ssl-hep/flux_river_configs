@@ -92,7 +92,8 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot@sha256:ba5b85148f76acd9f8f595e3f7edf24fbb9723320358d191ccd4b738c61987d3
+      image: sslhep/servicex_code_gen_func_adl_uproot@sha256
+      tag: ba5b85148f76acd9f8f595e3f7edf24fbb9723320358d191ccd4b738c61987d3
       pullPolicy: Always
 
 
