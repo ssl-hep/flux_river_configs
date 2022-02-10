@@ -32,8 +32,8 @@ spec:
     # Settings for the Flask App
     app:
       adminEmail: bengal1@illinois.edu
-      tag: develop
-      # tag: multipath-support
+      # tag: develop
+      tag: multipath-support
       pullPolicy: Always
       auth: true
       replicas: 1
@@ -85,7 +85,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        # tag: multireplica-support
+        tag: multireplica-support
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
 
