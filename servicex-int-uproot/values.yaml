@@ -76,13 +76,13 @@ spec:
     # Settings for the DID Finder
     didFinder:
       rucio:
-        enabled: true
-        tag: develop
+        enabled: false
         pullPolicy: Always
+        image: sslhep/servicex-did-finder@sha256:edcabc8ad169c3bd85df3205cd7eb664bc99e87a1761b7a70483b00e8eec7f6e
 
       CERNOpenData:
         enabled: true
-        tag: develop
+        image: sslhep/servicex-did-finder-cernopendata@sha256:66ce17a756ebe0861b925f9b556b9cf12de63aa8043017b8a1eb5f1be97ab73d
         pullPolicy: Always
 
 
@@ -90,8 +90,7 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: develop
+      image: sslhep/servicex_code_gen_func_adl_uproot@sha256:ba5b85148f76acd9f8f595e3f7edf24fbb9723320358d191ccd4b738c61987d3
       pullPolicy: Always
 
 
