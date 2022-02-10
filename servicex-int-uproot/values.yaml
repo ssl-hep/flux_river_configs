@@ -26,7 +26,6 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app@sha256:5f5c284185597740ba5a13af8a6a476842f1dd5dd229bb8c8200cd2cd5386620
-      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
