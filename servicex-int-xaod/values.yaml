@@ -97,7 +97,8 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod@sha256:660ac079bd68e46168f5ce99a4fdbad8932b9af5895ea00f1d866440c4fa2e47
+      image: sslhep/servicex_code_gen_func_adl_xaod@sha256
+      tag: 660ac079bd68e46168f5ce99a4fdbad8932b9af5895ea00f1d866440c4fa2e47
       pullPolicy: Always
 
 
