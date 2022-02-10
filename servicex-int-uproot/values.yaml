@@ -46,6 +46,7 @@ spec:
     # If you enable persistance, you must delete the pv claim if you 
     # change the rabbitmq password, otherwise the prior password will 
     # remain in effect and cause problems due to new pods trying to use
+    # a different password
     rabbitmq:
       nodeselector: 
         storage: rook
@@ -104,7 +105,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer@sha256:2a8183857ed297ebbf93260440d75b663b6eeb328d14db7edb8332fcc6a5d294
 
 
     postgres:
