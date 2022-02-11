@@ -12,8 +12,8 @@ spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
-        name: servicex-repo   
-      version: '1.0.21' 
+        name: servicex-repo
+      version: "1.0.22"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -25,17 +25,18 @@ spec:
       useTLS: true
       useClientTLS: true
 
-
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app
-      tag: develop
+      # image: sslhep/servicex_app
+      # tag: develop
+      image: ivukotic/servicexapp
+      tag: ilija
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file 
+      # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy2"
       ingress:
@@ -44,17 +45,17 @@ spec:
           enabled: true
           host: servicex-release-testing-1.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-      
+
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the rabbitmq password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the rabbitmq password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: '9419'
+          prometheus.io/port: "9419"
           prometheus.io/scrape: "true"
         prometheusRule:
           additionalLabels: {}
@@ -72,34 +73,30 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      nodeselector: 
+      nodeselector:
         storage: rook
 
     # Settings for the DID Finder
     didFinder:
+      image: sslhep/servicex-did-finder
+      tag: develop
+      pullPolicy: Always
       rucio:
-        enabled: false
+        enabled: true
         image: sslhep/servicex-did-finder
-        tag: develop
+        tag: multireplica-support
         pullPolicy: Always
+        cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
-          
+
     CERNOpenData:
       enabled: true
       image: sslhep/servicex-did-finder-cernopendata
       tag: develop
       pullPolicy: Always
       cachePrefix:
-          
-    # Settings for the preflight checker - this usually uses the same image as
-    # the transformer
-    preflight:
-      tag: importsys
-      pullPolicy: Always
-      # image: sslhep/servicex_func_adl_xaod_transformer
-      image: sslhep/servicex_func_adl_uproot_transformer
-    #
+
     # Code Generator service
     codeGen:
       enabled: true
@@ -108,7 +105,6 @@ spec:
       image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
-
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -122,9 +118,8 @@ spec:
       cpuLimit: 1
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
-      # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop        
+      # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-
 
     # enable postgresql backend for servicex
     postgres:
@@ -133,8 +128,8 @@ spec:
     # Values for the Postgresql Chart
     #
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the postgresql password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the postgresql password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     # the new password and then getting authorization error
     postgresql:
@@ -164,7 +159,6 @@ spec:
           - hosts:
               - testing-1-minio.servicex.ssl-hep.org
             secretName: xaod-minio-tls
-
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
