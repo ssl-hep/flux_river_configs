@@ -31,8 +31,8 @@ spec:
 
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app
-      tag: develop
+      image: sslhep/servicex_app@sha256
+      tag: 5f5c284185597740ba5a13af8a6a476842f1dd5dd229bb8c8200cd2cd5386620
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -82,12 +82,14 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: develop
+        image: sslhep/servicex-did-finder@sha256
+        tag: edcabc8ad169c3bd85df3205cd7eb664bc99e87a1761b7a70483b00e8eec7f6e
         pullPolicy: Always
 
       CERNOpenData:
         enabled: true
-        tag: develop
+        image: sslhep/servicex-did-finder-cernopendata@sha256
+        tag: 66ce17a756ebe0861b925f9b556b9cf12de63aa8043017b8a1eb5f1be97ab73d
         pullPolicy: Always
 
 
@@ -95,8 +97,8 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
-      tag: develop
+      image: sslhep/servicex_code_gen_func_adl_xaod@sha256
+      tag: 660ac079bd68e46168f5ce99a4fdbad8932b9af5895ea00f1d866440c4fa2e47
       pullPolicy: Always
 
 
@@ -110,7 +112,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer@sha256:03c2355d860db16afdd245a407080f7393e45fd78ebc52c19ba5495e9d66dac7
 
 
     postgres:
