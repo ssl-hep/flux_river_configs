@@ -151,7 +151,7 @@ spec:
         tls:
           - hosts:
               - testing-2-minio.servicex.ssl-hep.org
-            secretName: xaod-minio-tls
+            secretName: testing-2-minio-tls
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
