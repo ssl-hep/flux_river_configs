@@ -21,7 +21,7 @@ spec:
     objectStore:
       enabled: true
       internal: true
-      publicURL: testing-2-minio.servicex.ssl-hep.org
+      publicURL: testing-1-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
 
