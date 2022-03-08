@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.20"
+      version: "1.0.23"
   interval: 60m
   values:
     # Default values for servicex.
@@ -29,9 +29,9 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex-app
-      tag: develop
+      # tag: develop
       adminEmail: bengal1@illinois.edu
-      pullPolicy: Always
+      # pullPolicy: Always
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
@@ -85,7 +85,7 @@ spec:
     # the transformer
     preflight:
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      pullPolicy: Always
+      # pullPolicy: Always
 
     #
     # Code Generator service
@@ -94,7 +94,7 @@ spec:
       # image: sslhep/servicex_code_gen_func_adl_xaod
       # For uproot deployment
       image: sslhep/servicex_code_gen_func_adl_uproot
-      pullPolicy: Always
+      # pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -104,7 +104,7 @@ spec:
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
-      pullPolicy: Always
+      # pullPolicy: Always
       cpuLimit: 1
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment

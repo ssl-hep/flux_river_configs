@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.20"
+      version: "1.0.23"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -24,13 +24,12 @@ spec:
 
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app
-      # tag: "v1.0.0-rc.4"
-      tag: "develop"
+      # image: sslhep/servicex_app
+      # tag: "develop"
       adminEmail: bengal1@illinois.edu
-      pullPolicy: Always
+      # pullPolicy: Always
       auth: true
-      replicas: 1
+      # replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
@@ -75,31 +74,28 @@ spec:
     # Settings for the DID Finder
     didFinder:
       image: sslhep/servicex-did-finder-cernopendata
-      tag: "v1.0.0-rc.4"
+      # tag: "v1.0.0-rc.4"
       rucio:
         image: sslhep/servicex_did_finder
-        tag: "v1.0.0-rc.4"
+        # tag: "v1.0.0-rc.4"
         enabled: true
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
     preflight:
-      defaultTransformerImage:
-        sslhep/servicex_func_adl_xaod_transformer
-        # can't build rc.4 images right now
-        # tag: "v1.0.0-rc.4"
-      tag: develop
-      pullPolicy: Always
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      # tag: develop
+      # pullPolicy: Always
 
     #
     # Code Generator service
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: "v1.0.0-rc.4"
+      # tag: "v1.0.0-rc.4"
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      pullPolicy: Always
+      # pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -109,10 +105,10 @@ spec:
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
-      pullPolicy: Always
+      # pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      tag: "v1.0.0-rc.4"
+      # tag: "v1.0.0-rc.4"
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 

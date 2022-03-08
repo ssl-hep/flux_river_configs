@@ -21,11 +21,11 @@ spec:
   eventSeverity: info
   eventSources:
     - kind: GitRepository
-      name: '*'
+      name: "*"
       namespace: servicex-testing-3
     - kind: Kustomization
-      name: '*'
+      name: "*"
       namespace: servicex-testing-3
     - kind: HelmRelease
-      name: '*'
+      name: "*"
       namespace: servicex-testing-3

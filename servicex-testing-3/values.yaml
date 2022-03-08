@@ -12,8 +12,8 @@ spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
-        name: servicex-repo   
-      version: '1.0.20' 
+        name: servicex-repo
+      version: "1.0.23"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -22,16 +22,15 @@ spec:
       enabled: true
       publicURL: testing-3-minio.servicex.ssl-hep.org
 
-
     # Settings for the Flask App
     app:
-      tag: develop
+      tag: adding-about
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file 
+      # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
       ingress:
@@ -40,17 +39,17 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-      
+
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the rabbitmq password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the rabbitmq password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: '9419'
+          prometheus.io/port: "9419"
           prometheus.io/scrape: "true"
         prometheusRule:
           additionalLabels: {}
@@ -68,19 +67,14 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      nodeselector: 
+      nodeselector:
         storage: rook
 
     # Settings for the DID Finder
     didFinder:
-      rucio: 
+      rucio:
         enabled: true
-        tag: develop
-
-    # Settings for the preflight checker - this usually uses the same image as
-    # the transformer
-    preflight:
-      tag: develop
+        # tag: develop
 
     #
     # Code Generator service
@@ -89,9 +83,8 @@ spec:
       image: sslhep/servicex_code_gen_atlas_xaod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: pr_metadata
-      pullPolicy: Always
-
+      # tag: pr_metadata
+      # pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -101,21 +94,20 @@ spec:
         cpuScaleThreshold: 30
         minReplicas: 20
         maxReplicas: 100
-      pullPolicy: Always
+      # pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
-
     postgres:
       enabled: true
-        
+
     # Values for the Postgresql Chart
     #
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the postgresql password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the postgresql password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     # the new password and then getting authorization error
     postgresql:
@@ -129,7 +121,6 @@ spec:
           kernel-ml: "true"
           storage: "rook"
       existingSecret: servicex-secrets
-        
 
     # Values for Minio Chart
     minio:
@@ -141,12 +132,11 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "testing-3-minio.servicex.ssl-hep.org"
+          - "testing-3-minio.servicex.ssl-hep.org"
         tls:
-        - hosts:
-          - testing-3-minio.servicex.ssl-hep.org
-          secretName: xaod-minio-tls
-
+          - hosts:
+              - testing-3-minio.servicex.ssl-hep.org
+            secretName: xaod-minio-tls
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
     gridAccount: bgalewsk
@@ -154,4 +144,3 @@ spec:
 
     ### secrets location
     secrets: servicex-secrets
-      
