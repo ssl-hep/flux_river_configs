@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.24"
+      version: "1.0.25"
   interval: 60m
   values:
     # Default values for servicex.
