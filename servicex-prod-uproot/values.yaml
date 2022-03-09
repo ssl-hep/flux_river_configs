@@ -114,6 +114,7 @@ spec:
     postgres:
       enabled: true
     postgresql:
+      existingSecret: servicex-secrets
       persistence:
         enabled: false
         storageClass: rook-ceph-block
@@ -123,6 +124,7 @@ spec:
 
     # Values for Minio Chart
     minio:
+      existingSecret: servicex-secrets
       ingress:
         enabled: true
         annotations:
