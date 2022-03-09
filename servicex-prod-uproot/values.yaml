@@ -108,14 +108,14 @@ spec:
       cpuLimit: 1
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:20220309-1723-stable
 
     # Values for the Postgresql Chart
     postgres:
       enabled: true
     postgresql:
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       master:
         nodeSelector:
