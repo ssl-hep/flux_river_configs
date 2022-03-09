@@ -68,7 +68,7 @@ spec:
           honorLabels: false
           interval: 30s
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
