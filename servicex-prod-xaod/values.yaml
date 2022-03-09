@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.23"
+      version: "1.0.24"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -65,7 +65,7 @@ spec:
           honorLabels: false
           interval: 30s
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
@@ -125,15 +125,12 @@ spec:
     # the new password and then getting authorization error
     postgresql:
       existingSecret: servicex-secrets
-      nodeSelector:
-        storage: "rook"
       persistence:
-        enabled: true
+        enabled: false
         storageClass: rook-ceph-block
       master:
         nodeSelector:
           kernel-ml: "true"
-          storage: "rook"
 
     # Values for Minio Chart
     minio:
