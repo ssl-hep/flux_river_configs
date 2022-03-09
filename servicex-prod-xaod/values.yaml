@@ -76,7 +76,7 @@ spec:
       image: sslhep/servicex-did-finder-cernopendata
       # tag: "v1.0.0-rc.4"
       rucio:
-        image: sslhep/servicex_did_finder
+        image: sslhep/servicex-did-finder
         # tag: "v1.0.0-rc.4"
         enabled: true
 
