@@ -92,6 +92,7 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
+      tag: pin_module
       # tag: "v1.0.0-rc.4"
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
