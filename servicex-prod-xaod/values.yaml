@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.25"
+      version: "1.0.27"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -92,7 +92,6 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: pin_module
       # tag: "v1.0.0-rc.4"
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot

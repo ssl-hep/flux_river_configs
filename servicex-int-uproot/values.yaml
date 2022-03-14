@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo   
-      version: '1.0.22'
+      version: '1.0.27'
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -25,8 +25,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app@sha256
-      tag: 5f5c284185597740ba5a13af8a6a476842f1dd5dd229bb8c8200cd2cd5386620
+      image: sslhep/servicex_app
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -78,13 +77,11 @@ spec:
       rucio:
         enabled: true
         pullPolicy: Always
-        image: sslhep/servicex-did-finder@sha256
-        tag: edcabc8ad169c3bd85df3205cd7eb664bc99e87a1761b7a70483b00e8eec7f6e
+        image: sslhep/servicex-did-finder
 
       CERNOpenData:
         enabled: false
-        image: sslhep/servicex-did-finder-cernopendata@sha256
-        tag: 66ce17a756ebe0861b925f9b556b9cf12de63aa8043017b8a1eb5f1be97ab73d
+        image: sslhep/servicex-did-finder-cernopendata
         pullPolicy: Always
 
 
@@ -92,8 +89,7 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot@sha256
-      tag: ba5b85148f76acd9f8f595e3f7edf24fbb9723320358d191ccd4b738c61987d3
+      image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
 
 
@@ -107,7 +103,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer@sha256:2a8183857ed297ebbf93260440d75b663b6eeb328d14db7edb8332fcc6a5d294
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
 
     postgres:
