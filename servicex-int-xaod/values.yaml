@@ -94,7 +94,8 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_xaod
+        # image: sslhep/servicex_code_gen_func_adl_xaod
+      image: sslhep/servicex_code_gen_atlas_xaod
       pullPolicy: Always
 
 
