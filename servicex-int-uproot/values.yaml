@@ -26,6 +26,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -78,10 +79,12 @@ spec:
         enabled: true
         pullPolicy: Always
         image: sslhep/servicex-did-finder
+        tag: develop
 
       CERNOpenData:
         enabled: false
         image: sslhep/servicex-did-finder-cernopendata
+        tag: develop
         pullPolicy: Always
 
 
@@ -90,6 +93,7 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_uproot
+      tag: develop
       pullPolicy: Always
 
 
@@ -103,7 +107,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
 
     postgres:
