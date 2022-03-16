@@ -1,0 +1,51 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: servicex-release-testing-4
+  namespace: servicex-testing-4
+spec:
+  interval: 60m
+  serviceAccountName: servicex-testing-4
+  chart:
+    spec:
+      chart: servicex
+      version: "1.0.27"
+      sourceRef:
+        kind: HelmRepository
+        name: servicex-repo
+        namespace: servicex-testing-4
+      interval: 60m
+  values:
+    replicaCount: 1
+  valuesFrom:
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-4
+      name: servicex-secrets
+      key: postgresql-postgres-password
+      targetPath: app.postgresql_password
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-4
+      name: servicex-secrets
+      key: minio-accesskey
+      targetPath: app.minio_accesskey
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-4
+      name: servicex-secrets
+      key: minio.secretkey
+      targetPath: app.minio_secretkey
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-4
+      name: servicex-secrets
+      key: rabbitmq-erlang-cookie
+      targetPath: app.rabbitmq_erlang_cookie
+    - kind: Secret
+      metadata:
+        namespace: servicex-testing-4
+      name: servicex-secrets
+      key: rabbitmq-password
+      targetPath: app.rabbitmq_password
