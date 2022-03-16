@@ -80,13 +80,6 @@ spec:
         # tag: "v1.0.0-rc.4"
         enabled: true
 
-    # Settings for the preflight checker - this usually uses the same image as
-    # the transformer
-    preflight:
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      # tag: develop
-      # pullPolicy: Always
-
     #
     # Code Generator service
     codeGen:
