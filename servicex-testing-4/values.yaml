@@ -81,10 +81,10 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
+      tag: pr_metadata
+      pullPolicy: Always
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      # tag: pr_metadata
-      # pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -96,7 +96,7 @@ spec:
         maxReplicas: 100
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:pr_new_atlas_image
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
