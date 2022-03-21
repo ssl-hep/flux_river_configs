@@ -100,7 +100,7 @@ spec:
         maxReplicas: 750
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:20220311-2056-stable
       # tag: "v1.0.0-rc.4"
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
