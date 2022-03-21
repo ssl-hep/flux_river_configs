@@ -24,7 +24,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: adding-about
+      tag: logging_fix
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
