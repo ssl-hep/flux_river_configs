@@ -24,7 +24,6 @@ spec:
 
     # Settings for the Flask App
     app:
-      # tag: fixing-web-frontend
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
