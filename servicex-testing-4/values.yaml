@@ -2,11 +2,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-testing-2
-  namespace: servicex-testing-2
+  name: servicex-release-testing-4
+  namespace: servicex-testing-4
 spec:
-  releaseName: servicex-release-testing-2
-  serviceAccountName: servicex-testing-2
+  releaseName: servicex-release-testing-4
+  serviceAccountName: servicex-testing-4
   chart:
     spec:
       chart: servicex
@@ -16,30 +16,28 @@ spec:
       version: "1.0.27"
   interval: 5m
   values:
-    # Default values for servicex.
-    # This is a YAML-formatted file.
-    # Declare variables to be passed into your templates.
-
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      publicURL: testing-2-minio.servicex.ssl-hep.org
+      publicURL: testing-4-minio.servicex.ssl-hep.org
 
     # Settings for the Flask App
     app:
+      tag: logging_fix
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
+      # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
       ingress:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-testing-2.servicex.ssl-hep.org
+          host: servicex-release-testing-4.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
     # ************************ IMPORTANT NOTE ***********************
@@ -62,7 +60,7 @@ spec:
           additionalLabels: {}
           enabled: true
           honorLabels: false
-          interval: 30s
+          interval: 40s
       persistence:
         enabled: false
         storageClass: rook-ceph-block
@@ -76,35 +74,32 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: sslhep/servicex-did-finder
-        tag: multireplica-support
-        pullPolicy: Always
-        # cachePrefix: root://192.170.240.18:1094//
+        # tag: develop
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_cms_aod
+      image: sslhep/servicex_code_gen_atlas_xaod
+      tag: pr_metadata
+      pullPolicy: Always
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: 20220311-2056-stable
-      pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
       autoscaler:
         enabled: true
-        cpuScaleThreshold: 30
-        minReplicas: 10
+        cpuScaleThreshold: 40
+        minReplicas: 20
         maxReplicas: 100
+      # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:pr_new_atlas_image
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
 
-    # set servicex to use postgresql
     postgres:
       enabled: true
 
@@ -124,6 +119,7 @@ spec:
       master:
         nodeSelector:
           kernel-ml: "true"
+          storage: "rook"
       existingSecret: servicex-secrets
 
     # Values for Minio Chart
@@ -136,16 +132,14 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-          - "testing-2-minio.servicex.ssl-hep.org"
+          - "testing-4-minio.servicex.ssl-hep.org"
         tls:
           - hosts:
-              - testing-2-minio.servicex.ssl-hep.org
-            secretName: testing-2-minio-tls
+              - testing-4-minio.servicex.ssl-hep.org
+            secretName: xaod-minio-tls
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
-
     gridAccount: bgalewsk
-
     rbacEnabled: true
 
     ### secrets location

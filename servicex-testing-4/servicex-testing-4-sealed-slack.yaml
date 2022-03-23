@@ -1,0 +1,30 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "servicex-slack",
+    "namespace": "servicex-testing-4",
+    "creationTimestamp": null,
+    "annotations": {
+      "sealedsecrets.bitnami.com/namespace-wide": "true"
+    }
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "servicex-slack",
+        "namespace": "servicex-testing-4",
+        "creationTimestamp": null,
+        "annotations": {
+          "sealedsecrets.bitnami.com/managed": "true",
+          "sealedsecrets.bitnami.com/namespace-wide": "true"
+        }
+      },
+      "type": "Opaque",
+      "data": null
+    },
+    "encryptedData": {
+      "address": "AgBdX97+sa0invP2wCDvtKuhdq/FrTPKYebbSnuen/lhvXzpZ3XUNk/x+QvvBEZCarlK5ymJUpmorfwjHqjknLJOhkeTnMNa/3mGTrTk7fpeZF922G3I62w2oVCBWX75gj0aOUz2lv7GVBCaz7xXlXU4Tfq84V04opr893GdznvZ4PB0kMJ9wfgXM2JzbzlRNr7DmjEv0CQfNWZ3AIJFfjXrgvAQporJM9ISl2J4zNG4aMfEBntCSl8pNeszeoFFZ2qHu8fQOZSt8FXtn5PSOJZN1lYk2cZ2pfQH4C2ylOaOc8yOmyHLLM0pVZ6WVeN8rnQUl8KXtJ8MQ8BCD6/qHYorJaE9BYraHYwf+G5LwCYsQk177YZOa5pbbY/mx/DSYfbnW3qNF7Xn3w2U2G4jXrpFg3Q49PvZwP8Lhgg1Ev9eqP1JWjOcyZMVeeK3SdW6to1wT2wJIAO9h/2Hn7a1HjBT8haZEtLlLDQ4nZ8GKm5Cy+JEJXzfHL2pdxUOdnPuYgZpvp4uOHF1vsNk+NKj1cfTnWWOS5nZQSerUHNcZ2nDpSGWuoDmAUy0EUIlVcdmQrkXmR0V63L68qFo37o26BIi84SDZvF9R6Ew8cKHQ/FztXW0UOxXPnVM5Swpf3V4LQsix+snzzK62R66SW9U5rMMlx8pMes4fpm8Z6YLy0a3J+3bpjxtopAANeBXFGMkS/1YQSOYx4Fi9Zx4KVZBMI7icFXdBTzSVG1p5NqgDP1tDoH/+p4ZorxWB1zBAEJ8rUe+Km2+k1PSTvSzjiIYevl72B9++4lruNekBwJlZ/rs"
+    }
+  }
+}

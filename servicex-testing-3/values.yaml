@@ -24,7 +24,6 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: fixing-web-frontend
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -74,7 +73,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        # tag: develop
+        tag: pr_did_parameters
 
     #
     # Code Generator service
@@ -82,9 +81,9 @@ spec:
       enabled: true
       # image: sslhep/servicex_code_gen_atlas_xaod
       # For uproot deployment
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      # tag: pr_metadata
-      # pullPolicy: Always
+      image: sslhep/servicex_code_gen_atlas_xaod
+      tag: pr_metadata
+      pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -96,7 +95,7 @@ spec:
         maxReplicas: 100
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:pr_new_atlas_image
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
