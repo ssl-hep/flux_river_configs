@@ -28,6 +28,7 @@ spec:
 
     # Settings for the Flask App
     app:
+      tag: add_chunk_size_back_in
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
