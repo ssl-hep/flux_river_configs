@@ -117,6 +117,7 @@ spec:
       # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultTransformerTag: multipath-support
 
     # enable postgresql backend for servicex
     postgres:
