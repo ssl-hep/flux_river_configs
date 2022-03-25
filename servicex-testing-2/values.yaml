@@ -82,12 +82,12 @@ spec:
         pullPolicy: Always
         # cachePrefix: root://192.170.240.18:1094//
 
-    CERNOpenData:
-      enabled: true
-      # image: sslhep/servicex-did-finder-cernopendata
-      tag: multipath-support
-      pullPolicy: Always
-      cachePrefix:
+      CERNOpenData:
+        enabled: true
+        # image: sslhep/servicex-did-finder-cernopendata
+        tag: multipath-support
+        pullPolicy: Always
+        cachePrefix:
 
     #
     # Code Generator service
