@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.25"
+      version: "1.0.29"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -27,10 +27,10 @@ spec:
 
     # Settings for the Flask App
     app:
-      # image: sslhep/servicex_app
-      # tag: develop
-      image: ivukotic/servicexapp
-      tag: ilija
+      image: sslhep/servicex_app
+      tag: multipath-support
+      # image: ivukotic/servicexapp
+      # tag: ilija
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -78,9 +78,6 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
-      image: sslhep/servicex-did-finder
-      tag: develop
-      pullPolicy: Always
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
@@ -90,18 +87,16 @@ spec:
         servicex_latitude: 41.78
         servicex_longitude: -87.7
 
-    CERNOpenData:
-      enabled: true
-      image: sslhep/servicex-did-finder-cernopendata
-      tag: develop
-      pullPolicy: Always
-      cachePrefix:
+      CERNOpenData:
+        enabled: false
+        image: sslhep/servicex-did-finder-cernopendata
+        tag: develop
+        pullPolicy: Always
+        cachePrefix:
 
     # Code Generator service
     codeGen:
       enabled: true
-      # image: sslhep/servicex_code_gen_func_adl_xaod
-      # For uproot deployment
       image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
@@ -116,10 +111,10 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:develop
+      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
-      # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultTransformerTag: multipath-support
 
     # enable postgresql backend for servicex
     postgres:
