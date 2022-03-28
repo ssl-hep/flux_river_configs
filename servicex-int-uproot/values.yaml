@@ -12,8 +12,8 @@ spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
-        name: servicex-repo   
-      version: '1.0.27'
+        name: servicex-repo
+      version: "1.0.27"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -21,7 +21,6 @@ spec:
     objectStore:
       enabled: true
       publicURL: int-uproot-minio.servicex.ssl-hep.org
-
 
     # Settings for the Flask App
     app:
@@ -32,7 +31,7 @@ spec:
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file 
+      # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
       ingress:
@@ -41,20 +40,20 @@ spec:
           enabled: true
           host: servicex-release-int-uproot.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-      
+
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the rabbitmq password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the rabbitmq password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     # a different password
     rabbitmq:
-      nodeselector: 
+      nodeselector:
         storage: rook
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: '9419'
+          prometheus.io/port: "9419"
           prometheus.io/scrape: "true"
         prometheusRule:
           additionalLabels: {}
@@ -87,7 +86,6 @@ spec:
         tag: develop
         pullPolicy: Always
 
-
     #
     # Code Generator service
     codeGen:
@@ -95,7 +93,6 @@ spec:
       image: sslhep/servicex_code_gen_func_adl_uproot
       tag: develop
       pullPolicy: Always
-
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -107,8 +104,8 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
-
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultTransformerTag: develop
 
     postgres:
       enabled: true
@@ -116,8 +113,8 @@ spec:
     # Values for the Postgresql Chart
     #
     # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you 
-    # change the postgresql password, otherwise the prior password will 
+    # If you enable persistance, you must delete the pv claim if you
+    # change the postgresql password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
     # the new password and then getting authorization error
     postgresql:
@@ -131,7 +128,6 @@ spec:
         nodeSelector:
           kernel-ml: "true"
           storage: "rook"
-        
 
     # Values for Minio Chart
     minio:
@@ -143,12 +139,11 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hosts:
-        - "int-uproot-minio.servicex.ssl-hep.org"
+          - "int-uproot-minio.servicex.ssl-hep.org"
         tls:
-        - hosts:
-          - int-uproot-minio.servicex.ssl-hep.org
-          secretName: uproot-minio-tls
-
+          - hosts:
+              - int-uproot-minio.servicex.ssl-hep.org
+            secretName: uproot-minio-tls
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
@@ -157,4 +152,3 @@ spec:
 
     ## secrets location
     secrets: servicex-secrets
-      
