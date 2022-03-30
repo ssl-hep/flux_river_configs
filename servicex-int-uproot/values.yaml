@@ -71,6 +71,8 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
+      extraConfiguration: |-
+        consumer_timeout = 3600000
 
     # Settings for the DID Finder
     didFinder:
@@ -105,7 +107,7 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: develop
+      defaultTransformerTag: multipath-support
 
     postgres:
       enabled: true
