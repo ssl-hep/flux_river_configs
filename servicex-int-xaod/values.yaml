@@ -76,6 +76,7 @@ spec:
         storage: "rook"
       extraConfiguration: |-
         consumer_timeout = 3600000
+        # just adding a new line.
 
     # Settings for the DID Finder
     didFinder:
