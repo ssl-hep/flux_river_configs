@@ -73,7 +73,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: pr_did_parameters
+        # tag: pr_did_parameters
 
     #
     # Code Generator service
@@ -95,7 +95,7 @@ spec:
         maxReplicas: 100
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:pr_new_atlas_image
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
       #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
