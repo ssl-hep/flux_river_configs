@@ -73,7 +73,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        # tag: pr_did_parameters
+        tag: pr_did_parameters
 
     #
     # Code Generator service
