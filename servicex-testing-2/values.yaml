@@ -28,7 +28,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: merge
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -108,7 +108,7 @@ spec:
         minReplicas: 10
         maxReplicas: 100
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer
       # For uproot deployment
       # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       defaultTransformerTag: pr_build_cms_on_the_sly
