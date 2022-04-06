@@ -74,7 +74,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: pr_did_parameters
+        tag: develop
 
     #
     # Code Generator service
@@ -83,7 +83,7 @@ spec:
       # image: sslhep/servicex_code_gen_atlas_xaod
       # For uproot deployment
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: pr_metadata
+      tag: develop
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
