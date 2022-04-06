@@ -96,7 +96,7 @@ spec:
       image: sslhep/servicex_code_gen_cms_aod
       # For uproot deployment
       # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: develop
+      tag: pr_cms_fixes
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
