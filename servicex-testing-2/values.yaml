@@ -28,7 +28,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: develop
+      tag: merge
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
