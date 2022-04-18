@@ -83,7 +83,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: develop
+        tag: adding-memcache
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
