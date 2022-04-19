@@ -29,7 +29,8 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: develop
+      # tag: develop
+      tag: performance-dashboard
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
