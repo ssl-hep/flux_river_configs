@@ -1,13 +1,12 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata: 
+metadata:
   name: servicex-int-xaod-kustomization
   namespace: servicex-int-xaod
 
 resources:
   - servicex-repository.yaml
-    #- servicex-release.yaml
   - servicex-int-xaod-sealed-secret.yaml
   - servicex-int-xaod-sealed-slack.yaml
   - values.yaml

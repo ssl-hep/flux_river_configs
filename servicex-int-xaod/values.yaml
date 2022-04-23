@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.29"
+      version: "1.0.30-alpha.1"
   interval: 60m
   values:
     # Default values for servicex.
@@ -29,7 +29,8 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: develop
+      # tag: develop
+      tag: performance-dashboard
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -75,7 +76,7 @@ spec:
       nodeSelector:
         storage: "rook"
       extraConfiguration: |-
-        consumer_timeout = 3600000
+        consumer_timeout = 7200000
         # just adding a new line.
 
     # Settings for the DID Finder
@@ -83,14 +84,14 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: develop
+        tag: adding-memcache
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
-          enabled: false
+          enabled: true
           image: memcached
           tag: alpine
           ttl: 86400
