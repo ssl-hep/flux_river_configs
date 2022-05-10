@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.29"
+      version: "1.0.30"
   interval: 5m
   values:
     # Default values for servicex.
@@ -28,7 +28,7 @@ spec:
 
     # Settings for the Flask App
     app:
-      tag: develop
+      # tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -78,14 +78,14 @@ spec:
       rucio:
         enabled: true
         # image: sslhep/servicex-did-finder
-        tag: develop
+        # tag: develop
         pullPolicy: Always
         # cachePrefix: root://192.170.240.18:1094//
 
       CERNOpenData:
         enabled: true
         # image: sslhep/servicex-did-finder-cernopendata
-        tag: develop
+        # tag: develop
         pullPolicy: Always
         cachePrefix:
 
@@ -93,10 +93,10 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_cms_aod
+      # image: sslhep/servicex_code_gen_cms_aod
       # For uproot deployment
-      # image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: pr_cms_fixes
+      image: sslhep/servicex_code_gen_func_adl_uproot
+      # tag: pr_cms_fixes
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
@@ -108,10 +108,10 @@ spec:
         minReplicas: 10
         maxReplicas: 100
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer
+      # defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer
       # For uproot deployment
-      # defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: pr_build_cms_on_the_sly
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      # defaultTransformerTag: pr_build_cms_on_the_sly
 
     # set servicex to use postgresql
     postgres:
