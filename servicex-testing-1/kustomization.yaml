@@ -6,7 +6,6 @@ metadata:
   namespace: servicex-testing-1
 resources:
   - servicex-repository.yaml
-    #- servicex-release.yaml
   - servicex-testing-1-sealed-secret.yaml
   - servicex-testing-1-sealed-slack.yaml
   - servicex-testing-1-sealed-docker.yaml
