@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.30-alpha.1"
+      version: "1.0.30"
   interval: 60m
   values:
     # Default values for servicex.
@@ -80,18 +80,12 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: adding-memcache
         # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
-        memcache:
-          enabled: true
-          image: memcached
-          tag: alpine
-          ttl: 86400
 
     # Settings for the preflight checker - this usually uses the same image as
     # the transformer
