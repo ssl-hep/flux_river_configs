@@ -143,18 +143,28 @@ spec:
     # Values for Minio Chart
     minio:
       existingSecret: servicex-secrets
+      auth:
+        existingSecret: servicex-secrets
+
+      service:
+        ports:
+          api: 9000
+
       ingress:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
+        hostname:
           - "testing-1-minio.servicex.ssl-hep.org"
-        tls:
-          - hosts:
-              - testing-1-minio.servicex.ssl-hep.org
-            secretName: testing-1-minio-tls
+        tls: true
+          #        hosts:
+          #          - "testing-1-minio.servicex.ssl-hep.org"
+          #        tls:
+          #          - hosts:
+          #              - testing-1-minio.servicex.ssl-hep.org
+          #            secretName: testing-1-minio-tls
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
