@@ -147,7 +147,7 @@ spec:
         existingSecret: servicex-secrets
 
       tls:
-        enabled: true
+        enabled: false
       service:
         ports:
           api: 9000
@@ -159,7 +159,7 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-1-minio.servicex.ssl-hep.org"
-        tls: true
+        tls: false
           #        hosts:
           #          - "testing-1-minio.servicex.ssl-hep.org"
           #        tls:
