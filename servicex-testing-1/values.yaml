@@ -146,6 +146,8 @@ spec:
       auth:
         existingSecret: servicex-secrets
 
+      tls:
+        enabled: true
       service:
         ports:
           api: 9000
