@@ -156,8 +156,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname:
-          - "testing-1-minio.servicex.ssl-hep.org"
+        hostname: "testing-1-minio.servicex.ssl-hep.org"
         tls: true
           #        hosts:
           #          - "testing-1-minio.servicex.ssl-hep.org"
