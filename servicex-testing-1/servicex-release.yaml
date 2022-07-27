@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: servicex
-      version: "1.0.31-RC.2"
+      version: "1.0.31-RC.3"
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
