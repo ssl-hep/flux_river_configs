@@ -1,4 +1,4 @@
----
+c--
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.31-RC.3"
+      version: "1.0.31-RC.4"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
