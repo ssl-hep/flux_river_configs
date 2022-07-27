@@ -163,8 +163,7 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-1-minio.servicex.ssl-hep.org"
         tls: false
-        hosts:
-          - "testing-1-minio.servicex.ssl-hep.org"
+        hostname: "testing-1-minio.servicex.ssl-hep.org"
           #        hosts:
           #          - "testing-1-minio.servicex.ssl-hep.org"
           #        tls:
