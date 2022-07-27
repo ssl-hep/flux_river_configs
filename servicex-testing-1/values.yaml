@@ -120,6 +120,9 @@ spec:
     # enable postgresql backend for servicex
     postgres:
       enabled: true
+      postgres: 
+        auth: 
+          database: servicex
 
     # Values for the Postgresql Chart
     #
