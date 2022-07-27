@@ -120,9 +120,6 @@ spec:
     # enable postgresql backend for servicex
     postgres:
       enabled: true
-      postgres: 
-        auth: 
-          database: servicex
 
     # Values for the Postgresql Chart
     #
@@ -142,6 +139,9 @@ spec:
           kernel-ml: "true"
           storage: "rook"
       existingSecret: servicex-secrets
+      postgresql: 
+        auth: 
+          database: servicex
 
     # Values for Minio Chart
     minio:
