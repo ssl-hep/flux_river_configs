@@ -142,6 +142,9 @@ spec:
       postgresql: 
         auth: 
           database: servicex
+          existingSecret: servicex-secrets
+          adminPasswordKey: postgresql-password
+          userPasswordKey: postgresql-password
 
     # Values for Minio Chart
     minio:
