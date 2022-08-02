@@ -98,7 +98,8 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot
+        #image: sslhep/servicex_code_gen_func_adl_uproot
+      image: sslhep/servicex_code_gen_atlas_xaod
       tag: develop
       pullPolicy: Always
 
@@ -112,9 +113,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      # defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
+      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      #defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       defaultTransformerTag: develop
 
     # enable postgresql backend for servicex
