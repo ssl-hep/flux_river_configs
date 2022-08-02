@@ -136,6 +136,11 @@ spec:
         nodeSelector:
           kernel-ml: "true"
           storage: "rook"
+      postgresql: 
+        auth: 
+          database: servicex
+          existingSecret: servicex-secrets
+          adminPasswordKey: postgresql-password
       global:
         postgresql: 
           auth: 
