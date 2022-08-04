@@ -147,7 +147,6 @@ spec:
 
     # Values for Minio Chart
     minio:
-      existingSecret: servicex-secrets
       auth:
         existingSecret: servicex-secrets
 
