@@ -12,5 +12,3 @@ resources:
   - servicex-int-uproot-sealed-slack.yaml
   - slack-notification.yaml
 
-configurations:
-  - kustomizeconfig.yaml

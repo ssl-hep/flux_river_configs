@@ -11,6 +11,3 @@ resources:
   - servicex-int-xaod-sealed-slack.yaml
   - values.yaml
   - slack-notification.yaml
-
-configurations:
-  - kustomizeconfig.yaml
