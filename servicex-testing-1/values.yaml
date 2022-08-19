@@ -28,7 +28,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: bulk_file_additions
+      # tag: bulk_file_additions
       # image: ivukotic/servicexapp
       # tag: ilija
       adminEmail: bengal1@illinois.edu
@@ -81,7 +81,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: bulk_file_additions
+          # tag: bulk_file_additions
         # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
@@ -91,7 +91,7 @@ spec:
       CERNOpenData:
         enabled: false
         image: sslhep/servicex-did-finder-cernopendata
-        tag: develop
+          # tag: develop
         pullPolicy: Always
         cachePrefix:
 
@@ -100,7 +100,7 @@ spec:
       enabled: true
         #image: sslhep/servicex_code_gen_func_adl_uproot
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: develop
+        # tag: develop
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
