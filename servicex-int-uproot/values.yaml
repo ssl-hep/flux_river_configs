@@ -26,7 +26,7 @@ spec:
     app:
       image: sslhep/servicex_app
       # tag: develop
-      tag: test_single_db_commit
+      # tag: test_single_db_commit
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -80,7 +80,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: adding-memcache
+          # tag: adding-memcache
         # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
@@ -90,13 +90,13 @@ spec:
         memcache:
           enabled: true
           image: memcached
-          tag: alpine
+            # tag: alpine
           ttl: 86400
 
       CERNOpenData:
         enabled: false
         image: sslhep/servicex-did-finder-cernopendata
-        tag: develop
+          # tag: develop
         pullPolicy: Always
 
     #
@@ -104,7 +104,7 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: develop
+        # tag: develop
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
@@ -118,7 +118,7 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: multipath-support
+        # defaultTransformerTag: multipath-support
 
     postgres:
       enabled: true

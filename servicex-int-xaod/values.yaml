@@ -32,7 +32,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: develop
+        # tag: develop
       # tag: performance-dashboard
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
@@ -87,7 +87,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: adding-memcache
+          # tag: adding-memcache
         # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
@@ -97,13 +97,13 @@ spec:
         memcache:
           enabled: true
           image: memcached
-          tag: alpine
+            # tag: alpine
           ttl: 86400
 
       CERNOpenData:
         enabled: true
         image: sslhep/servicex-did-finder-cernopendata
-        tag: develop
+          # tag: develop
         pullPolicy: Always
 
     #
@@ -112,7 +112,7 @@ spec:
       enabled: true
       # image: sslhep/servicex_code_gen_func_adl_xaod
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: develop
+        # tag: develop
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
