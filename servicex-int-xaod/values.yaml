@@ -22,13 +22,12 @@ spec:
 
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
-    objectStore:
+    objectStore: 
       enabled: true
-      internal: true
-      publicURL: int-xaod-minio.servicex.ssl-hep.org
-      useTLS: false
-      useClientTLS: true
-
+      internal: false
+      publicURL: minio.af.uchicago.edu
+      useTLS: true
+    
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
