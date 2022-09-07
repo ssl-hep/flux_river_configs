@@ -153,7 +153,7 @@ spec:
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
-    gridAccount: bgalewsk
+    gridAccount: xcache
 
     rbacEnabled: true
 
