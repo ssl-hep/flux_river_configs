@@ -164,6 +164,8 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-1-minio.servicex.ssl-hep.org"
         tls: false
+          host: testing-1-minio.servicex.ssl-hep.org
+          clusterIssuer: letsencrypt-prod
           #        hosts:
           #          - "testing-1-minio.servicex.ssl-hep.org"
           #        tls:
