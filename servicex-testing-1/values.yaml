@@ -163,9 +163,15 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-1-minio.servicex.ssl-hep.org"
-        tls: false
-          host: testing-1-minio.servicex.ssl-hep.org
-          clusterIssuer: letsencrypt-prod
+        tls: true
+      apiIngress:
+        enabled: true
+        tls: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hostname: "testing-1-minio.servicex.ssl-hep.org"
           #        hosts:
           #          - "testing-1-minio.servicex.ssl-hep.org"
           #        tls:
