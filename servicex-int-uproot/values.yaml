@@ -200,7 +200,7 @@ spec:
       
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
-    gridAccount: xcache
+    gridAccount: ivukotic
     rbacEnabled: true
 
     ## secrets location
