@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.30"
+      version: "1.0.31"
   interval: 60m
   values:
     # Default values for servicex.
@@ -24,8 +24,11 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
+      internal: true
       publicURL: prod-uproot-minio.servicex.ssl-hep.org
-
+      useTLS: false
+      useClientTLS: true
+    
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
@@ -129,20 +132,25 @@ spec:
 
     # Values for Minio Chart
     minio:
-      existingSecret: servicex-secrets
+      auth:
+        existingSecret: servicex-secrets
       ingress:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
-          - "prod-uproot-minio.servicex.ssl-hep.org"
-        tls:
-          - hosts:
-              - prod-uproot-minio.servicex.ssl-hep.org
-            secretName: uproot-minio-tls
-
+        hostname: "prod-uproot-minio.servicex.ssl-hep.org"
+        tls: true
+      apiIngress:
+        enabled: true
+        tls: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hostname: "prod-uproot-minio.servicex.ssl-hep.org"
+        
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
     gridAccount: xcache
