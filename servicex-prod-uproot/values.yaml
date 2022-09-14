@@ -122,14 +122,21 @@ spec:
     postgres:
       enabled: true
     postgresql:
-      existingSecret: servicex-secrets
-      persistence:
-        enabled: false
-        storageClass: rook-ceph-block
-      master:
+      primary:
+        persistence:
+          enabled: false
+          storageClass: rook-ceph-block
         nodeSelector:
           kernel-ml: "true"
-
+          storage: "rook"
+      global:
+        postgresql: 
+          auth: 
+            database: servicex
+            existingSecret: servicex-secrets
+            secretKeys:
+              adminPasswordKey: postgresql-password
+      
     # Values for Minio Chart
     minio:
       auth:
