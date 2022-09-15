@@ -152,7 +152,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "prod-uproot-minio.servicex.ssl-hep.org"
+        hostname: "prod-uproot-minio.servicex-console.ssl-hep.org"
         tls: true
       apiIngress:
         enabled: true
