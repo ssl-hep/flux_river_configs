@@ -35,7 +35,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: change-default-logging-level
+      tag: uproot-transform-return-fix
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -131,7 +131,7 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: develop
+      defaultTransformerTag: uproot-transform-return-fix
 
     postgres:
       enabled: true
