@@ -54,7 +54,7 @@ spec:
           host: servicex-release-int-xaod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
-    # ************************ IMPORTANT NOTE ***********************
+    # ************************ IMPORTANT NOTE **********************
     # If you enable persistance, you must delete the pv claim if you
     # change the rabbitmq password, otherwise the prior password will
     # remain in effect and cause problems due to new pods trying to use
