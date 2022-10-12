@@ -41,7 +41,7 @@ spec:
       tag: web-frontend-changes
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
-      auth: true
+      auth: false
       replicas: 1
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
