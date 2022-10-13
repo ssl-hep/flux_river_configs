@@ -10,6 +10,3 @@ resources:
   - servicex-testing-4-sealed-slack.yaml
   - values.yaml
   - slack-notification.yaml
-
-configurations:
-  - kustomizeconfig.yaml

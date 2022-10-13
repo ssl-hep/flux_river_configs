@@ -13,22 +13,28 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.27"
+      version: "1.0.33-RC.1"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      publicURL: testing-4-minio.servicex.ssl-hep.org
+      internal: false
+      publicURL: s3.ssl-hep.org
+      useTLS: true
+      useClientTLS: true
 
     # Settings for the Flask App
+
     app:
-      tag: pipenv
+      image: sslhep/servicex_app
+      tag: web-frontend-changes
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
       replicas: 1
+      logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
       # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
@@ -74,31 +80,41 @@ spec:
     didFinder:
       rucio:
         enabled: true
+        image: sslhep/servicex-did-finder
         # tag: develop
+        pullPolicy: Always
+        cachePrefix: root://192.170.240.18:1094//
+        # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
+        servicex_latitude: 41.78
+        servicex_longitude: -87.7
+        memcache:
+          enabled: true
+          image:
+            memcached
+            # tag: alpine
+          ttl: 86400
 
     #
     # Code Generator service
     codeGen:
       enabled: true
-      image: sslhep/servicex_code_gen_atlas_xaod
-      tag: pr_metadata
+      image:
+        sslhep/servicex_code_gen_func_adl_uproot
+        # tag: develop
       pullPolicy: Always
-      # For uproot deployment
-      # image: sslhep/servicex_code_gen_func_adl_uproot
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
       autoscaler:
         enabled: true
-        cpuScaleThreshold: 40
-        minReplicas: 20
-        maxReplicas: 100
-      # pullPolicy: Always
+        cpuScaleThreshold: 30
+        minReplicas: 10
+        maxReplicas: 750
+      pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer:pr_new_atlas_image
-      # For uproot deployment
-      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer:develop
+      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultTransformerTag: develop
 
     postgres:
       enabled: true
@@ -111,32 +127,48 @@ spec:
     # remain in effect and cause problems due to new pods trying to use
     # the new password and then getting authorization error
     postgresql:
-      nodeSelector:
-        storage: "rook"
-      persistence:
-        enabled: false
-        storageClass: rook-ceph-block
-      master:
+      primary:
+        persistence:
+          enabled: false
+          storageClass: rook-ceph-block
         nodeSelector:
           kernel-ml: "true"
           storage: "rook"
-      existingSecret: servicex-secrets
+      global:
+        postgresql:
+          auth:
+            database: servicex
+            existingSecret: servicex-secrets
+            secretKeys:
+              adminPasswordKey: postgresql-password
 
     # Values for Minio Chart
     minio:
-      existingSecret: servicex-secrets
-      ingress:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: nginx
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
-          - "testing-4-minio.servicex.ssl-hep.org"
-        tls:
-          - hosts:
-              - testing-4-minio.servicex.ssl-hep.org
-            secretName: xaod-minio-tls
+      auth:
+        existingSecret: servicex-secrets
+
+      # tls:
+      #   enabled: false
+      # service:
+      #   ports:
+      #     api: 9000
+
+      # ingress:
+      #   enabled: true
+      #   annotations:
+      #     kubernetes.io/ingress.class: nginx
+      #     cert-manager.io/cluster-issuer: letsencrypt-prod
+      #     acme.cert-manager.io/http01-edit-in-place: "true"
+      #   hostname: "testing-4-minio-console.servicex.ssl-hep.org"
+      #   tls: true
+      # apiIngress:
+      #   enabled: true
+      #   tls: true
+      #   annotations:
+      #     kubernetes.io/ingress.class: nginx
+      #     cert-manager.io/cluster-issuer: letsencrypt-prod
+      #     acme.cert-manager.io/http01-edit-in-place: "true"
+      #   hostname: "testing-4-minio.servicex.ssl-hep.org"
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
     gridAccount: xcache
