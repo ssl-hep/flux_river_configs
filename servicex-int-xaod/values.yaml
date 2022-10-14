@@ -38,7 +38,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      # tag: web-frontend-changes
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
