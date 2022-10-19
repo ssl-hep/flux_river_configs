@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -13,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.33-RC.1"
+      version: v1.0.33-alpha.12
   interval: 60m
   values:
     # Default values for servicex.
@@ -27,15 +26,7 @@ spec:
       internal: true
       publicURL: int-xaod-minio.servicex.ssl-hep.org
       useTLS: false
-      useClientTLS:
-        true
-
-        #      enabled: true
-        #      internal: false
-        #      publicURL: minio.af.uchicago.edu
-        #      useTLS: true
-
-    # Settings for the Flask App
+      useClientTLS: true
     app:
       image: sslhep/servicex_app
       tag: adding-monitoring
@@ -45,31 +36,25 @@ spec:
       replicas: 1
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file
-      slackSigningSecret: "dummy"
-      newSignupWebhook: "dummy"
+      slackSigningSecret: dummy
+      newSignupWebhook: dummy
       ingress:
         enabled: true
         tls:
           enabled: true
           host: servicex-release-int-xaod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-
-    # ************************ IMPORTANT NOTE **********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the rabbitmq password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: "9419"
-          prometheus.io/scrape: "true"
+          prometheus.io/port: '9419'
+          prometheus.io/scrape: 'true'
         prometheusRule:
           additionalLabels: {}
           enabled: false
-          namespace: ""
+          namespace: ''
           rules: []
         serviceMonitor:
           additionalLabels: {}
@@ -83,49 +68,31 @@ spec:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
       nodeSelector:
-        storage: "rook"
+        storage: rook
       extraConfiguration: |-
         consumer_timeout = 7200000
         # just adding a new line.
-
-    # Settings for the DID Finder
     didFinder:
       rucio:
         enabled: true
-        image:
-          sslhep/servicex-did-finder
-          # tag: adding-memcache
-        # tag: develop
+        image: sslhep/servicex-did-finder
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
-        # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
           enabled: true
-          image:
-            memcached
-            # tag: alpine
+          image: memcached
           ttl: 86400
-
       CERNOpenData:
         enabled: true
-        image:
-          sslhep/servicex-did-finder-cernopendata
-          # tag: develop
+        image: sslhep/servicex-did-finder-cernopendata
         pullPolicy: Always
-
-    #
-    # Code Generator service
     codeGen:
       enabled: true
-      # image: sslhep/servicex_code_gen_func_adl_xaod
       image: sslhep/servicex_code_gen_atlas_xaod
       tag: develop
       pullPolicy: Always
-
-    # Pull policy for the worker pods - the image and version are specified as
-    # part of the transform request
     transformer:
       autoscaler:
         enabled: true
@@ -136,26 +103,16 @@ spec:
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       defaultTransformerTag: develop
-
     postgres:
       enabled: true
-
-    # Values for the Postgresql Chart
-    #
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the postgresql password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
-    # the new password and then getting authorization error
-
     postgresql:
       primary:
         persistence:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
-          kernel-ml: "true"
-          storage: "rook"
+          kernel-ml: 'true'
+          storage: rook
       global:
         postgresql:
           auth:
@@ -163,25 +120,21 @@ spec:
             existingSecret: servicex-secrets
             secretKeys:
               adminPasswordKey: postgresql-password
-
-    # Values for Minio Chart
     minio:
       auth:
         existingSecret: servicex-secrets
-
       tls:
         enabled: false
       service:
         ports:
           api: 9000
-
       ingress:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "int-xaod-minio-console.servicex.ssl-hep.org"
+          acme.cert-manager.io/http01-edit-in-place: 'true'
+        hostname: int-xaod-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
         enabled: true
@@ -189,30 +142,8 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname:
-          "int-xaod-minio.servicex.ssl-hep.org"
-
-          #      auth:
-          #        existingSecret: servicex-secrets
-          #      tls:
-          #        enabled: false
-          #      service:
-          #        ports:
-          #          api: 9000
-          #      ingress:
-          #        enabled: true
-          #        annotations:
-          #          kubernetes.io/ingress.class: nginx
-          #          cert-manager.io/cluster-issuer: letsencrypt-prod
-          #          acme.cert-manager.io/http01-edit-in-place: "true"
-          #        hostname: "int-xaod-minio.servicex.ssl-hep.org"
-          #        tls: false
-
-    ###### Settings for Authenticating with the CERN Infrastructure #######
-
+          acme.cert-manager.io/http01-edit-in-place: 'true'
+        hostname: int-xaod-minio.servicex.ssl-hep.org
     gridAccount: ivukotic
     rbacEnabled: true
-
-    ## secrets location
     secrets: servicex-secrets
