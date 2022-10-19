@@ -35,7 +35,7 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      tag: web-frontend-changes
+      tag: all-newest
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -132,7 +132,7 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: develop
+      defaultTransformerTag: all-newest
 
     postgres:
       enabled: true
