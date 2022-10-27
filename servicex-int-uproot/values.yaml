@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: servicex-repo
       version: "v1.0.33-rc.8"
-  interval: 60m
+  interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
