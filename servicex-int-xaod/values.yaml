@@ -29,7 +29,7 @@ spec:
       useClientTLS: true
     app:
       image: sslhep/servicex_app
-      tag: adding-monitoring
+      # tag: adding-monitoring
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -49,12 +49,12 @@ spec:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: '9419'
-          prometheus.io/scrape: 'true'
+          prometheus.io/port: "9419"
+          prometheus.io/scrape: "true"
         prometheusRule:
           additionalLabels: {}
           enabled: false
-          namespace: ''
+          namespace: ""
           rules: []
         serviceMonitor:
           additionalLabels: {}
@@ -111,7 +111,7 @@ spec:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
-          kernel-ml: 'true'
+          kernel-ml: "true"
           storage: rook
       global:
         postgresql:
@@ -133,7 +133,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: 'true'
+          acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-xaod-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
@@ -142,7 +142,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: 'true'
+          acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-xaod-minio.servicex.ssl-hep.org
     gridAccount: ivukotic
     rbacEnabled: true
