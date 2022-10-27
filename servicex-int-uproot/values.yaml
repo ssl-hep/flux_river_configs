@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: v1.0.33-rc.4
+      version: v1.0.33-rc.5
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -25,7 +25,6 @@ spec:
       useClientTLS: true
     app:
       image: sslhep/servicex_app
-      # tag: adding-log-to-the-menu
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -47,12 +46,12 @@ spec:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: "9419"
-          prometheus.io/scrape: "true"
+          prometheus.io/port: '9419'
+          prometheus.io/scrape: 'true'
         prometheusRule:
           additionalLabels: {}
           enabled: false
-          namespace: ""
+          namespace: ''
           rules: []
         serviceMonitor:
           additionalLabels: {}
@@ -105,7 +104,7 @@ spec:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
-          kernel-ml: "true"
+          kernel-ml: 'true'
           storage: rook
       global:
         postgresql:
@@ -127,7 +126,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
+          acme.cert-manager.io/http01-edit-in-place: 'true'
         hostname: int-uproot-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
@@ -136,7 +135,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
+          acme.cert-manager.io/http01-edit-in-place: 'true'
         hostname: int-uproot-minio.servicex.ssl-hep.org
     gridAccount: ivukotic
     rbacEnabled: true
