@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: v1.0.33-rc.8
+      version: 1.0.33-rc.8
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -30,7 +30,8 @@ spec:
         port: 5959
         protocol: TCP
         monitor: https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/c2cc1f30-4a5b-11ed-afcf-d91dad577662?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-24h%2Fh%2Cto%3Anow))&show-time-filter=true
-        logs: https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/bb682100-5558-11ed-afcf-d91dad577662?embed=true&_g=(filters%3A!(('%24state'%3A(store%3AglobalState)%2Cmeta%3A(alias%3A!n%2Cdisabled%3A!f%2Cindex%3A'923eaa00-45b9-11ed-afcf-d91dad577662'%2Ckey%3Ainstance%2Cnegate%3A!f%2Cparams%3A(query%3Aservicex)%2Ctype%3Aphrase)%2Cquery%3A(match_phrase%3A(instance%3A{{
+        logs:
+          https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/bb682100-5558-11ed-afcf-d91dad577662?embed=true&_g=(filters%3A!(('%24state'%3A(store%3AglobalState)%2Cmeta%3A(alias%3A!n%2Cdisabled%3A!f%2Cindex%3A'923eaa00-45b9-11ed-afcf-d91dad577662'%2Ckey%3Ainstance%2Cnegate%3A!f%2Cparams%3A(query%3Aservicex)%2Ctype%3Aphrase)%2Cquery%3A(match_phrase%3A(instance%3A{{
           .Release.Name }}))))%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-24h%2Fh%2Cto%3Anow))&show-query-input=true&show-time-filter=true&hide-filter-bar=true
     app:
       image: sslhep/servicex_app
@@ -55,12 +56,12 @@ spec:
         enabled: false
         plugins: rabbitmq_prometheus
         podAnnotations:
-          prometheus.io/port: '9419'
-          prometheus.io/scrape: 'true'
+          prometheus.io/port: "9419"
+          prometheus.io/scrape: "true"
         prometheusRule:
           additionalLabels: {}
           enabled: false
-          namespace: ''
+          namespace: ""
           rules: []
         serviceMonitor:
           additionalLabels: {}
@@ -113,7 +114,7 @@ spec:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
-          kernel-ml: 'true'
+          kernel-ml: "true"
           storage: rook
       global:
         postgresql:
@@ -135,7 +136,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: 'true'
+          acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-uproot-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
@@ -144,7 +145,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: 'true'
+          acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-uproot-minio.servicex.ssl-hep.org
     gridAccount: ivukotic
     rbacEnabled: true
