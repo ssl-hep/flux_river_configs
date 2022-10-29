@@ -72,10 +72,17 @@ spec:
         existingPasswordSecret: servicex-secrets
       extraConfiguration: |-
         consumer_timeout = 3600000
+    x509Secrets:
+      image: sslhep/x509-secrets
+      tag: test-new-base
+      initImage: alpine:3.6
+      pullPolicy: Always
+      vomsOrg: atlas
     didFinder:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
+        tag: test-new-base
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
