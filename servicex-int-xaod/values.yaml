@@ -90,7 +90,6 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: develop
       pullPolicy: Always
     transformer:
       autoscaler:
@@ -101,7 +100,6 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      defaultTransformerTag: develop
     postgres:
       enabled: true
     postgresql:
