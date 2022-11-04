@@ -28,7 +28,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: sslhep/servicex_app
+      tag: poetry-test
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true

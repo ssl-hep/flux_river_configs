@@ -30,7 +30,7 @@ spec:
         port: 5959
         protocol: TCP
     app:
-      image: sslhep/servicex_app
+      tag: poetry-test
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
