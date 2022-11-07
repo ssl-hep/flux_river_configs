@@ -102,6 +102,9 @@ spec:
       enabled: true
     postgresql:
       primary:
+        resources:
+          requests:
+            cpu: 8
         persistence:
           enabled: false
           storageClass: rook-ceph-block
