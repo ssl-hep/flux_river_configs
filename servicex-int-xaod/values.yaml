@@ -28,7 +28,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      # tag: poetry-test
+      tag: db-cleanup
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
