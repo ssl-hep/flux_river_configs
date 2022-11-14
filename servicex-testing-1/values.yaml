@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.31-RC.10"
+      version: "1.0.34"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -28,9 +28,6 @@ spec:
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
-      # tag: bulk_file_additions
-      # image: ivukotic/servicexapp
-      # tag: ilija
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -81,8 +78,6 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-          # tag: bulk_file_additions
-        # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
@@ -91,7 +86,6 @@ spec:
       CERNOpenData:
         enabled: false
         image: sslhep/servicex-did-finder-cernopendata
-          # tag: develop
         pullPolicy: Always
         cachePrefix:
 
@@ -100,7 +94,7 @@ spec:
       enabled: true
         #image: sslhep/servicex_code_gen_func_adl_uproot
       image: sslhep/servicex_code_gen_atlas_xaod
-        # tag: develop
+      tag: func_adl_xaod_2.1b1
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
@@ -116,7 +110,6 @@ spec:
       defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For uproot deployment
       #defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      # defaultTransformerTag: develop
 
     # enable postgresql backend for servicex
     postgres:
