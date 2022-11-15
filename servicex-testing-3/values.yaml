@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.29"
+      version: "1.0.34"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -29,7 +29,7 @@ spec:
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-      tag: develop
+      tag: codegen-transformer
       # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
@@ -83,7 +83,7 @@ spec:
       # image: sslhep/servicex_code_gen_atlas_xaod
       # For uproot deployment
       image: sslhep/servicex_code_gen_atlas_xaod
-      tag: develop
+      tag: codegen-transformer
       pullPolicy: Always
 
     # Pull policy for the worker pods - the image and version are specified as
