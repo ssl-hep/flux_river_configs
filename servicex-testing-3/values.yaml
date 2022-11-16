@@ -121,7 +121,14 @@ spec:
         nodeSelector:
           kernel-ml: "true"
           storage: "rook"
-      existingSecret: servicex-secrets
+      global:
+        postgresql:
+          auth:
+            database: servicex
+            existingSecret: servicex-secrets
+            secretKeys:
+              adminPasswordKey: postgresql-password
+
 
     # Values for Minio Chart
     minio:
