@@ -28,7 +28,6 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: db-cleanup
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
