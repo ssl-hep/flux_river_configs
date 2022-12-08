@@ -88,6 +88,8 @@ spec:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
+      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+
     transformer:
       autoscaler:
         enabled: true
@@ -96,13 +98,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       # For Transformer Sidecar Deployment
-      sidecarTag: v1.1.0-alpha.2
       language: python
       exec: /generated/transform_single_file.py
-      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultScienceContainerTag: v1.1.0-alpha.2
     postgres:
       enabled: true
     postgresql:

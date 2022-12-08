@@ -86,6 +86,8 @@ spec:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
       pullPolicy: Always
+      defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+
     transformer:
       autoscaler:
         enabled: true
@@ -94,13 +96,9 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       # For Transformer Sidecar Deployment
-      sidecarTag: v1.1.0-alpha.2
       language: bash
       exec: /generated/transform_single_file.sh
-      defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-      defaultScienceContainerTag: v1.1.0-alpha.2
     postgres:
       enabled: true
     postgresql:
