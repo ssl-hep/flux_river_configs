@@ -30,7 +30,6 @@ spec:
         port: 5959
         protocol: TCP
     app:
-      tag: validate_docker_image
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
