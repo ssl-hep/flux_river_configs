@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.0-rc.6"
+      version: "1.1.0-rc.8"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -90,7 +90,6 @@ spec:
       image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
       defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-
     transformer:
       autoscaler:
         enabled: true

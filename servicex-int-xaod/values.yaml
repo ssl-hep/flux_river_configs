@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.0-rc.6"
+      version: "1.1.0-rc.8"
   interval: 5m
   values:
     # Default values for servicex.
@@ -87,7 +87,6 @@ spec:
       image: sslhep/servicex_code_gen_atlas_xaod
       pullPolicy: Always
       defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-
     transformer:
       autoscaler:
         enabled: true
