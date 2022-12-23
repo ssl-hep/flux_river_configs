@@ -32,6 +32,7 @@ spec:
     app:
       tag: uproot_write_root
       pullPolicy: Always
+      defaultUsers: "users"
       auth: true
       replicas: 1
       logLevel: INFO
