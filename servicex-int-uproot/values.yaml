@@ -30,7 +30,6 @@ spec:
         port: 5959
         protocol: TCP
     app:
-      tag: uproot_write_root
       pullPolicy: Always
       defaultUsers: "users"
       auth: true
