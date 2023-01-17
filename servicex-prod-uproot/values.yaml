@@ -79,6 +79,7 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
+      image: sslhep/servicex-did-finder
       rucio:
         enabled: true
         # tag: develop
