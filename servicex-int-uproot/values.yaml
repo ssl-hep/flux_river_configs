@@ -87,7 +87,6 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_uproot
-      tag: uproot_write_root
       pullPolicy: Always
       defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
     transformer:
