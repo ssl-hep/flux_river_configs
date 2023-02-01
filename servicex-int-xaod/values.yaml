@@ -142,6 +142,8 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-xaod-minio.servicex.ssl-hep.org
+    minioCleanup:
+      enabled: true
     gridAccount: ivukotic
     rbacEnabled: true
     secrets: servicex-secrets
