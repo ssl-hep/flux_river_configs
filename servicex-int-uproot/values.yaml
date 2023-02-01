@@ -145,7 +145,7 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-uproot-minio.servicex.ssl-hep.org
     minioCleanup:
-      enabled: true
+      enabled: false
     gridAccount: ivukotic
     rbacEnabled: true
     secrets: servicex-secrets
