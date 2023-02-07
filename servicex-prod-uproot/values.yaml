@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.3"
+      version: "1.1.4"
   interval: 60m
   values:
     # Default values for servicex.
@@ -28,13 +28,20 @@ spec:
       publicURL: prod-uproot-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
-    
+    logging:
+      logstash:
+        enabled: true
+        host: servicex.atlas-ml.org
+        port: 5959
+        protocol: TCP
+        
     # Settings for the Flask App
     app:
       image: sslhep/servicex_app
       # tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
+      logLevel: INFO
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
@@ -123,7 +130,8 @@ spec:
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       # defaultTransformerTag:20220309-1723-stable
-
+      language: python
+      exec: /generated/transform_single_file.py
     # Values for the Postgresql Chart
     postgres:
       enabled: true
@@ -164,6 +172,8 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "prod-uproot-minio.servicex.ssl-hep.org"
         
+    minioCleanup:
+      enabled: true
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
     gridAccount: ivukotic
