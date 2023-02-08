@@ -130,8 +130,8 @@ spec:
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
       # defaultTransformerTag:20220309-1723-stable
-      language: python
-      exec: /generated/transform_single_file.py
+      language: bash
+      exec: /generated/transform_single_file.sh
     # Values for the Postgresql Chart
     postgres:
       enabled: true
