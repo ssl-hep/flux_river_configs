@@ -98,8 +98,8 @@ spec:
             # tag: alpine
           ttl: 86400  
         image: sslhep/servicex-did-finder
-        CERNOpenData:
-          enabled: false
+      CERNOpenData:
+        enabled: false
 
     #
     # Code Generator service
