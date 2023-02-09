@@ -37,7 +37,6 @@ spec:
         
     # Settings for the Flask App
     app:
-      image: sslhep/servicex_app
       # tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
@@ -86,7 +85,6 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
-      image: sslhep/servicex-did-finder
       rucio:
         enabled: true
         # tag: develop
@@ -104,7 +102,6 @@ spec:
 
       CERNOpenData:
         enabled: false
-        image: sslhep/servicex-did-finder-cernopendata
           # tag: develop
         pullPolicy: Always
             
@@ -113,10 +110,11 @@ spec:
     # Code Generator service
     codeGen:
       enabled: true
-      # image: sslhep/servicex_code_gen_func_adl_xaod
-      # For uproot deployment
       image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
+      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultScienceContainerTag: v1.1.4
+
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -128,10 +126,11 @@ spec:
         maxReplicas: 750
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      # defaultTransformerTag:20220309-1723-stable
-      language: bash
-      exec: /generated/transform_single_file.sh
+
+      # Settings for the uproot transformer science container
+      language: python
+      exec: /generated/transform_single_file.py
+
     # Values for the Postgresql Chart
     postgres:
       enabled: true
