@@ -33,7 +33,6 @@ spec:
 
     # Settings for the Flask App
     app:
-      # image: sslhep/servicex_app
       # tag: "develop"
       adminEmail: bengal1@illinois.edu
       # pullPolicy: Always
@@ -82,8 +81,6 @@ spec:
 
     # Settings for the DID Finder
     didFinder:
-      image: sslhep/servicex-did-finder
-        #      image: sslhep/servicex-did-finder-cernopendata
       rucio:
         enabled: true
         # tag: develop
@@ -106,6 +103,9 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
+      defaultScienceContainerImage: sslhep/sslhep/servicex_func_adl_xaod_transformer
+      defaultScienceContainerTag: v1.1.4
+
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -117,7 +117,6 @@ spec:
         maxReplicas: 750
       # pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
       language: bash
       exec: /generated/transform_single_file.sh       
 
