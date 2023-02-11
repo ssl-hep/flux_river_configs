@@ -91,9 +91,10 @@ spec:
         servicex_longitude: -87.7
         memcache:
           enabled: true
-          image: memcached
+          image:
+            memcached
             # tag: alpine
-          ttl: 86400  
+          ttl: 86400
         image: sslhep/servicex-did-finder
       CERNOpenData:
         enabled: false
@@ -103,9 +104,8 @@ spec:
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_atlas_xaod
-      defaultScienceContainerImage: sslhep/sslhep/servicex_func_adl_xaod_transformer
+      defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
       defaultScienceContainerTag: v1.1.4
-
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -118,7 +118,7 @@ spec:
       # pullPolicy: Always
       cpuLimit: 1
       language: bash
-      exec: /generated/transform_single_file.sh       
+      exec: /generated/transform_single_file.sh
 
     # enabled postgresql backend for servicex
     postgres:
@@ -140,8 +140,8 @@ spec:
           kernel-ml: "true"
           storage: "rook"
       global:
-        postgresql: 
-          auth: 
+        postgresql:
+          auth:
             database: servicex
             existingSecret: servicex-secrets
             secretKeys:
@@ -151,7 +151,7 @@ spec:
     minio:
       auth:
         existingSecret: servicex-secrets
-      
+
       tls:
         enabled: false
       service:
@@ -174,9 +174,9 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "prod-xaod-minio.servicex.ssl-hep.org"
-        
+
     minioCleanup:
-      enabled: true          
+      enabled: true
     ###### Settings for Authenticating with the CERN Infrastructure #######
 
     gridAccount: ivukotic
