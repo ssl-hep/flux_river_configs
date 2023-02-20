@@ -109,8 +109,6 @@ spec:
         defaultScienceContainerTag: develop
       cms:
         enabled: false
-
-
     transformer:
       autoscaler:
         enabled: true
