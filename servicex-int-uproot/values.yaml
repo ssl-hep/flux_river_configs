@@ -30,6 +30,7 @@ spec:
         port: 5959
         protocol: TCP
     app:
+      tag: multiple-codegen
       pullPolicy: Always
       defaultUsers: "users"
       auth: true
@@ -85,10 +86,31 @@ spec:
       CERNOpenData:
         enabled: true
     codeGen:
-      enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      pullPolicy: Always
-      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: develop
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: develop
+      atlasxaod:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: develop
+      cms:
+        enabled: false
+
+
     transformer:
       autoscaler:
         enabled: true
@@ -97,9 +119,6 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      # For Transformer Sidecar Deployment
-      language: python
-      exec: /generated/transform_single_file.py
     postgres:
       enabled: true
     postgresql:
