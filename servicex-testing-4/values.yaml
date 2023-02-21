@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.33-RC.1"
+      version: "v1.0.34"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -28,8 +28,6 @@ spec:
     # Settings for the Flask App
 
     app:
-      image: sslhep/servicex_app
-      tag: web-frontend-changes
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -81,30 +79,26 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        # tag: develop
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
-        # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
           enabled: true
           image:
             memcached
-            # tag: alpine
           ttl: 86400
 
-    #
-    # Code Generator service
+      CERNOpenData:
+        enabled: true
+        image: sslhep/servicex-did-finder-cernopendata
+        pullPolicy: Always
+    
     codeGen:
       enabled: true
-      image:
-        sslhep/servicex_code_gen_func_adl_uproot
-        # tag: develop
+      image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
 
-    # Pull policy for the worker pods - the image and version are specified as
-    # part of the transform request
     transformer:
       autoscaler:
         enabled: true
@@ -114,26 +108,18 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
       defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultTransformerTag: develop
-
+      
     postgres:
       enabled: true
 
-    # Values for the Postgresql Chart
-    #
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the postgresql password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
-    # the new password and then getting authorization error
     postgresql:
       primary:
+        resources:
+          requests:
+            cpu: 8
         persistence:
-          enabled: false
+          enabled: true
           storageClass: rook-ceph-block
-        nodeSelector:
-          kernel-ml: "true"
-          storage: "rook"
       global:
         postgresql:
           auth:
@@ -146,29 +132,6 @@ spec:
     minio:
       auth:
         existingSecret: servicex-secrets
-
-      # tls:
-      #   enabled: false
-      # service:
-      #   ports:
-      #     api: 9000
-
-      # ingress:
-      #   enabled: true
-      #   annotations:
-      #     kubernetes.io/ingress.class: nginx
-      #     cert-manager.io/cluster-issuer: letsencrypt-prod
-      #     acme.cert-manager.io/http01-edit-in-place: "true"
-      #   hostname: "testing-4-minio-console.servicex.ssl-hep.org"
-      #   tls: true
-      # apiIngress:
-      #   enabled: true
-      #   tls: true
-      #   annotations:
-      #     kubernetes.io/ingress.class: nginx
-      #     cert-manager.io/cluster-issuer: letsencrypt-prod
-      #     acme.cert-manager.io/http01-edit-in-place: "true"
-      #   hostname: "testing-4-minio.servicex.ssl-hep.org"
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
     gridAccount: xcache
