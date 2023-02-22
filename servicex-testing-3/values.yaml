@@ -13,14 +13,16 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.35-alpha.1"
+      version: "1.1.4"
   interval: 5m
   values:
-    # Enable deployment of Minio Object Store with this chart - use this if you
-    # want to have the option of delivering results as parquet files
+
     objectStore:
       enabled: true
-      publicURL: testing-3-minio.servicex.ssl-hep.org
+      internal: false
+      publicURL: s3.ssl-hep.org
+      useTLS: true
+      useClientTLS: true
 
     # Settings for the Flask App
     app:
@@ -74,19 +76,23 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: develop
+        image: sslhep/servicex-did-finder
+        pullPolicy: Always
+        cachePrefix: root://192.170.240.18:1094//
 
+      CERNOpenData:
+        enabled: false
+        image: sslhep/servicex-did-finder-cernopendata
+        # tag: develop
+        pullPolicy: Always
     #
     # Code Generator service
     codeGen:
       enabled: true
-      # image: sslhep/servicex_code_gen_atlas_xaod
-      # For uproot deployment
-      image: sslhep/servicex_code_gen_atlas_xaod
-      tag: codegen-transformer
+      image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      defaultTransformerTag: develop
+      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+      defaultScienceContainerTag: v1.1.4   
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
@@ -94,33 +100,29 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 20
-        maxReplicas: 100
-      # pullPolicy: Always
+        minReplicas: 10
+        maxReplicas: 750
+      pullPolicy: Always
       cpuLimit: 1
-      # For uproot deployment
-      #  defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
+       # Settings for the uproot transformer science container
+      language: python
+      exec: /generated/transform_single_file.py       
+
+    # enable postgresql backend for servicex
     postgres:
       enabled: true
 
-    # Values for the Postgresql Chart
-    #
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the postgresql password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
-    # the new password and then getting authorization error
     postgresql:
-      nodeSelector:
-        storage: "rook"
-      persistence:
-        enabled: false
-        storageClass: rook-ceph-block
-      master:
-        nodeSelector:
-          kernel-ml: "true"
-          storage: "rook"
+      primary:
+        resources:
+          requests:
+            cpu: 4
+        persistence:
+          enabled: true
+          storageClass: rook-ceph-block
+      existingSecret: servicex-secrets
+
       global:
         postgresql:
           auth:
@@ -129,24 +131,22 @@ spec:
             secretKeys:
               adminPasswordKey: postgresql-password
 
-
     # Values for Minio Chart
     minio:
-      existingSecret: servicex-secrets
-      ingress:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: nginx
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-          acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
-          - "testing-3-minio.servicex.ssl-hep.org"
-        tls:
-          - hosts:
-              - testing-3-minio.servicex.ssl-hep.org
-            secretName: xaod-minio-tls
+      auth:
+        existingSecret: servicex-secrets
 
-    ###### Settings for Authenticating with the CERN Infrastructure #######
+    # Values for the Minio cleanup
+    # run once every 8 hours and prune storage to 1T if more than 1.5T is being
+    # used files more than 30 days old get removed
+    minioCleanup:
+      enabled: true
+      schedule: "0 */8 * * *"
+      maxAge: 30
+      maxSize: "1500G"
+      normSize: "1T"
+          
+
     gridAccount: xcache
     rbacEnabled: true
 
