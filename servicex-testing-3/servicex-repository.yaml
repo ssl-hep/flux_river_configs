@@ -7,8 +7,4 @@ metadata:
 spec:
   interval: 5m
   url: https://ssl-hep.github.io/ssl-helm-charts/
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: servicex-testing-3
+
