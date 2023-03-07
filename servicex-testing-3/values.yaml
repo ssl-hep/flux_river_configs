@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.4"
+      version: "1.1.5-rc.1"
   interval: 5m
   values:
 
@@ -78,14 +78,12 @@ spec:
         enabled: true
         image: sslhep/servicex-did-finder
         pullPolicy: Always
-        cachePrefix: root://192.170.240.18:1094//
 
       CERNOpenData:
         enabled: true
         image: sslhep/servicex-did-finder-cernopendata
-        cachePrefix: root://192.170.240.18:1094//
         pullPolicy: Always
-    #
+    
     # Code Generator service
     codeGen:
       enabled: true
@@ -97,6 +95,9 @@ spec:
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
+    
+      cachePrefix: root://192.170.240.18:1094//
+      
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
