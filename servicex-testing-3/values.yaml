@@ -31,7 +31,7 @@ spec:
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-#       tag: codegen-transformer
+      tag: develop
       # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
