@@ -73,7 +73,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
@@ -88,6 +87,9 @@ spec:
       pullPolicy: Always
       defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
     transformer:
+    
+      cachePrefix: "\"root://192.170.240.18:1094//\""
+      
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
