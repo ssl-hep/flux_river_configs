@@ -1,35 +1,38 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-int-xaod
-  namespace: servicex-int-xaod
+  name: servicex-release-int-uproot
+  namespace: servicex-int-uproot
 spec:
-  releaseName: servicex-release-int-xaod
-  serviceAccountName: servicex-int-xaod
+  releaseName: servicex-release-int-uproot
+  serviceAccountName: servicex-int-uproot
   chart:
     spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.5-rc.1"
+      version: "1.1.5-alpha.4"
   interval: 5m
   values:
-    # Default values for servicex.
-    # This is a YAML-formatted file.
-    # Declare variables to be passed into your templates.
-
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
       internal: true
-      publicURL: int-xaod-minio.servicex.ssl-hep.org
+      publicURL: int-uproot-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
+    logging:
+      logstash:
+        enabled: true
+        host: servicex.atlas-ml.org
+        port: 5959
+        protocol: TCP
     app:
-      adminEmail: bengal1@illinois.edu
+      tag: multiple-codegen
       pullPolicy: Always
+      defaultUsers: "users"
       auth: true
       replicas: 1
       logLevel: INFO
@@ -40,9 +43,11 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-int-xaod.servicex.ssl-hep.org
+          host: servicex-release-int-uproot.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
     rabbitmq:
+      nodeselector:
+        storage: rook
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
@@ -65,31 +70,46 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      nodeSelector:
-        storage: rook
       extraConfiguration: |-
-        consumer_timeout = 7200000
-        # just adding a new line.
+        consumer_timeout = 3600000
+    x509Secrets:
+      vomsOrg: atlas
     didFinder:
       rucio:
         enabled: true
+        cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
           enabled: true
-          image: memcached
           ttl: 86400
       CERNOpenData:
         enabled: true
     codeGen:
-      enabled: true
-      image: sslhep/servicex_code_gen_atlas_xaod
-      pullPolicy: Always
-      defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: develop
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: develop
+      atlasxaod:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        pullPolicy: Always
+        tag: multiple-codegen
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: develop
+      cms:
+        enabled: false
     transformer:
-    
-      cachePrefix: "\"root://192.170.240.18:1094//\""
-      
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -97,9 +117,6 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      # For Transformer Sidecar Deployment
-      language: bash
-      exec: /generated/transform_single_file.sh
     postgres:
       enabled: true
     postgresql:
@@ -134,7 +151,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: int-xaod-minio-console.servicex.ssl-hep.org
+        hostname: int-uproot-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
         enabled: true
@@ -143,7 +160,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: int-xaod-minio.servicex.ssl-hep.org
+        hostname: int-uproot-minio.servicex.ssl-hep.org
     minioCleanup:
       enabled: false
     gridAccount: ivukotic
