@@ -1,11 +1,11 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-int-uproot
-  namespace: servicex-int-uproot
+  name: servicex-release-int
+  namespace: servicex-int
 spec:
-  releaseName: servicex-release-int-uproot
-  serviceAccountName: servicex-int-uproot
+  releaseName: servicex-release-int
+  serviceAccountName: servicex-int
   chart:
     spec:
       chart: servicex
@@ -20,7 +20,7 @@ spec:
     objectStore:
       enabled: true
       internal: true
-      publicURL: int-uproot-minio.servicex.ssl-hep.org
+      publicURL: int-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
     logging:
@@ -30,7 +30,7 @@ spec:
         port: 5959
         protocol: TCP
     app:
-      tag: multiple-codegen
+      tag: develop
       pullPolicy: Always
       defaultUsers: "users"
       auth: true
@@ -43,7 +43,7 @@ spec:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-int-uproot.servicex.ssl-hep.org
+          host: servicex-release-int.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
     rabbitmq:
       nodeselector:
@@ -90,26 +90,27 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
         pullPolicy: Always
-        tag: multiple-codegen
+        tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: develop
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         pullPolicy: Always
-        tag: multiple-codegen
+        tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: develop
       atlasxaod:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
         pullPolicy: Always
-        tag: multiple-codegen
+        tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: develop
       cms:
         enabled: false
     transformer:
+      cachePrefix: "\"root://192.170.240.18:1094//\""
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -151,7 +152,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: int-uproot-minio-console.servicex.ssl-hep.org
+        hostname: int-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
         enabled: true
@@ -160,7 +161,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: int-uproot-minio.servicex.ssl-hep.org
+        hostname: int-minio.servicex.ssl-hep.org
     minioCleanup:
       enabled: false
     gridAccount: ivukotic
