@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.5-alpha4"
+      version: "1.1.5-rc.2"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -90,25 +90,27 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
         pullPolicy: Always
-        tag: develop
+        tag: "v1.1.5-rc.2"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: develop
+        defaultScienceContainerTag: v1.1.5-rc.2
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         pullPolicy: Always
-        tag: develop
+        tag: "v1.1.5-rc.2"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: develop
+        defaultScienceContainerTag: v1.1.5-rc.2
       atlasxaod:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
         pullPolicy: Always
-        tag: develop
+        tag: "v1.1.5-rc.2"
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        defaultScienceContainerTag: develop
+        defaultScienceContainerTag: v1.1.5-rc.2
       cms:
         enabled: false
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerTag: v1.1.5-rc.2
     transformer:
       cachePrefix: "\"root://192.170.240.18:1094//\""
       autoscaler:
