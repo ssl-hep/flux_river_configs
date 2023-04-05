@@ -89,7 +89,7 @@ spec:
       uproot:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
-        tag: 1.1.5-rc.2
+        tag: v1.1.5-rc.2
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot4
 
@@ -103,21 +103,23 @@ spec:
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
-        tag: 1.1.5-rc.2
+        tag: v1.1.5-rc.2
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 21.2.231
 
       atlasr22:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
-        tag: 1.1.5-rc.2
+        tag: v1.1.5-rc.2
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 22.2.107
 
-      cms:
-        enabled: false
-        tag: "v1.1.5-rc.2"
-        defaultScienceContainerTag: v1.1.5-rc.2
+      cmssw_5_3_32:
+        enabled: true
+        image: sslhep/servicex_code_gen_cms_aod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
+        defaultScienceContainerTag: cmssw_5_3_32
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
