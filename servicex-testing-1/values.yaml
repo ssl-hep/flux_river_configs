@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.0.34"
+      version: "1.1.5-rc.2"
   interval: 60m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -77,29 +77,39 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: sslhep/servicex-did-finder
         pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
 
       CERNOpenData:
-        enabled: false
-        image: sslhep/servicex-did-finder-cernopendata
-        pullPolicy: Always
-        cachePrefix:
+        enabled: true
 
-    # Code Generator service
     codeGen:
-      enabled: true
-        #image: sslhep/servicex_code_gen_func_adl_uproot
-      image: sslhep/servicex_code_gen_atlas_xaod
-      tag: func_adl_xaod_2.1b1
-      pullPolicy: Always
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      atlasxaod:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      cms:
+        enabled: false
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerTag: v1.1.5-rc.2
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
+      cachePrefix: "\"root://192.170.240.18:1094//\""
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -107,9 +117,6 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_xaod_transformer
-      # For uproot deployment
-      #defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
 
     # enable postgresql backend for servicex
     postgres:
