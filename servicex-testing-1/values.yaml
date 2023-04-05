@@ -114,7 +114,7 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 22.2.107
 
-      cmssw_5_3_32:
+      cmssw-5-3-32:
         enabled: true
         image: sslhep/servicex_code_gen_cms_aod
         tag: v1.1.5-rc.2
