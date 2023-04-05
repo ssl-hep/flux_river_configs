@@ -90,17 +90,23 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: v1.1.5-rc.2
+        defaultScienceContainerTag: uproot4
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: v1.1.5-rc.2
-      atlasxaod:
+        defaultScienceContainerTag: uproot4
+      atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        defaultScienceContainerTag: v1.1.5-rc.2
+        defaultScienceContainerTag: 21.2.231
+      atlasr22:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 22.2.107
+
       cms:
         enabled: false
         tag: "v1.1.5-rc.2"
