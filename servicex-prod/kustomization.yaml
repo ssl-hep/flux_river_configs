@@ -2,8 +2,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: servicex-int-kustomization
-  namespace: servicex-int
+  name: servicex-prod-kustomization
+  namespace: servicex-prod
 
 resources:
   - servicex-repository.yaml

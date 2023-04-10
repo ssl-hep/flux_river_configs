@@ -1,31 +1,26 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: servicex-release-prod-uproot
-  namespace: servicex-prod-uproot
+  name: servicex-release-prod
+  namespace: servicex-prod
 spec:
-  releaseName: servicex-release-prod-uproot
-  serviceAccountName: servicex-prod-uproot
+  releaseName: servicex-release-prod
+  serviceAccountName: servicex-prod
   chart:
     spec:
       chart: servicex
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.4"
-  interval: 60m
+      version: "1.1.5-rc.2"
+  interval: 5m
   values:
-    # Default values for servicex.
-    # This is a YAML-formatted file.
-    # Declare variables to be passed into your templates.
-
     # Enable deployment of Minio Object Store with this chart - use this if you
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
       internal: true
-      publicURL: prod-uproot-minio.servicex.ssl-hep.org
+      publicURL: prod-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
     logging:
@@ -34,32 +29,25 @@ spec:
         host: servicex.atlas-ml.org
         port: 5959
         protocol: TCP
-        
-    # Settings for the Flask App
     app:
-      # tag: develop
-      adminEmail: bengal1@illinois.edu
+      tag: develop
       pullPolicy: Always
-      logLevel: INFO
+      defaultUsers: "users"
       auth: true
       replicas: 1
+      logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file
-      slackSigningSecret: "dummy"
-      newSignupWebhook: "dummy"
+      slackSigningSecret: dummy
+      newSignupWebhook: dummy
       ingress:
         enabled: true
         tls:
           enabled: true
-          host: servicex-release-prod-uproot.servicex.ssl-hep.org
+          host: servicex-release-prod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the rabbitmq password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
-
     rabbitmq:
+      nodeselector:
+        storage: rook
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
@@ -82,85 +70,91 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-
-    # Settings for the DID Finder
+      extraConfiguration: |-
+        consumer_timeout = 3600000
+    x509Secrets:
+      vomsOrg: atlas
     didFinder:
       rucio:
         enabled: true
-        # tag: develop
-        pullPolicy: Always
         cachePrefix: root://192.170.240.18:1094//
-        # cachePrefix: root://xrd-cache-1.t2.ucsd.edu:7777//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
           enabled: true
-          image: memcached
-            # tag: alpine
           ttl: 86400
-          
-
       CERNOpenData:
-        enabled: false
-          # tag: develop
-        pullPolicy: Always
-            
-
-    #
-    # Code Generator service
+        enabled: true
     codeGen:
-      enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      pullPolicy: Always
-      defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultScienceContainerTag: v1.1.4
-
-
-    # Pull policy for the worker pods - the image and version are specified as
-    # part of the transform request
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        pullPolicy: Always
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        pullPolicy: Always
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      atlasxaod:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        pullPolicy: Always
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: v1.1.5-rc.2
+      cms:
+        enabled: false
+        tag: "v1.1.5-rc.2"
+        defaultScienceContainerTag: v1.1.5-rc.2
     transformer:
+      cachePrefix: '"root://192.170.240.18:1094//"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
-      # pullPolicy: Always
+      pullPolicy: Always
       cpuLimit: 1
-
-      # Settings for the uproot transformer science container
-      language: python
-      exec: /generated/transform_single_file.py
-
-    # Values for the Postgresql Chart
     postgres:
       enabled: true
     postgresql:
       primary:
+        resources:
+          requests:
+            cpu: 8
         persistence:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
           kernel-ml: "true"
-          storage: "rook"
+          storage: rook
       global:
-        postgresql: 
-          auth: 
+        postgresql:
+          auth:
             database: servicex
             existingSecret: servicex-secrets
             secretKeys:
               adminPasswordKey: postgresql-password
-      
-    # Values for Minio Chart
     minio:
       auth:
         existingSecret: servicex-secrets
+      tls:
+        enabled: false
+      service:
+        ports:
+          api: 9000
       ingress:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "prod-uproot-minio.servicex-console.ssl-hep.org"
+        hostname: prod-minio-console.servicex.ssl-hep.org
         tls: true
       apiIngress:
         enabled: true
@@ -169,14 +163,10 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "prod-uproot-minio.servicex.ssl-hep.org"
-        
+        hostname: prod-minio.servicex.ssl-hep.org
+
     minioCleanup:
       enabled: true
-    ###### Settings for Authenticating with the CERN Infrastructure #######
-
     gridAccount: ivukotic
     rbacEnabled: true
-
-    ## secrets location
     secrets: servicex-secrets

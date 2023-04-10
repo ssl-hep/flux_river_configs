@@ -112,7 +112,7 @@ spec:
         tag: "v1.1.5-rc.2"
         defaultScienceContainerTag: v1.1.5-rc.2
     transformer:
-      cachePrefix: "\"root://192.170.240.18:1094//\""
+      cachePrefix: '"root://192.170.240.18:1094//"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -165,7 +165,7 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: int-minio.servicex.ssl-hep.org
     minioCleanup:
-      enabled: false
+      enabled: true
     gridAccount: ivukotic
     rbacEnabled: true
     secrets: servicex-secrets
