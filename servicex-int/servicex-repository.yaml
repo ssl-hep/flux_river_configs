@@ -5,5 +5,5 @@ metadata:
   name: servicex-repo
   namespace: servicex-int
 spec:
-  interval: 5m
+  interval: 3m
   url: https://ssl-hep.github.io/ssl-helm-charts/
