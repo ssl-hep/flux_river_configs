@@ -5,7 +5,7 @@ the instance exists in.
 
 ## Instances
 
-**Do not modify the prod-xaod/prod-uproot or int-xaod/int-prod** instances since they are used
+**Do not modify the servicex-prod and servicex-int instances since they are used
 for CI of production and development code.  The
 testing-1/testing-2/testing-3/testing-4
 instances can be used for testing purposes, just let the slack channel know in
