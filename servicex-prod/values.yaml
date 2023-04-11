@@ -30,7 +30,7 @@ spec:
     app:
       tag: develop
       pullPolicy: Always
-      defaultUsers: "users"
+      # defaultUsers: "users"
       auth: true
       replicas: 1
       logLevel: INFO
