@@ -4,11 +4,10 @@ kind: Kustomization
 metadata:
   name: servicex-prod-kustomization
   namespace: servicex-prod
-
 resources:
   - servicex-repository.yaml
+  - slack-notification.yaml
   - servicex-secrets-sealed.yaml
   - servicex-slack-sealed.yaml
   - grid-certs-sealed.yaml
-  - slack-notification.yaml
   - values.yaml
