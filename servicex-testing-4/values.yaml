@@ -28,7 +28,7 @@ spec:
     # Settings for the Flask App
 
     app:
-      tag: "v1.2.0"
+      tag: "v1.2.1-alpha.1"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
