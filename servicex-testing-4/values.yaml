@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.0.34"
+      version: "v1.2.1-alpha.1"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -31,6 +31,7 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
+      jwtIssuer: https://cms-auth.web.cern.ch/
       replicas: 1
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
@@ -78,28 +79,46 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: sslhep/servicex-did-finder
-        pullPolicy: Always
-        cachePrefix: root://192.170.240.18:1094//
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
           enabled: true
-          image:
-            memcached
           ttl: 86400
-
       CERNOpenData:
         enabled: true
-        image: sslhep/servicex-did-finder-cernopendata
-        pullPolicy: Always
-    
     codeGen:
-      enabled: true
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      pullPolicy: Always
-
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        tag: "v1.2.0"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        tag: "v1.2.0"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
+      atlasr21:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: "v1.2.0"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 21.2.231
+      atlasr22:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: "v1.2.0"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 22.2.107
+      cmssw-5-3-32:
+        enabled: true
+        image: sslhep/servicex_code_gen_cms_aod
+        tag: "v1.2.0"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
+        defaultScienceContainerTag: cmssw-5-3-32
     transformer:
+      cachePrefix: '"root://192.170.240.18:1094//"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -107,8 +126,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      
+
     postgres:
       enabled: true
 
