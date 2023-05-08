@@ -8,7 +8,5 @@ resources:
   - servicex-repository.yaml
   - servicex-testing-1-sealed-secret.yaml
   - servicex-testing-1-sealed-slack.yaml
-  - servicex-testing-1-sealed-docker.yaml
   - values.yaml
   - slack-notification.yaml
-  - docker-webhook.yaml

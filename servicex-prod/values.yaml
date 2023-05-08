@@ -43,6 +43,7 @@ spec:
           enabled: true
           host: servicex-release-prod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
+
     rabbitmq:
       nodeselector:
         storage: rook
@@ -70,8 +71,10 @@ spec:
         existingPasswordSecret: servicex-secrets
       extraConfiguration: |-
         consumer_timeout = 3600000
+
     x509Secrets:
       vomsOrg: atlas
+
     didFinder:
       rucio:
         enabled: true
@@ -128,6 +131,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
+
     postgres:
       enabled: true
     postgresql:
@@ -148,6 +152,7 @@ spec:
             existingSecret: servicex-secrets
             secretKeys:
               adminPasswordKey: postgresql-password
+
     minio:
       auth:
         existingSecret: servicex-secrets

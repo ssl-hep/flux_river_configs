@@ -13,10 +13,9 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.1.5-rc.1"
+      version: "1.2.0"
   interval: 5m
   values:
-
     objectStore:
       enabled: true
       internal: false
@@ -84,32 +83,32 @@ spec:
         enabled: true
         image: sslhep/servicex-did-finder-cernopendata
         pullPolicy: Always
-    
+
     # Code Generator service
     codeGen:
       enabled: true
       image: sslhep/servicex_code_gen_func_adl_uproot
       pullPolicy: Always
       defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-      defaultScienceContainerTag: v1.1.4   
+      defaultScienceContainerTag: v1.1.4
 
     # Pull policy for the worker pods - the image and version are specified as
     # part of the transform request
     transformer:
-    
-      cachePrefix: "\"root://192.170.240.18:1094//\""
-      
+      cachePrefix: '"root://192.170.240.18:1094//"'
+
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
       pullPolicy: Always
-      cpuLimit: 1
+      cpuLimit:
+        1
 
-       # Settings for the uproot transformer science container
+        # Settings for the uproot transformer science container
       language: python
-      exec: /generated/transform_single_file.py       
+      exec: /generated/transform_single_file.py
 
     # enable postgresql backend for servicex
     postgres:
@@ -147,7 +146,6 @@ spec:
       maxAge: 30
       maxSize: "1500G"
       normSize: "1T"
-          
 
     gridAccount: xcache
     rbacEnabled: true
