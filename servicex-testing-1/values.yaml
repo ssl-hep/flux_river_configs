@@ -25,7 +25,7 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: develop
+      tag: 496-reorganize-dataset-and-file-handling-in-the-db
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
