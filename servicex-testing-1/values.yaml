@@ -26,7 +26,7 @@ spec:
     app:
       # image: sslhep/servicex_app
       # tag: 496-reorganize-dataset-and-file-handling-in-the-db
-      image: ivukotic/servicex_app
+      image: ivukotic/servicex-app
       tag: ivukotic
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
