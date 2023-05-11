@@ -77,7 +77,7 @@ spec:
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
-          enabled: true
+          enabled: false
           ttl: 86400
       CERNOpenData:
         enabled: true
@@ -119,6 +119,8 @@ spec:
         defaultScienceContainerTag: cmssw-5-3-32
 
     transformer:
+      defaultTransformerImage: ivukotic/transformer_sidecar
+      defaultTransformerTag: ivukotic
       cachePrefix: '"root://192.170.240.18:1094//"'
       autoscaler:
         enabled: true
