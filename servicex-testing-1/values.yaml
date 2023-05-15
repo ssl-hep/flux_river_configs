@@ -28,7 +28,7 @@ spec:
       # tag: 496-reorganize-dataset-and-file-handling-in-the-db
       image: ivukotic/servicex-app
       tag: ivukotic
-      adminEmail: bengal1@illinois.edu
+      adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
       replicas: 1
