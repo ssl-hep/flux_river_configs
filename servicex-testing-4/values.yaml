@@ -150,7 +150,8 @@ spec:
     # Values for Minio Chart
     minio:
       auth:
-        existingSecret: servicex-secrets
+        rootPassword: leftfoot1
+        rootUser: miniouser
       tls:
         enabled: false
       service:
