@@ -4,10 +4,10 @@ kind: Kustomization
 metadata:
   name: servicex-testing-2-kustomization
   namespace: servicex-testing-2
-
 resources:
   - servicex-repository.yaml
+  - slack-notification.yaml
   - servicex-testing-2-sealed-secret.yaml
   - servicex-testing-2-sealed-slack.yaml
+  - grid-certs-sealed.yaml
   - values.yaml
-  - slack-notification.yaml

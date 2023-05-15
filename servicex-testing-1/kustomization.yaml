@@ -6,7 +6,8 @@ metadata:
   namespace: servicex-testing-1
 resources:
   - servicex-repository.yaml
+  - slack-notification.yaml
   - servicex-testing-1-sealed-secret.yaml
   - servicex-testing-1-sealed-slack.yaml
+  - grid-certs-sealed.yaml
   - values.yaml
-  - slack-notification.yaml
