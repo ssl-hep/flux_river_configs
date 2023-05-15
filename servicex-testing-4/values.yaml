@@ -32,7 +32,7 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      jwtIssuer: https://cms-auth.web.cern.ch/
+      jwtIssuer: globus
       replicas: 1
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
