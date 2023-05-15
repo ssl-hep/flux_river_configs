@@ -20,7 +20,7 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      internal: false
+      internal: true
       publicURL: s3.ssl-hep.org
       useTLS: true
       useClientTLS: true
