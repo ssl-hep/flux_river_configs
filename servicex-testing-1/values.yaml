@@ -180,3 +180,7 @@ spec:
 
     ### secrets location
     secrets: servicex-secrets
+
+    logging:
+      logstash:
+        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/3a570940-f34c-11ed-a6d8-9f6a16cd6d78?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-24h%2Fh%2Cto%3Anow))&show-time-filter=true&hide-filter-bar=true"
