@@ -21,12 +21,6 @@ spec:
       publicURL: prod-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
-    logging:
-      logstash:
-        enabled: true
-        host: servicex.atlas-ml.org
-        port: 5959
-        protocol: TCP
     app:
       tag: develop
       pullPolicy: Always
@@ -183,3 +177,7 @@ spec:
     gridAccount: ivukotic
     rbacEnabled: true
     secrets: servicex-secrets
+
+    logging:
+      logstash:
+        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/4f197320-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true&hide-filter-bar=true"
