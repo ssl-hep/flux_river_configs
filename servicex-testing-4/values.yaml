@@ -153,7 +153,7 @@ spec:
         rootPassword: leftfoot1
         rootUser: miniouser
       tls:
-        enabled: false
+        enabled: true
       service:
         ports:
           api: 9000
