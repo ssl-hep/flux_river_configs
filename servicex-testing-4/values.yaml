@@ -20,7 +20,7 @@ spec:
     # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
-      internal: false
+      internal: true
       publicURL: s3.ssl-hep.org
       useTLS: true
       useClientTLS: true
@@ -150,7 +150,30 @@ spec:
     # Values for Minio Chart
     minio:
       auth:
-        existingSecret: servicex-secrets
+        rootPassword: leftfoot1
+        rootUser: miniouser
+      tls:
+        enabled: false
+      service:
+        ports:
+          api: 9000
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hostname: testing4-minio-console.servicex.ssl-hep.org
+        tls: true
+      apiIngress:
+        enabled: true
+        tls: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hostname: testing4-minio.servicex.ssl-hep.org
+
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
     gridAccount: ivukotic
