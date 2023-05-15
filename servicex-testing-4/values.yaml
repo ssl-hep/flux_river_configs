@@ -21,7 +21,10 @@ spec:
     objectStore:
       enabled: true
       internal: true
+      publicURL: testing-4-minio.servicex.ssl-hep.org
       useTLS: false
+      useClientTLS: true
+
 
     # Settings for the Flask App
 
@@ -148,8 +151,7 @@ spec:
     # Values for Minio Chart
     minio:
       auth:
-        rootPassword: leftfoot1
-        rootUser: miniouser
+        existingSecret: servicex-secrets
       tls:
         enabled: false
       service:
@@ -161,7 +163,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: testing4-minio-console.servicex.ssl-hep.org
+        hostname: "testing-4-minio-console.servicex.ssl-hep.org"
         tls: true
       apiIngress:
         enabled: true
@@ -170,7 +172,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: testing4-minio.servicex.ssl-hep.org
+        hostname: "testing-4-minio.servicex.ssl-hep.org"
 
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
