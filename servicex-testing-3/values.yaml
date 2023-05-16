@@ -23,14 +23,12 @@ spec:
       useTLS: true
       useClientTLS: true
 
-    # Settings for the Flask App
     app:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
-      tag: develop
       # need dummy values so that it's in the config file
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
@@ -41,10 +39,6 @@ spec:
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the rabbitmq password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
@@ -71,7 +65,6 @@ spec:
       nodeselector:
         storage: rook
 
-    # Settings for the DID Finder
     didFinder:
       rucio:
         enabled: true
@@ -81,8 +74,7 @@ spec:
 
       CERNOpenData:
         enabled: true
-        image: sslhep/servicex-did-finder-cernopendata
-        pullPolicy: Always
+        # image: sslhep/servicex-did-finder-cernopendata
 
     codeGen:
       uproot:
@@ -120,11 +112,8 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
 
-    # Pull policy for the worker pods - the image and version are specified as
-    # part of the transform request
     transformer:
       cachePrefix: '"root://192.170.240.18:1094//"'
-
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
@@ -138,15 +127,11 @@ spec:
       language: python
       exec: /generated/transform_single_file.py
 
-    # enable postgresql backend for servicex
     postgres:
       enabled: true
 
     postgresql:
       primary:
-        resources:
-          requests:
-            cpu: 4
         persistence:
           enabled: true
           storageClass: rook-ceph-block
@@ -160,22 +145,19 @@ spec:
             secretKeys:
               adminPasswordKey: postgresql-password
 
-    # Values for Minio Chart
     minio:
       auth:
         existingSecret: servicex-secrets
 
-    # Values for the Minio cleanup
-    # run once every 8 hours and prune storage to 1T if more than 1.5T is being
-    # used files more than 30 days old get removed
     minioCleanup:
       enabled: true
       schedule: "0 */8 * * *"
       maxAge: 30
-      maxSize: "1500G"
-      normSize: "1T"
+      maxSize: "500G"
+      normSize: "400G"
 
     gridAccount: ivukotic
+
     rbacEnabled: true
 
     ### secrets location
