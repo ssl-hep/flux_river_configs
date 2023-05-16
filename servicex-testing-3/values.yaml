@@ -175,7 +175,7 @@ spec:
       maxSize: "1500G"
       normSize: "1T"
 
-    gridAccount: xcache
+    gridAccount: ivukotic
     rbacEnabled: true
 
     ### secrets location
