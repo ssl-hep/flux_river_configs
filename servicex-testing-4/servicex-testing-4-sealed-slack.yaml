@@ -1,30 +1,17 @@
-{
-  "kind": "SealedSecret",
-  "apiVersion": "bitnami.com/v1alpha1",
-  "metadata": {
-    "name": "servicex-slack",
-    "namespace": "servicex-testing-4",
-    "creationTimestamp": null,
-    "annotations": {
-      "sealedsecrets.bitnami.com/namespace-wide": "true"
-    }
-  },
-  "spec": {
-    "template": {
-      "metadata": {
-        "name": "servicex-slack",
-        "namespace": "servicex-testing-4",
-        "creationTimestamp": null,
-        "annotations": {
-          "sealedsecrets.bitnami.com/managed": "true",
-          "sealedsecrets.bitnami.com/namespace-wide": "true"
-        }
-      },
-      "type": "Opaque",
-      "data": null
-    },
-    "encryptedData": {
-      "address": "AgBdX97+sa0invP2wCDvtKuhdq/FrTPKYebbSnuen/lhvXzpZ3XUNk/x+QvvBEZCarlK5ymJUpmorfwjHqjknLJOhkeTnMNa/3mGTrTk7fpeZF922G3I62w2oVCBWX75gj0aOUz2lv7GVBCaz7xXlXU4Tfq84V04opr893GdznvZ4PB0kMJ9wfgXM2JzbzlRNr7DmjEv0CQfNWZ3AIJFfjXrgvAQporJM9ISl2J4zNG4aMfEBntCSl8pNeszeoFFZ2qHu8fQOZSt8FXtn5PSOJZN1lYk2cZ2pfQH4C2ylOaOc8yOmyHLLM0pVZ6WVeN8rnQUl8KXtJ8MQ8BCD6/qHYorJaE9BYraHYwf+G5LwCYsQk177YZOa5pbbY/mx/DSYfbnW3qNF7Xn3w2U2G4jXrpFg3Q49PvZwP8Lhgg1Ev9eqP1JWjOcyZMVeeK3SdW6to1wT2wJIAO9h/2Hn7a1HjBT8haZEtLlLDQ4nZ8GKm5Cy+JEJXzfHL2pdxUOdnPuYgZpvp4uOHF1vsNk+NKj1cfTnWWOS5nZQSerUHNcZ2nDpSGWuoDmAUy0EUIlVcdmQrkXmR0V63L68qFo37o26BIi84SDZvF9R6Ew8cKHQ/FztXW0UOxXPnVM5Swpf3V4LQsix+snzzK62R66SW9U5rMMlx8pMes4fpm8Z6YLy0a3J+3bpjxtopAANeBXFGMkS/1YQSOYx4Fi9Zx4KVZBMI7icFXdBTzSVG1p5NqgDP1tDoH/+p4ZorxWB1zBAEJ8rUe+Km2+k1PSTvSzjiIYevl72B9++4lruNekBwJlZ/rs"
-    }
-  }
-}
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: servicex-slack
+  namespace: servicex-testing-4
+spec:
+  encryptedData:
+    address: AgDBm7BpFJvi5ip7MtfzpoOpSNidtksBmdVhp7XJdzT1cn8He4Kd46Q9PHZ7A2uSeRBb3P1uJqqH6gfm/JT7lw0RJGllRWI1RF/OeSCqcjkmJ5UufCnVFNTO+RvJ3nD+263RwkTmT9U9k7Yisp+rHU7f2GtawLZl6rUQ1U2YmtY0or36dJN/sU7pclE/QHtDn8NUSuD/1Y7VTa2q3siUed4OipN9h9r6W1uOp02ovKI2JEAriMZ1/qfG0cuzLnbjrW3n1aQqiYtsWlgTv1WYwsKXmZE9eZ4anohAnHr7WAqz9dDmW/X2s7BVUR77WFJENFICgyh5bQui+H9oeVkWvnT7xTI6YtWBiqd66GC6YdpDImg5pvHhVmoVaDagBVbodyKDNjYd+Q/MYUe2VVTTcLdfFMRtEAvpmw2jtvtkIty0goK2L9rEjSMAe/lzZ9AtO3DlWOPgL1XqnnKPs4HwxS5Iyflrh+iznfZlCXIgJ4aBFifwAZKiVXdfCmc+voJkG5Es5VNJ1keuMIDcwFi43qgCjaBkcSu2t3/d9aA/vdYpVgIWyCLd+RV37DqhJR2QpapIubXPws6pdoNbB8qKUOwqtiPhUxqO00XTjfJkziTfpoYCLTZLoZm//ihbmfxmp4j/8CiFD2vg5ONtp7GuyNQstjHh3ZFYC3+r6Pxcw/2XWCs9bBv3Uf4RO+WbwBhc6X/A6XOc9WpJL0u8Of/u9XiDtrnR/4lUjlhwyPA6QpkAPQJo7TSIH85ffhqdAbPfJfPrRw07p3jpa3OwcTcDgDJZGStDjDx0eM0CTEQtYiA5
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: servicex-slack
+      namespace: servicex-testing-4
+    type: Opaque
+
