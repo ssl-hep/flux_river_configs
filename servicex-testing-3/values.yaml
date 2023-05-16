@@ -73,7 +73,7 @@ spec:
         pullPolicy: Always
 
       CERNOpenData:
-        enabled: true
+        enabled: false
         # image: sslhep/servicex-did-finder-cernopendata
 
     codeGen:
