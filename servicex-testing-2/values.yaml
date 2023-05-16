@@ -70,7 +70,7 @@ spec:
         # image: sslhep/servicex-did-finder
         # tag: develop
       CERNOpenData:
-        enabled: true
+        enabled: false
         # image: sslhep/servicex-did-finder-cernopendata
         # tag: develop
 
