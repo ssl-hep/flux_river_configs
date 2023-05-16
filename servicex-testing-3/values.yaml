@@ -133,7 +133,7 @@ spec:
     postgresql:
       primary:
         persistence:
-          enabled: true
+          enabled: false
           storageClass: rook-ceph-block
       existingSecret: servicex-secrets
 
