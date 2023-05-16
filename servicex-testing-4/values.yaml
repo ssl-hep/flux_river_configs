@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.2.1-alpha.1"
+      version: "v1.2.0"
   interval: 5m
   values:
     # Enable deployment of Minio Object Store with this chart - use this if you
@@ -25,11 +25,10 @@ spec:
       useTLS: false
       useClientTLS: true
 
-
     # Settings for the Flask App
 
     app:
-      tag: "v1.2.1-alpha.1"
+      tag: "v1.2.0"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -173,7 +172,6 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-4-minio.servicex.ssl-hep.org"
-
 
     ###### Settings for Authenticating with the CERN Infrastructure #######
     gridAccount: ivukotic
