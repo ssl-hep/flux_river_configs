@@ -1,20 +1,15 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  annotations:
-    sealedsecrets.bitnami.com/namespace-wide: "true"
   creationTimestamp: null
   name: servicex-slack
   namespace: servicex-testing-2
 spec:
   encryptedData:
-    address: AgAPGmVuF+D9jR8pUrn5ut8kdlA4OmHAyPSFDZZm7shaVtHCbykMZBt8NT7cGX4ftkgGPQtGphN8lcwHrgyt3LLOjTtRsH2lK1mITom1KqENWXsWmedRNS63JF9gDF43eGBMMAFLwbG6y6kH8n1blp6EJ8K4IgJjk5l2JpE7Ra3LiwUZ7+F0kJ6iGPb2cgNdXvNmm6dueQ3ytGm4Mv3YBYIBgonbKoWm6PuBoo2RtoabxuhkMT89MFG0FFnIs/E/2PKBWoqaDid3l7o+ng9bbN4mM3jU/uP9yse7lQEZ7RSyetBitlfW7OPXqzG9zMdKkmI1BACpiyWZkQN8zYnHyCYk1s6+QL52yGwiCDVflybeqqckCSiysDgmBY7exlgu2guTG43d4+JQQxwcbws14itYyMpOvq6YXSOD9ICBcSn8W7jHC0BEz26NLA2nAIIwMyi9VqlXdR1MU3v+CKdV0BmZvIZ466ej8W2k34SDynN9FOTAynYzaRTE3aVQJ9enOreORzkup4L4VvxSw4NQBUjIGf2NA7Nw1ASG5/sqgaMwfApVpjfGA5EgWGFV3KxWglGPUM6FSXOzheW03UC7dfhp8fH0xwaj5vc8DhqOjy9a1/Fu/eZoV4CQ5Pm2jSOJrfpYOSY1y4aqwvxXv6S0jvaVVuyLaU83SuwkZfGD9x5IFdLze4Xq3NdKcRRdEQBsMcwZSAPZraQi8OHiU6ZSKYfIAbjU0q3skqisbNVMMCsANB3S9eMuppyH3kFc6e43zDDC3V3TimZcrBwzCbUf9RmN0Uze5/WIhd7ez17MA93+
+    address: AgB1jIJZfUGLrZlg3/BFqHmzjYdxVcsjzKJbJLE5sN+9NmNUGuo0gfSRlVudSkdsIOm1Frk6rLAhY9K87Bsraex9kp45fj65/pb/7S9ehdaX+yO4+q7F2JY344gPg86vC83r52MotEVm24FiPItPVnjeotb0iOKy0No7FeRK8f+Lx5+reu5l9uw+QnhBg99jaN2cec6HoWSo6v3T0F82AVIXwI0sF72AvEqWlscFRDv9V/8qpRu8crvlwNPYBaiat/4G6XG0cmo4f7OL+31p1xSZfOmYS6Fc6LB7pjHU0m9707T4FHca1XN8ebUXeWfxPwyYaaF/butKWdM8X0keStBHl/m970Nvb6Thv2qhMlDtf5MjD5E/RtUM8WUxSxPsoqlxyuJFWj1vqIEmy/hl1FuwwhKEyDmwN5kszD/gJhnNcCyILV9LNHgeCdYcD/mT1x5h0nI+0f8B7WpXmmYnf8Km2aP4kcBtMvCNuD325g0JUbCVWXLg4qhq9TDnskhyjgDMKzbLibFJBy7Lt8+Vgr4zgMuzS+Vs4T1bHtyi+MyjZIVoByERp/+PCbcwkbanE2Z2P41SUFMtRqTh/7i8Pgo8kVV7F3Fv6nEjhp7jetyi9UggrTIJcpQfRpG7D5/BVWLt+5KLCvntXbyeBUO2lAiYx53Yo8VXTIMUBFxLM8n6LWcXFpJ+iAcb7PoVJkC2bTPy1tDzkLF3ZAeR+UPAhqCO01zaSEL+11ukWyMwMPn5DxorLsEElUQtDBADSm/RgYRH8Td3W3UgewgPhweHRQLdmPu/hjMsbS9iac6QMEK7
   template:
     data: null
     metadata:
-      annotations:
-        sealedsecrets.bitnami.com/managed: "true"
-        sealedsecrets.bitnami.com/namespace-wide: "true"
       creationTimestamp: null
       name: servicex-slack
       namespace: servicex-testing-2

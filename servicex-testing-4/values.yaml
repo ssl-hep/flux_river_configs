@@ -87,6 +87,7 @@ spec:
           ttl: 86400
       CERNOpenData:
         enabled: true
+
     codeGen:
       uproot:
         enabled: true

@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: servicex-repo
       version: "1.2.0"
-  interval: 60m
+  interval: 5m
   values:
     objectStore:
       enabled: true

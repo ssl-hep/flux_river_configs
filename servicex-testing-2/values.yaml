@@ -16,17 +16,10 @@ spec:
       version: "1.2.0"
   interval: 5m
   values:
-    # Default values for servicex.
-    # This is a YAML-formatted file.
-    # Declare variables to be passed into your templates.
-
-    # Enable deployment of Minio Object Store with this chart - use this if you
-    # want to have the option of delivering results as parquet files
     objectStore:
       enabled: true
       publicURL: testing-2-minio.servicex.ssl-hep.org
 
-    # Settings for the Flask App
     app:
       # tag: develop
       adminEmail: bengal1@illinois.edu
@@ -43,10 +36,6 @@ spec:
           host: servicex-release-testing-2.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the rabbitmq password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
     rabbitmq:
       metrics:
         enabled: false
@@ -79,81 +68,101 @@ spec:
         enabled: true
         # image: sslhep/servicex-did-finder
         # tag: develop
-        pullPolicy: Always
-        # cachePrefix: root://192.170.240.18:1094//
-
       CERNOpenData:
         enabled: true
         # image: sslhep/servicex-did-finder-cernopendata
         # tag: develop
-        pullPolicy: Always
-        cachePrefix:
 
-    #
-    # Code Generator service
     codeGen:
-      enabled: true
-      # image: sslhep/servicex_code_gen_cms_aod
-      # For uproot deployment
-      image: sslhep/servicex_code_gen_func_adl_uproot
-      # tag: pr_cms_fixes
-      pullPolicy: Always
+      uproot:
+        enabled: true
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
 
-    # Pull policy for the worker pods - the image and version are specified as
-    # part of the transform request
+      python:
+        enabled: true
+        image: sslhep/servicex_code_gen_python
+        tag: develop
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
+
+      atlasr21:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 21.2.231
+
+      atlasr22:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 22.2.107
+
+      cmssw-5-3-32:
+        enabled: true
+        image: sslhep/servicex_code_gen_cms_aod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
+        defaultScienceContainerTag: cmssw-5-3-32
+
     transformer:
+      cachePrefix: '"root://192.170.240.18:1094//"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 100
       cpuLimit: 1
-      # defaultTransformerImage: sslhep/servicex_func_adl_cms_aod_transformer
-      # For uproot deployment
-      defaultTransformerImage: sslhep/servicex_func_adl_uproot_transformer
-      # defaultTransformerTag: pr_build_cms_on_the_sly
 
-    # set servicex to use postgresql
     postgres:
       enabled: true
 
-    # Values for the Postgresql Chart
-    #
-    # ************************ IMPORTANT NOTE ***********************
-    # If you enable persistance, you must delete the pv claim if you
-    # change the postgresql password, otherwise the prior password will
-    # remain in effect and cause problems due to new pods trying to use
-    # the new password and then getting authorization error
     postgresql:
-      nodeSelector:
-        storage: "rook"
-      persistence:
-        enabled: false
-        storageClass: rook-ceph-block
-      master:
+      primary:
+        persistence:
+          enabled: false
+          storageClass: rook-ceph-block
         nodeSelector:
           kernel-ml: "true"
-      existingSecret: servicex-secrets
+          storage: "rook"
+      global:
+        postgresql:
+          auth:
+            database: servicex
+            existingSecret: servicex-secrets
+            secretKeys:
+              adminPasswordKey: postgresql-password
 
-    # Values for Minio Chart
     minio:
-      existingSecret: servicex-secrets
+      auth:
+        existingSecret: servicex-secrets
+      tls:
+        enabled: false
+      service:
+        ports:
+          api: 9000
       ingress:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hosts:
-          - "testing-2-minio.servicex.ssl-hep.org"
-        tls:
-          - hosts:
-              - testing-2-minio.servicex.ssl-hep.org
-            secretName: testing-2-minio-tls
+        hostname: "testing-1-minio-console.servicex.ssl-hep.org"
+        tls: true
+      apiIngress:
+        enabled: true
+        tls: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+          acme.cert-manager.io/http01-edit-in-place: "true"
+        hostname: "testing-1-minio.servicex.ssl-hep.org"
 
-    ###### Settings for Authenticating with the CERN Infrastructure #######
-
-    gridAccount: xcache
+    gridAccount: ivukotic
 
     rbacEnabled: true
 
