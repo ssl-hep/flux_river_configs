@@ -18,8 +18,10 @@ spec:
   values:
     objectStore:
       enabled: true
+      internal: true
       publicURL: testing-2-minio.servicex.ssl-hep.org
-
+      useTLS: false
+      useClientTLS: true
     app:
       # tag: develop
       adminEmail: bengal1@illinois.edu
@@ -62,7 +64,6 @@ spec:
       nodeselector:
         storage: rook
 
-    # Settings for the DID Finder
     didFinder:
       rucio:
         enabled: true
@@ -115,7 +116,7 @@ spec:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 10
-        maxReplicas: 100
+        maxReplicas: 750
       cpuLimit: 1
 
     postgres:
@@ -151,7 +152,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "testing-1-minio-console.servicex.ssl-hep.org"
+        hostname: "testing-2-minio-console.servicex.ssl-hep.org"
         tls: true
       apiIngress:
         enabled: true
@@ -160,7 +161,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
-        hostname: "testing-1-minio.servicex.ssl-hep.org"
+        hostname: "testing-2-minio.servicex.ssl-hep.org"
 
     gridAccount: ivukotic
 
