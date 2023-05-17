@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.2.0"
+      version: "v1.2.1-alpha.1"
   interval: 5m
   values:
     objectStore:
@@ -24,7 +24,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: "v1.2.0"
+      tag: "fixing-servicex-download"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -88,7 +88,7 @@ spec:
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
-        tag: "v1.2.0"
+        tag: "python_transformer_multitree"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot4
       atlasr21:
