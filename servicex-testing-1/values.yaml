@@ -24,10 +24,10 @@ spec:
       useClientTLS: true
 
     app:
-      # image: sslhep/servicex_app
-      # tag: 496-reorganize-dataset-and-file-handling-in-the-db
-      image: ivukotic/servicex-app
-      tag: ivukotic
+      image: sslhep/servicex_app
+      tag: 496-reorganize-dataset-and-file-handling-in-the-db
+      # image: ivukotic/servicex-app
+      # tag: ivukotic
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
