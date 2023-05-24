@@ -81,8 +81,10 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
         tag: "v1.2.0"
-        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        # defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        # defaultScienceContainerTag: uproot4
+        defaultScienceContainerImage: ivukotic/servicex_code_gen_func_adl_uproot
+        defaultScienceContainerTag: "ivukotic"
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
@@ -108,7 +110,8 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
     transformer:
-      cachePrefix: '"root://192.170.240.18:1094//"'
+      cachePrefix: '""'
+      # cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
