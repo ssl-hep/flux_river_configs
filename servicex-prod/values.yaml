@@ -84,7 +84,7 @@ spec:
       uproot:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
-        tag: "v1.2.1"
+        tag: "v1.2.1-post.1"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot4
 
