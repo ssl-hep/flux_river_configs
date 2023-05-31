@@ -111,8 +111,10 @@ spec:
         defaultScienceContainerTag: cmssw-5-3-32
 
     transformer:
-      defaultTransformerImage: ivukotic/transformer_sidecar
-      defaultTransformerTag: 597
+      sidecarImage: ivukotic/transformer_sidecar
+      sidecarTag: 597
+      # defaultTransformerImage: ivukotic/transformer_sidecar
+      # defaultTransformerTag: 597
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
