@@ -113,9 +113,9 @@ spec:
     transformer:
       sidecarImage: ivukotic/transformer_sidecar
       sidecarTag: 597
-      # defaultTransformerImage: ivukotic/transformer_sidecar
-      # defaultTransformerTag: 597
-      cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      # cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      # cachePrefix: '"root://192.170.240.18:1094//"'
+      cachePrefix: '""'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
