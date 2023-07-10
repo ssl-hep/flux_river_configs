@@ -111,7 +111,9 @@ spec:
         defaultScienceContainerTag: cmssw-5-3-32
     transformer:
       # cachePrefix: '"root://192.170.240.18:1094//"'
-      cachePrefix: '""'
+      cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      sidecarTag: "v1.2.1-post.1"
+
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
