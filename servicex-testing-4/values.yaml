@@ -112,7 +112,7 @@ spec:
     transformer:
       # cachePrefix: '"root://192.170.240.18:1094//"'
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
-      sidecarTag: "597-make-sidecar-and-transformer-containers-communicate-over-socket"
+      sidecarTag: "549-xaod-transformer-writes-parquet"
 
       autoscaler:
         enabled: true
