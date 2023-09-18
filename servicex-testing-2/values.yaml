@@ -23,7 +23,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: develop
+      tag: 496-reorganize-dataset-and-file-handling-in-the-db
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -68,11 +68,11 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: develop
+        tag: 496-reorganize-dataset-and-file-handling-in-the-db
       CERNOpenData:
         enabled: false
         # image: sslhep/servicex-did-finder-cernopendata
-        tag: develop
+        tag: 496-reorganize-dataset-and-file-handling-in-the-db
 
     codeGen:
       uproot:
