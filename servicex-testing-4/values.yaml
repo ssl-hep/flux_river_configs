@@ -109,6 +109,12 @@ spec:
         tag: "develop"
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
+      uproot-raw:
+        enabled: true
+        image: ponyisi/code_gen_raw_uproot
+        tag: "develop"
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
     transformer:
       # cachePrefix: '"root://192.170.240.18:1094//"'
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
