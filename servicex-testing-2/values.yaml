@@ -173,7 +173,15 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-2-minio.servicex.ssl-hep.org"
-
+    
+    minioCleanup:
+      tag: "develop"
+      enabled: true
+      schedule: "0 */8 * * *"
+      maxAge: 30
+      maxSize: "1500G"
+      normSize: "1T"
+      
     gridAccount: ivukotic
 
     rbacEnabled: true
