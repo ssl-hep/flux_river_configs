@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.2.2"
+      version: "1.2.0"
   interval: 5m
   values:
     objectStore:
@@ -25,7 +25,9 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: v1.2.2
+      tag: 496-reorganize-dataset-and-file-handling-in-the-db
+      # image: ivukotic/servicex-app
+      # tag: ivukotic
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
@@ -69,10 +71,8 @@ spec:
 
     didFinder:
       rucio:
-        image: sslhep/servicex-did-finder
-        tag: v1.2.2
-        # image: ivukotic/did_finder_rucio
-        # tag: ivukotic
+        image: ivukotic/did_finder_rucio
+        tag: ivukotic
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
@@ -85,42 +85,42 @@ spec:
     codeGen:
       uproot:
         enabled: true
-        # image: sslhep/servicex_code_gen_func_adl_uproot
-        # tag: v1.1.5-rc.2
-        # defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        # defaultScienceContainerTag: uproot4
+        image: sslhep/servicex_code_gen_func_adl_uproot
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
 
       python:
         enabled: true
-        # image: sslhep/servicex_code_gen_python
-        # tag: develop
-        # defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        # defaultScienceContainerTag: uproot4
+        image: sslhep/servicex_code_gen_python
+        tag: develop
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot4
 
       atlasr21:
         enabled: true
-        # image: sslhep/servicex_code_gen_atlas_xaod
-        # tag: v1.1.5-rc.2
-        # defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        # defaultScienceContainerTag: 21.2.231
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 21.2.231
 
       atlasr22:
         enabled: true
-        # image: sslhep/servicex_code_gen_atlas_xaod
-        # tag: v1.1.5-rc.2
-        # defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        # defaultScienceContainerTag: 22.2.107
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 22.2.107
 
       cmssw-5-3-32:
         enabled: true
-        # image: sslhep/servicex_code_gen_cms_aod
-        # tag: v1.1.5-rc.2
-        # defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
-        # defaultScienceContainerTag: cmssw-5-3-32
+        image: sslhep/servicex_code_gen_cms_aod
+        tag: v1.1.5-rc.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
+        defaultScienceContainerTag: cmssw-5-3-32
 
     transformer:
-      # defaultTransformerImage: ivukotic/transformer_sidecar
-      # defaultTransformerTag: ivukotic
+      defaultTransformerImage: ivukotic/transformer_sidecar
+      defaultTransformerTag: ivukotic
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
