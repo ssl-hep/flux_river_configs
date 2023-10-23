@@ -69,6 +69,8 @@ spec:
 
     didFinder:
       rucio:
+        image: sslhep/servicex-did-finder
+        tag: v1.2.2
         # image: ivukotic/did_finder_rucio
         # tag: ivukotic
         enabled: true
