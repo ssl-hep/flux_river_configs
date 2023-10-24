@@ -74,7 +74,7 @@ spec:
         servicex_latitude: 41.78
         servicex_longitude: -87.7
         memcache:
-          enabled: false
+          enabled: true
           ttl: 86400
       CERNOpenData:
         enabled: true
@@ -98,6 +98,7 @@ spec:
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
+        # tag: pr_xAOD_codegen
         tag: v1.2.2
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 21.2.231
@@ -105,6 +106,7 @@ spec:
       atlasr22:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
+        # tag: pr_xAOD_codegen
         tag: v1.2.2
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 22.2.107
