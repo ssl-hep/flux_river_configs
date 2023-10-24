@@ -129,6 +129,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
+      sidecarTag: v1.2.2
 
     postgres:
       enabled: true
