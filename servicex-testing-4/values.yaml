@@ -24,7 +24,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: "dataset_manager"
+      tag: "develop"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -69,7 +69,7 @@ spec:
 
     didFinder:
       rucio:
-        tag: "dataset_manager"
+        tag: "develop"
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
@@ -83,7 +83,7 @@ spec:
       uproot:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
-        tag: "develop"
+        tag: "func_adl_uproot_2.1.0"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot4
       python:
