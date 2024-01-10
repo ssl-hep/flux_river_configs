@@ -85,13 +85,13 @@ spec:
         image: sslhep/servicex_code_gen_func_adl_uproot
         tag: "func_adl_uproot_2.1.0"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         tag: "develop"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
@@ -115,7 +115,7 @@ spec:
         image: ponyisi/code_gen_raw_uproot
         tag: "develop"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
     transformer:
       # cachePrefix: '"root://192.170.240.18:1094//"'
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
