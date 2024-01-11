@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.2.2"
+      version: "1.3.0-rc.1"
   interval: 5m
   values:
     objectStore:
@@ -25,7 +25,7 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: v1.2.2
+      tag: v1.3.0-rc.1
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
@@ -69,7 +69,7 @@ spec:
 
     didFinder:
       rucio:
-        tag: v1.2.2
+        tag: v1.3.0-rc.1
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
@@ -78,49 +78,47 @@ spec:
           ttl: 86400
       CERNOpenData:
         enabled: true
-        tag: v1.2.2
+        tag: v1.3.0-rc.1
 
     codeGen:
       uproot:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_uproot
-        tag: v1.2.2
+        tag: v1.3.0-rc.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
 
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
-        tag: v1.2.2
+        tag: v1.3.0-rc.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
 
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
-        tag: pr_xAOD_codegen
-        # tag: v1.2.2
+        tag: v1.3.0-rc.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 21.2.231
 
       atlasr22:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
-        tag: pr_xAOD_codegen
-        # tag: v1.2.2
+        tag: v1.3.0-rc.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 22.2.107
 
       cmssw-5-3-32:
         enabled: true
         image: sslhep/servicex_code_gen_cms_aod
-        tag: v1.2.2
+        tag: v1.3.0-rc.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
 
     transformer:
       # defaultTransformerImage: ivukotic/transformer_sidecar
-      defaultTransformerTag: v1.2.2
+      defaultTransformerTag: v1.3.0-rc.1
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
@@ -129,7 +127,7 @@ spec:
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
-      sidecarTag: v1.2.2
+      sidecarTag: v1.3.0-rc.1
 
     postgres:
       enabled: true
