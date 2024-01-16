@@ -25,7 +25,7 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: v1.3.0-rc.1
+      tag: issues-681
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
