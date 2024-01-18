@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -80,14 +79,14 @@ spec:
         image: sslhep/servicex_code_gen_func_adl_uproot
         tag: v1.3.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
 
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         tag: v1.3.1
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot4
+        defaultScienceContainerTag: uproot5
 
       atlasr21:
         enabled: true
@@ -114,8 +113,6 @@ spec:
       defaultTransformerTag: v1.3.1
       sidecarImage: sslhep/servicex_sidecar_transformer
       sidecarTag: v1.3.1
-      # sidecarImage: ivukotic/transformer_sidecar
-      # sidecarTag: 597
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       # cachePrefix: '"root://192.170.240.18:1094//"'
       # cachePrefix: '""'
@@ -171,7 +168,7 @@ spec:
         hostname: "testing-2-minio.servicex.ssl-hep.org"
 
     minioCleanup:
-      tag: "1.3.1"
+      tag: "v1.3.1"
       enabled: true
       schedule: "0 */8 * * *"
       maxAge: 30
