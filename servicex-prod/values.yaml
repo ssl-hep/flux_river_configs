@@ -63,8 +63,6 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      extraConfiguration: |-
-        consumer_timeout = 3600000
 
     x509Secrets:
       vomsOrg: atlas
@@ -75,9 +73,6 @@ spec:
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
-        memcache:
-          enabled: true
-          ttl: 86400
       CERNOpenData:
         tag: v1.3.1
         enabled: true
@@ -127,15 +122,11 @@ spec:
         cpuScaleThreshold: 30
         minReplicas: 10
         maxReplicas: 750
-      pullPolicy: Always
       cpuLimit: 1
     postgres:
       enabled: true
     postgresql:
       primary:
-        resources:
-          requests:
-            cpu: 2
         persistence:
           enabled: false
           storageClass: rook-ceph-block
