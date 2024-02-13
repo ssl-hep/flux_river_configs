@@ -24,7 +24,8 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: v1.3.2
+      # tag: v1.3.2
+      tag: 682-web-dashboard-selection-string-rendering-for-python-transformer
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
