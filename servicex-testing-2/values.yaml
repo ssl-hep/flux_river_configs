@@ -132,7 +132,6 @@ spec:
           enabled: false
           storageClass: rook-ceph-block
         nodeSelector:
-          kernel-ml: "true"
           storage: "rook"
       global:
         postgresql:
