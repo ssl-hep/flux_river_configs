@@ -25,7 +25,7 @@ spec:
     app:
       image: sslhep/servicex_app
       # tag: v1.3.2
-      tag: 682-web-dashboard-selection-string-rendering-for-python-transformer
+      tag: 709-user-interface-issue
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
@@ -121,7 +121,8 @@ spec:
       # defaultTransformerImage: ivukotic/transformer_sidecar
       defaultTransformerTag: v1.3.2
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: v1.3.2
+      # sidecarTag: v1.3.2
+      sidecarTag: 709-user-interface-issue
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
