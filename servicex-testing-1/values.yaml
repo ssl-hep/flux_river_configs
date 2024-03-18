@@ -25,7 +25,7 @@ spec:
     app:
       image: sslhep/servicex_app
       # tag: v1.3.2
-      tag: 709-user-interface-issue
+      tag: "716-quiet-failures-in-put_file_complete"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
@@ -122,7 +122,7 @@ spec:
       defaultTransformerTag: v1.3.2
       sidecarImage: sslhep/servicex_sidecar_transformer
       # sidecarTag: v1.3.2
-      sidecarTag: 709-user-interface-issue
+      sidecarTag: "716-quiet-failures-in-put_file_complete"
       cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
       autoscaler:
         enabled: true
