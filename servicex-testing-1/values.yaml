@@ -137,7 +137,7 @@ spec:
     postgresql:
       primary:
         persistence:
-          enabled: false
+          enabled: true
           # storageClass: rook-ceph-block
           storageClass: local-storage
         # nodeSelector:
