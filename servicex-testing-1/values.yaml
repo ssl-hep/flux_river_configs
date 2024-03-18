@@ -127,7 +127,7 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 10
+        minReplicas: 50
         maxReplicas: 750
       cpuLimit: 1
 
