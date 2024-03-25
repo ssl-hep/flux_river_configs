@@ -138,10 +138,10 @@ spec:
       primary:
         persistence:
           enabled: true
-          # storageClass: rook-ceph-block
-          storageClass: local-storage
-        # nodeSelector:
-        #   storage: "rook"
+          storageClass: rook-ceph-block
+          # storageClass: local-storage
+        nodeSelector:
+          storage: "rook"
       global:
         postgresql:
           auth:
