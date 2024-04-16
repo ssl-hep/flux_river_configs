@@ -24,7 +24,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: "develop"
+      tag: "log_url_and_title"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
