@@ -117,8 +117,7 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
     transformer:
-      # cachePrefix: '"root://192.170.240.18:1094//"'
-      cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      cachePrefix: '"xcache.af.uchicago.edu:1094//"'
       sidecarTag: "develop"
 
       autoscaler:
