@@ -113,6 +113,13 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
 
+      uproot-raw:
+        enabled: true
+        image: sslhep/servicex_code_gen_raw_uproot
+        tag: v1.3.2
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot5
+
     transformer:
       defaultTransformerTag: v1.3.2
       sidecarTag: v1.3.2
