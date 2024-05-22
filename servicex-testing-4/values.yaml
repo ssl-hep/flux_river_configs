@@ -24,7 +24,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: "develop"
+      tag: "log_url_and_title"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -117,8 +117,7 @@ spec:
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
     transformer:
-      # cachePrefix: '"root://192.170.240.18:1094//"'
-      cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      cachePrefix: '"xcache.af.uchicago.edu:1094"'
       sidecarTag: "develop"
 
       autoscaler:
