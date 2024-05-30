@@ -56,12 +56,12 @@ spec:
           interval: 30s
       persistence:
         enabled: false
-        storageClass: rook-ceph-block
+        # storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      nodeselector:
-        storage: rook
+      # nodeselector:
+      #   storage: rook
 
     didFinder:
       rucio:
