@@ -39,6 +39,7 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     rabbitmq:
+      clusterDomain: river-dev
       nodeselector:
         storage: rook
       metrics:

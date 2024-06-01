@@ -38,6 +38,7 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     rabbitmq:
+      clusterDomain: river-dev
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus

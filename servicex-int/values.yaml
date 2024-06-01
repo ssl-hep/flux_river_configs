@@ -37,7 +37,9 @@ spec:
           enabled: true
           host: servicex-release-int.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
+
     rabbitmq:
+      clusterDomain: river-dev
       nodeselector:
         storage: rook
       metrics:
@@ -64,8 +66,10 @@ spec:
         existingPasswordSecret: servicex-secrets
       extraConfiguration: |-
         consumer_timeout = 3600000
+
     x509Secrets:
       vomsOrg: atlas
+
     didFinder:
       rucio:
         tag: v1.3.1
