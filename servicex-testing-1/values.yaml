@@ -69,13 +69,14 @@ spec:
 
     didFinder:
       rucio:
-        tag: develop
+        tag: 792_celery_did_finder
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
       CERNOpenData:
         enabled: true
-        tag: develop
+        tag: 792_celery_did_finder
+
 
     codeGen:
       uproot:
