@@ -25,6 +25,7 @@ spec:
     app:
       image: sslhep/servicex_app
       tag: "792_celery_did_finder"
+      logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
       auth: true
