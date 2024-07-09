@@ -77,7 +77,9 @@ spec:
       CERNOpenData:
         enabled: true
         tag: 792_celery_did_finder
-
+      xrootd:
+        enabled: true
+        tag: 792_celery_did_finder
 
     codeGen:
       uproot:
