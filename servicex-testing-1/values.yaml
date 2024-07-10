@@ -120,7 +120,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: "develop"
+      sidecarTag: "792_celery_did_finder"
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       autoscaler:
         enabled: true
