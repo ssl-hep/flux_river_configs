@@ -87,14 +87,14 @@ spec:
         image: sslhep/servicex_code_gen_func_adl_uproot
         tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot5
+        defaultScienceContainerTag: uproot5-safe
 
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
         tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot5
+        defaultScienceContainerTag: uproot5-safe
 
       atlasr21:
         enabled: true
@@ -122,7 +122,7 @@ spec:
         image: ponyisi/code_gen_raw_uproot
         tag: "develop"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot5
+        defaultScienceContainerTag: uproot5-safe
 
 
     transformer:
