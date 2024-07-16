@@ -119,8 +119,8 @@ spec:
 
       uproot-raw:
         enabled: true
-        image: ponyisi/code_gen_raw_uproot
-        tag: "develop"
+        image: sslhep/servicex_code_gen_raw_uproot
+        tag: "empty-uproot-raw"
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5-safe
 
