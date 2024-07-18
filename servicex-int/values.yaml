@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: v1.4.0-alpha6
+      tag: v1.4.0-alpha.6
       pullPolicy: Always
       # defaultUsers: "users"
       auth: true
