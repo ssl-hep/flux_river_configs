@@ -77,6 +77,11 @@ spec:
       CERNOpenData:
         tag: v1.4.0-alpha.6
         enabled: true
+      xrootd:
+        enabled: true
+        image: sslhep/servicex-did-finder-xrootd
+        pullPolicy: Always
+        tag: v1.4.0-alpha.6
 
     codeGen:
       uproot:
