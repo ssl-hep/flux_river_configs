@@ -90,7 +90,15 @@ spec:
         tag: v1.4.0-alpha.6
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
-
+        
+      uproot-raw:
+        enabled: true
+        image: sslhep/servicex_code_gen_raw_uproot
+        pullPolicy: Always
+        tag: develop
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: uproot5
+    
       python:
         enabled: true
         image: sslhep/servicex_code_gen_python
