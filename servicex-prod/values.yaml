@@ -130,7 +130,7 @@ spec:
     transformer:
       defaultTransformerTag: v1.4.0-alpha.6
       sidecarTag: v1.4.0-alpha.6
-      cachePrefix: '"root://xcache.af.uchicago.edu:1094//"'
+      cachePrefix: '"xcache.af.uchicago.edu:1094"'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
