@@ -70,18 +70,18 @@ spec:
 
     didFinder:
       rucio:
-        tag: rucio-did-lost-files-2
+        tag: fix_off_by_one
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
       CERNOpenData:
-        tag: v1.4.0-alpha.6
+        tag: fix_off_by_one
         enabled: true
       xrootd:
         enabled: true
         image: sslhep/servicex-did-finder-xrootd
         pullPolicy: Always
-        tag: v1.4.0-alpha.6
+        tag: fix_off_by_one
 
     codeGen:
       uproot:
