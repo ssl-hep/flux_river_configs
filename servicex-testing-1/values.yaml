@@ -24,7 +24,7 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: "792_celery_did_finder"
+      tag: "792_transformer_celery"
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
@@ -70,16 +70,16 @@ spec:
 
     didFinder:
       rucio:
-        tag: 792_celery_did_finder
+        tag: develop
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
       CERNOpenData:
         enabled: true
-        tag: 792_celery_did_finder
+        tag: develop
       xrootd:
         enabled: true
-        tag: 792_celery_did_finder
+        tag: develop
 
     codeGen:
       uproot:
@@ -126,9 +126,9 @@ spec:
 
 
     transformer:
-      defaultTransformerTag: develop
+      defaultTransformerTag: 792_transformer_celery*
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: "792_celery_did_finder"
+      sidecarTag: "792_transformer_celery"
       cachePrefix: "'xcache.af.uchicago.edu:1094'"
       autoscaler:
         enabled: true
