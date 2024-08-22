@@ -133,8 +133,8 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 50
-        maxReplicas: 750
+        minReplicas: 2
+        maxReplicas: 5
       cpuLimit: 1
 
     postgres:
