@@ -67,6 +67,9 @@ spec:
         existingPasswordSecret: servicex-secrets
       nodeselector:
         storage: rook
+      # Set rabbitMQ consumer_timeout to 10 hours to avoid errors when transorm requests take a long time
+      extraConfiguration: |-
+        consumer_timeout = 36000000
 
     didFinder:
       rucio:
