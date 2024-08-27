@@ -123,7 +123,7 @@ spec:
       uproot-raw:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
-        tag: develop
+        tag: 792_transformer_celery
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
 
