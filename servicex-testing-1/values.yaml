@@ -68,6 +68,9 @@ spec:
       nodeselector:
         storage: rook
 
+    x509Secrets:
+      vomsOrg: atlas
+
     didFinder:
       rucio:
         tag: develop
@@ -123,7 +126,6 @@ spec:
         tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
-
 
     transformer:
       defaultTransformerTag: 792_transformer_celery*
