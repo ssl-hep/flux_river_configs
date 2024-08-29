@@ -67,6 +67,9 @@ spec:
         existingPasswordSecret: servicex-secrets
       nodeselector:
         storage: rook
+      # Set rabbitMQ consumer_timeout to 10 hours to avoid errors when transorm requests take a long time
+      extraConfiguration: |-
+        consumer_timeout = 36000000
 
     x509Secrets:
       vomsOrg: atlas
@@ -123,7 +126,7 @@ spec:
       uproot-raw:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
-        tag: develop
+        tag: 792_transformer_celery
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
 
@@ -135,8 +138,8 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 2
-        maxReplicas: 5
+        minReplicas: 50
+        maxReplicas: 750
       cpuLimit: 1
 
     postgres:
