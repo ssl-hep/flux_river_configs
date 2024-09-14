@@ -120,7 +120,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: develop
+      sidecarTag: celery-fixes
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
