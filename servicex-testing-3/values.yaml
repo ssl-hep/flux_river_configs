@@ -190,4 +190,4 @@ spec:
 
     logging:
       logstash:
-        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/1c14b070-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true&hide-filter-bar=true"
+        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/2612d340-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true&hide-filter-bar=true"
