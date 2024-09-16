@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: fix-dead-queues
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -120,9 +120,9 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: fix-dead-queues
-      cachePrefix: '"xcache.af.uchicago.edu:1094"'
-      # cachePrefix: '""'
+      sidecarTag: develop
+      # cachePrefix: '"xcache.af.uchicago.edu:1094"'
+      cachePrefix: '""'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
