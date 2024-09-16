@@ -24,7 +24,7 @@ spec:
 
     app:
       image: sslhep/servicex_app
-      tag: "792_transformer_celery"
+      tag: "837_db_retries"
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
@@ -126,14 +126,14 @@ spec:
       uproot-raw:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
-        tag: 792_transformer_celery
+        tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
 
     transformer:
       defaultTransformerTag: 792_transformer_celery*
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: "792_transformer_celery"
+      sidecarTag: "develop"
       cachePrefix: "'xcache.af.uchicago.edu:1094'"
       autoscaler:
         enabled: true
