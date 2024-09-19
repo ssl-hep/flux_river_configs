@@ -113,14 +113,14 @@ spec:
       uproot-raw:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
-        tag: uproot-raw-tenacity
+        tag: inclusive-error-logging
         defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot5
         
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: uproot-raw-tenacity
+      sidecarTag: inclusive-error-logging
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
