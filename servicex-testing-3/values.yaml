@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: develop
+      tag: postgres-preping
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -30,6 +30,8 @@ spec:
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
+      sqlalchemyEngineOptions:
+        pool_pre_ping: true
       ingress:
         enabled: true
         tls:
