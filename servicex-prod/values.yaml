@@ -81,10 +81,13 @@ spec:
     codeGen:
       uproot:
         tag: v1.5.0
+        defaultScienceContainerTag: uproot5
       uproot-raw:
         tag: v1.5.0
+        defaultScienceContainerTag: uproot5
       python:
         tag: v1.5.0
+        defaultScienceContainerTag: uproot5
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
