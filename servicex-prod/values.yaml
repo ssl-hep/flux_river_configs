@@ -22,6 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
+      tag: v1.5.0
       pullPolicy: Always
       # defaultUsers: "users"
       auth: true
@@ -69,10 +70,21 @@ spec:
 
     didFinder:
       rucio:
+        tag: v1.5.0
         servicex_latitude: 41.78
         servicex_longitude: -87.7
+      CERNOpenData:
+        tag: v1.5.0
+      xrootd:
+        tag: v1.5.0
 
     codeGen:
+      uproot:
+        tag: v1.5.0
+      uproot-raw:
+        tag: v1.5.0
+      python:
+        tag: v1.5.0
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
