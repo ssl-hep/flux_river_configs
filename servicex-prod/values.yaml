@@ -110,6 +110,7 @@ spec:
         defaultScienceContainerTag: cmssw-5-3-32
 
     transformer:
+      sidecarTag: v1.5.0
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       autoscaler:
         enabled: true
