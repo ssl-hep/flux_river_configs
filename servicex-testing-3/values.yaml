@@ -126,7 +126,7 @@ spec:
       # cachePrefix: '""'
       autoscaler:
         enabled: true
-        cpuScaleThreshold: 30
+        cpuScaleThreshold: 20
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
