@@ -69,7 +69,7 @@ spec:
       rucio:
         enabled: true
         image: sslhep/servicex-did-finder
-        tag: develop
+        tag: allow-site-setting-for-rucio
       CERNOpenData:
         enabled: true
         # image: sslhep/servicex-did-finder-cernopendata
