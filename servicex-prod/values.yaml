@@ -86,6 +86,9 @@ spec:
         enabled: true
         defaultScienceContainerTag: uproot5
 
+      atlasxaod:
+        enabled: false
+
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_func_adl_xaod
