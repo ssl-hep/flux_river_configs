@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.0"
+      version: "1.5.1-alpha.1"
   interval: 5m
   values:
     objectStore:
@@ -35,7 +35,6 @@ spec:
           enabled: true
           host: servicex-release-prod.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-
     rabbitmq:
       clusterDomain: river-dev
       nodeselector:
@@ -62,10 +61,8 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-
     x509Secrets:
       vomsOrg: atlas
-
     didFinder:
       rucio:
         servicex_latitude: 41.78
@@ -75,8 +72,6 @@ spec:
         enabled: true
       xrootd:
         enabled: true
-
-
     codeGen:
       uproot:
         defaultScienceContainerTag: uproot5
@@ -84,25 +79,21 @@ spec:
         defaultScienceContainerTag: uproot5
       python:
         defaultScienceContainerTag: uproot5
-
       atlasr21:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 21.2.231
-
       atlasr22:
         enabled: true
         image: sslhep/servicex_code_gen_atlas_xaod
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 22.2.107
-
       cmssw-5-3-32:
         enabled: true
         image: sslhep/servicex_code_gen_cms_aod
         defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
         defaultScienceContainerTag: cmssw-5-3-32
-
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       autoscaler:
@@ -127,7 +118,6 @@ spec:
             existingSecret: servicex-secrets
             secretKeys:
               adminPasswordKey: postgresql-password
-
     minio:
       auth:
         existingSecret: servicex-secrets
@@ -152,13 +142,11 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: prod-minio.servicex.ssl-hep.org
-
     minioCleanup:
       enabled: true
     gridAccount: ivukotic
     rbacEnabled: true
     secrets: servicex-secrets
-
     logging:
       logstash:
         logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/4f197320-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true&hide-filter-bar=true"
