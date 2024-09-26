@@ -3,6 +3,9 @@ This repository holds configuration for servicex instances on river. Each direct
 for a different instance.  The directory name corresponds to the namespace that
 the instance exists in.
 
+## Current Status of Each Deployment
+[Wiki Page](https://github.com/ssl-hep/flux_river_configs/wiki/What-Deployment-is-Doing-What%3F)
+
 ## Instances
 
 **Do not modify the servicex-prod and servicex-int instances since they are used
