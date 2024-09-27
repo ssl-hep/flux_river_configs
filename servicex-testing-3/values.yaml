@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.4.1"
+      version: ">=1.5.1"
   interval: 5m
   values:
     objectStore:
@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: postgres-preping
+      tag: upload-monitoring
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -121,7 +121,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: inclusive-error-logging
+      sidecarTag: upload_monitoring
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
