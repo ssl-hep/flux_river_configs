@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: upload-monitoring
+      tag: upload_monitoring
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -121,7 +121,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: upload_monitoring
+      sidecarTag: _monitoring
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
