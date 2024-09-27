@@ -121,7 +121,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: _monitoring
+      sidecarTag: upload_monitoring
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
