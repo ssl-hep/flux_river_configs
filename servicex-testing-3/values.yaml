@@ -17,10 +17,8 @@ spec:
   values:
     objectStore:
       enabled: true
-      # internal: true
-      # publicURL: testing-3-minio.servicex.ssl-hep.org
-      internal: false
-      publicURL: s3v2.af.uchicago.edu:32095
+      internal: true
+      publicURL: testing-3-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
     app:
