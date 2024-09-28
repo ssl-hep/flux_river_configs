@@ -142,6 +142,8 @@ spec:
           storageClass: rook-ceph-block
         nodeSelector:
           storage: "rook"
+        extendedConfiguration: |
+          shared_preload_libraries = 'pg_stat_statements'
       global:
         postgresql:
           auth:
