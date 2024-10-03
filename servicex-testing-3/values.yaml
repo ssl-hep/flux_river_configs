@@ -31,7 +31,6 @@ spec:
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
-      authExpires: 120
       ingress:
         enabled: true
         tls:
@@ -124,8 +123,8 @@ spec:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
       sidecarTag: develop
-      cachePrefix: '"xcache.af.uchicago.edu:1094"'
-      # cachePrefix: '""'
+      # cachePrefix: '"xcache.af.uchicago.edu:1094"'
+      cachePrefix: '""'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 20
