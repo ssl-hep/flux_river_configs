@@ -37,7 +37,7 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-      authExpires: 70
+      auth: false
 
     rabbitmq:
       clusterDomain: river-dev
