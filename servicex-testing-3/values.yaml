@@ -116,8 +116,8 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
         tag: inclusive-error-logging
-        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot5
+        defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer]
+        defaultScienceContainerTag: uproot-http-access
         
     transformer:
       defaultTransformerTag: develop
