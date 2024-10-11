@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: flask-rest-errors
+      tag: termination-hook
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
