@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.1"
+      version: ">=1.5.2"
   interval: 5m
   values:
     objectStore:
@@ -115,7 +115,8 @@ spec:
       uproot-raw:
         enabled: true
         image: sslhep/servicex_code_gen_raw_uproot
-        tag: inclusive-error-logging
+        # tag: inclusive-error-logging
+        tag: develop
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot-http-access
         
