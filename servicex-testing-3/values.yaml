@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: task_ack
+      tag: debug-codegen-problems
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
