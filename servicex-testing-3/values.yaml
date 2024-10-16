@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: v1.5.1
+      tag: task_ack
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
