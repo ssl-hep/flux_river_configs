@@ -184,6 +184,13 @@ spec:
       maxSize: "1500G"
       normSize: "1T"
 
+    replicaSorter:
+      enabled: true
+      image: ssl-hep/servicex_replica_distance_service
+      tag: replica_distance_service
+      pullPolicy: Always
+      geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
+
     gridAccount: ivukotic
 
     rbacEnabled: true
