@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: debug-codegen-problems
+      tag: limit-spawned-transforms
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -68,8 +68,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: sslhep/servicex-did-finder
-        tag: develop
         site: MWT2
       CERNOpenData:
         enabled: true
