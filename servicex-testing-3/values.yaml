@@ -68,7 +68,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        site: MWT2
+        # site: MWT2
         tag: replica_distance_service
       CERNOpenData:
         enabled: true
