@@ -69,6 +69,7 @@ spec:
       rucio:
         enabled: true
         site: MWT2
+        tag: replica_distance_service
       CERNOpenData:
         enabled: true
         # image: sslhep/servicex-did-finder-cernopendata
