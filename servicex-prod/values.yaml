@@ -93,7 +93,7 @@ spec:
         enabled: true
         defaultScienceContainerTag: cmssw-5-3-32
     transformer:
-      cachePrefix: '"xcache.af.uchicago.edu:1094"'
+      cachePrefix: '""'
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
