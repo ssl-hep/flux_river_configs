@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.5.2"
+      version: ">=1.5.4"
   interval: 5m
   values:
     objectStore:
@@ -68,61 +68,22 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        # site: MWT2
         tag: replica_distance_service
+        geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: true
-        # image: sslhep/servicex-did-finder-cernopendata
         tag: develop
 
     codeGen:
       uproot:
-        enabled: true
-        image: sslhep/servicex_code_gen_func_adl_uproot
-        tag: develop
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot-http-access
-
-      python:
-        enabled: true
-        image: sslhep/servicex_code_gen_python
-        tag: develop
-        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot5
-
-      atlasr21:
-        enabled: true
-        image: sslhep/servicex_code_gen_atlas_xaod
-        tag: develop
-        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        defaultScienceContainerTag: 21.3.131
-
-      atlasr22:
-        enabled: true
-        image: sslhep/servicex_code_gen_atlas_xaod
-        tag: develop
-        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
-        defaultScienceContainerTag: 22.2.107
-
-      cmssw-5-3-32:
-        enabled: true
-        image: sslhep/servicex_code_gen_cms_aod
-        tag: develop
-        defaultScienceContainerImage: sslhep/servicex_func_adl_cms_aod_transformer
-        defaultScienceContainerTag: cmssw-5-3-32
         
       uproot-raw:
-        enabled: true
-        image: sslhep/servicex_code_gen_raw_uproot
-        # tag: inclusive-error-logging
-        tag: develop
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: uproot-http-access
         
     transformer:
-      defaultTransformerTag: develop
-      sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: develop
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
@@ -184,13 +145,6 @@ spec:
       maxAge: 30
       maxSize: "1500G"
       normSize: "1T"
-
-    replicaSorter:
-      enabled: true
-      image: sslhep/servicex_replica_distance_service
-      tag: replica_distance_service
-      pullPolicy: Always
-      geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
 
     gridAccount: ivukotic
 
