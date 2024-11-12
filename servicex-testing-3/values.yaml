@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: limit-spawned-transforms
+      tag: did-finder-about-page-2
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
