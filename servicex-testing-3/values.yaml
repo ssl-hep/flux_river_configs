@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: did-finder-about-page-2
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -68,7 +68,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: rucio-partial-results
+        tag: replica_distance_service
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
