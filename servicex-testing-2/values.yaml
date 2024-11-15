@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: stale_datasets
+      tag: 859_archive_request
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
