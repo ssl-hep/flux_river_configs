@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: develop
+      tag: gunicorn-bind-ipv6
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
