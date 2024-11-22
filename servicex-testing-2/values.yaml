@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: 859_archive_request
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -173,13 +173,10 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-2-minio.servicex.ssl-hep.org"
 
-    minioCleanup:
-      tag: "develop"
-      enabled: true
-      schedule: "0 */8 * * *"
-      maxAge: 30
-      maxSize: "1500G"
-      normSize: "1T"
+  dataLifecycle:
+    enabled: false
+    schedule: "* */8 * * *"
+    retention: "2 days ago"
 
     gridAccount: ivukotic
 
