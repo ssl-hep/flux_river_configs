@@ -77,11 +77,11 @@ spec:
     codeGen:
       uproot:
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        # defaultScienceContainerTag: uproot-http-access
+        defaultScienceContainerTag: uproot-http-access
         
       uproot-raw:
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        # defaultScienceContainerTag: uproot-http-access
+        defaultScienceContainerTag: uproot-http-access
         
     transformer:
       # sidecarTag: quieten-celery
