@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: debug_trans
+      tag: file_complete_transaction
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
