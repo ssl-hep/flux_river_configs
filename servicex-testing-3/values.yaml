@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.5-alpha.2"
+      version: "1.5.4"
   interval: 5m
   values:
     objectStore:
@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: gunicorn-bind-ipv6
+      # tag: gunicorn-bind-ipv6
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -68,7 +68,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: replica_distance_service
+        # tag: replica_distance_service
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
@@ -77,14 +77,14 @@ spec:
     codeGen:
       uproot:
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot-http-access
+        # defaultScienceContainerTag: uproot-http-access
         
       uproot-raw:
         defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot-http-access
+        # defaultScienceContainerTag: uproot-http-access
         
     transformer:
-      sidecarTag: quieten-celery
+      # sidecarTag: quieten-celery
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
