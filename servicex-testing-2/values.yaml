@@ -134,6 +134,9 @@ spec:
         maxReplicas: 50
       cpuLimit: 1
 
+    flower:
+      enabled: false
+
     postgres:
       enabled: true
 
