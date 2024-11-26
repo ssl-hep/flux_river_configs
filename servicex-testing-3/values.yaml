@@ -87,7 +87,7 @@ spec:
         defaultScienceContainerTag: uproot-http-access
         
     transformer:
-      # sidecarTag: quieten-celery
+      sidecarTag: no-upload-queue
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
