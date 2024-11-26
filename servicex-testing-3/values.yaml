@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.4"
+      version: "1.5.5-alpha.2"
   interval: 5m
   values:
     objectStore:
@@ -68,6 +68,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
+        tag: "v1.5.4"
         # tag: replica_distance_service
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
