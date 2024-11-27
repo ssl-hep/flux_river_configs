@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.5-alpha.3"
+      version: "1.5.5-alpha.2"
   interval: 5m
   values:
     objectStore:
@@ -122,8 +122,8 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: develop
-      sidecarPullPolicy: IfNotPresent
+      sidecarTag: sidecar_logging
+      sidecarPullPolicy: Always
       scienceContainerPullPolicy: IfNotPresent
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
@@ -133,9 +133,6 @@ spec:
         minReplicas: 10
         maxReplicas: 50
       cpuLimit: 1
-
-    flower:
-      enabled: false
 
     postgres:
       enabled: true
