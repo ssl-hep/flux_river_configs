@@ -57,8 +57,8 @@ spec:
           interval: 30s
       persistence:
         enabled: false
-      advancedConfiguration: |
-        consumer_timeout = 21600000  # six hours
+      extraConfiguration: |-
+        consumer_timeout = 10000
       # storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
