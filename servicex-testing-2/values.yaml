@@ -38,8 +38,6 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     rabbitmq:
-      image:
-        debug: true
       clusterDomain: river-dev
       metrics:
         enabled: false
@@ -59,6 +57,9 @@ spec:
           interval: 30s
       persistence:
         enabled: false
+      extraConfiguration: |-
+        consumer_timeout = 21600000  # six hours
+
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
