@@ -58,7 +58,7 @@ spec:
       persistence:
         enabled: false
       extraConfiguration: |-
-        consumer_timeout = 21600000  # six hours
+        consumer_timeout = 21600000
 
       auth:
         existingErlangSecret: servicex-secrets
