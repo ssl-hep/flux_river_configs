@@ -38,6 +38,8 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     rabbitmq:
+      image:
+        debug: true
       clusterDomain: river-dev
       metrics:
         enabled: false
