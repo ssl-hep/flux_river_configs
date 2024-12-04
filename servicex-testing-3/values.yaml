@@ -78,13 +78,13 @@ spec:
         enabled: true
 
     codeGen:
-      uproot:
-        defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot-http-access
-        
-      uproot-raw:
-        defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
-        defaultScienceContainerTag: uproot-http-access
+      topcp:
+        defaultScienceContainerImage: alexschmidty/science_topcp
+        defaultScienceContainerTag: latest
+        enabled: true
+        image: alexschmidty/codegen_topcp
+        pullPolicy: Always
+        tag: latest
         
     transformer:
       sidecarTag: no-upload-queue
