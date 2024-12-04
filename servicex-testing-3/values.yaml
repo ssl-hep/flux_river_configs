@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       # tag: gunicorn-bind-ipv6
-      tag: transformer-invoke-quoting
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
