@@ -82,7 +82,7 @@ spec:
         defaultScienceContainerImage: ponyisi/science_topcp
         defaultScienceContainerTag: latest
         enabled: true
-        image: alexschmidty/codegen_topcp
+        image: ponyisi/codegen_topcp
         pullPolicy: Always
         tag: latest
         
