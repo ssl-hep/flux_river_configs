@@ -79,7 +79,7 @@ spec:
 
     codeGen:
       topcp:
-        defaultScienceContainerImage: alexschmidty/science_topcp
+        defaultScienceContainerImage: ponyisi/science_topcp
         defaultScienceContainerTag: latest
         enabled: true
         image: alexschmidty/codegen_topcp
