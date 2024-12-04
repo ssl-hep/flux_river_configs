@@ -22,8 +22,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      # tag: gunicorn-bind-ipv6
-      tag: develop
+      tag: gunicorn-bind-ipv6
+      # tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
