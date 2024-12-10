@@ -124,7 +124,7 @@ spec:
     transformer:
       defaultTransformerTag: develop
       sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: sidecar_logging
+      sidecarTag: develop
       sidecarPullPolicy: Always
       scienceContainerPullPolicy: IfNotPresent
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
