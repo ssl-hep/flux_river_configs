@@ -24,7 +24,7 @@ spec:
     app:
       pullPolicy: Always
       auth: true
-      replicas: 1
+      replicas: 3
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: dummy
