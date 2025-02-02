@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.5.5-alpha.2"
+      version: "1.5.5"
   interval: 5m
   values:
     objectStore:
@@ -23,7 +23,8 @@ spec:
       useClientTLS: true
     app:
       # tag: gunicorn-bind-ipv6
-      tag: transformer-invoke-quoting
+      image: ponyisi/servicex_app
+      tag: keycloak
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -87,7 +88,6 @@ spec:
         tag: latest
         
     transformer:
-      sidecarTag: no-upload-queue
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
@@ -142,13 +142,13 @@ spec:
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-3-minio.servicex.ssl-hep.org"
 
-    minioCleanup:
-      tag: "develop"
-      enabled: true
-      schedule: "0 */8 * * *"
-      maxAge: 30
-      maxSize: "1500G"
-      normSize: "1T"
+    # minioCleanup:
+    #   tag: "develop"
+    #   enabled: true
+    #   schedule: "0 */8 * * *"
+    #   maxAge: 30
+    #   maxSize: "1500G"
+    #   normSize: "1T"
 
     gridAccount: ivukotic
 
