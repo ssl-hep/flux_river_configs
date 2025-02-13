@@ -87,6 +87,13 @@ spec:
         pullPolicy: Always
         tag: latest
         
+      atlasr22:
+        enabled: true
+        image: sslhep/servicex_code_gen_atlas_xaod
+        tag: develop
+        defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
+        defaultScienceContainerTag: 25.2.41
+        
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       # cachePrefix: '""'
