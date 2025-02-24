@@ -10,8 +10,12 @@ spec:
     spec:
       chart: servicex
       sourceRef:
-        kind: HelmRepository
-        name: servicex-repo
+        # kind: HelmRepository
+        # name: servicex-repo
+        kind: GitRepository
+        url: https://github.com/ssl-hep/ServiceX.git
+        ref:
+          branch: keycloak
       version: "1.5.5"
   interval: 5m
   values:
