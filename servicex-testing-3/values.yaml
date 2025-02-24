@@ -28,6 +28,7 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
+      allowAllAfterAuth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
