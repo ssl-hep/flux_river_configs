@@ -8,6 +8,6 @@ metadata:
 spec:
   interval: 5m
   # url: https://ssl-hep.github.io/ssl-helm-charts/
-  url: https://github.com/ssl-hep/ServiceX.git
+  url: https://github.com/ssl-hep/ServiceX
   ref:
     branch: keycloak
