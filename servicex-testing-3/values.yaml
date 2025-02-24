@@ -10,8 +10,7 @@ spec:
     spec:
       chart: servicex
       sourceRef:
-        # kind: HelmRepository
-        kind: GitRepository
+        kind: HelmRepository
         name: servicex-repo
       version: "1.5.7-a1"
   interval: 5m
