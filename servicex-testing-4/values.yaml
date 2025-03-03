@@ -24,7 +24,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: "display-user-tz"
+      tag: "dashboard-sort-order"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
