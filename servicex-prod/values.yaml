@@ -30,6 +30,7 @@ spec:
       slackSigningSecret: dummy
       newSignupWebhook: dummy
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
+      allowAllAfterAuth: true
       ingress:
         enabled: true
         tls:
