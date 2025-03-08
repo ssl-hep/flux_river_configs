@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       # tag: gunicorn-bind-ipv6
-      image: ponyisi/servicex_app
+      # image: ponyisi/servicex_app
       # tag: keycloak
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
