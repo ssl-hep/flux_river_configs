@@ -24,7 +24,7 @@ spec:
     app:
       # tag: gunicorn-bind-ipv6
       image: ponyisi/servicex_app
-      tag: keycloak
+      # tag: keycloak
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -71,7 +71,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: "rollback-yields"
+        # tag: "rollback-yields"
         # tag: "v1.5.5-alpha.2"
         # tag: replica_distance_service
         replicaSorterEnabled: true
