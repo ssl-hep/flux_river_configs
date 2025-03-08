@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      # tag: gunicorn-bind-ipv6
+      tag: better-cancel-button
       # image: ponyisi/servicex_app
       # tag: keycloak
       adminEmail: bengal1@illinois.edu
