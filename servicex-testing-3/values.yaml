@@ -42,9 +42,9 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     x509Secrets:
-      image: ivukotic/x509-secrets
+      image: ponyisi/x509-secrets
       pullPolicy: Always
-      tag: develop
+      tag: override-voms-file
   
     rabbitmq:
       clusterDomain: river-dev
