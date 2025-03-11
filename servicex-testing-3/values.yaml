@@ -41,6 +41,10 @@ spec:
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
 
+    x509Secrets:
+      pullPolicy: Always
+      tag: develop
+  
     rabbitmq:
       clusterDomain: river-dev
       metrics:
