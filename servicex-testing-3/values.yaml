@@ -42,6 +42,7 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     x509Secrets:
+      image: ivukotic/x509-secrets
       pullPolicy: Always
       tag: develop
   
