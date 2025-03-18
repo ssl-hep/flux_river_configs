@@ -80,6 +80,14 @@ spec:
       CERNOpenData:
         enabled: false
 
+    codeGen:
+      topcp:
+        enabled: true
+        image: kyungeonchoi/servicex_code_gen_topcp
+        tag: develop
+        defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
+        defaultScienceContainerTag: develop
+
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
       sidecarTag: "develop"
