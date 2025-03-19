@@ -84,7 +84,7 @@ spec:
       topcp:
         enabled: true
         image: kyungeonchoi/servicex_code_gen_topcp
-        tag: develop
+        tag: develop2
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: develop
 
