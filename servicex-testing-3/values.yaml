@@ -163,7 +163,7 @@ spec:
     #   maxSize: "1500G"
     #   normSize: "1T"
 
-    gridAccount: ivukotic
+    gridAccount: sxatlas
 
     rbacEnabled: true
 
