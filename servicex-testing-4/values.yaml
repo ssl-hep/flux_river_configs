@@ -143,7 +143,6 @@ spec:
 
     gridAccount: sxatlas
     rbacEnabled: true
-
     secrets: servicex-secrets
 
     logging:
