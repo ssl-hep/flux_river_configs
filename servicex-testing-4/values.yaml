@@ -100,6 +100,10 @@ spec:
       pullPolicy: Always
       cpuLimit: 1
 
+    x509Secrets:
+      pullPolicy: Always
+      tag: develop
+
     postgres:
       enabled: true
 
