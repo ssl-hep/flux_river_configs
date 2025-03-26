@@ -103,7 +103,7 @@ spec:
     x509Secrets:
       image: ponyisi/x509-secrets
       pullPolicy: Always
-      tag: develop
+      tag: override-voms-file
 
     postgres:
       enabled: true
