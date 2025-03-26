@@ -42,7 +42,7 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     x509Secrets:
-      # image: ponyisi/x509-secrets
+      image: ponyisi/x509-secrets
       pullPolicy: Always
       # tag: override-voms-file
       tag: develop
