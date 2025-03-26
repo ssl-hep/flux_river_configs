@@ -144,7 +144,7 @@ spec:
         hostname: prod-minio.servicex.ssl-hep.org
     minioCleanup:
       enabled: true
-    gridAccount: ivukotic
+    gridAccount: sxatlas
     rbacEnabled: true
     secrets: servicex-secrets
     logging:
