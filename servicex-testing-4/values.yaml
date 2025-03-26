@@ -101,6 +101,7 @@ spec:
       cpuLimit: 1
 
     x509Secrets:
+      image: ponyisi/x509-secrets
       pullPolicy: Always
       tag: develop
 
