@@ -34,6 +34,7 @@ spec:
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
+      sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
       ingress:
         enabled: true
         tls:
