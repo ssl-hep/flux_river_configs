@@ -85,7 +85,7 @@ spec:
       topcp:
         enabled: true
         image: alexschmidty/codegen_topcp
-        tag: 2.2
+        tag: "2.2"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: develop
 
