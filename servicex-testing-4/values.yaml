@@ -87,7 +87,7 @@ spec:
         image: kyungeonchoi/servicex_code_gen_topcp
         tag: develop2
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
-        defaultScienceContainerTag: develop
+        defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
 
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
