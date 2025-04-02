@@ -85,14 +85,13 @@ spec:
       topcp:
         enabled: true
         image: alexschmidty/codegen_topcp
-        tag: "2.6"
+        tag: "2.7"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
 
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
-      sidecarImage: alexschmidty/transformer_sidecar
-      sidecarTag: "develop2"
+      sidecarTag: "develop"
 
       autoscaler:
         enabled: true
