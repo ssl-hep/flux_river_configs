@@ -84,8 +84,8 @@ spec:
     codeGen:
       topcp:
         enabled: true
-        image: kyungeonchoi/servicex_code_gen_topcp
-        tag: develop2
+        image: alexschmidty/codegen_topcp
+        tag: "2.5"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
 
