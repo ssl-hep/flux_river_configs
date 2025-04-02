@@ -91,6 +91,7 @@ spec:
 
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
+      sidecarImage: alexschmidty/transformer_sidecar
       sidecarTag: "develop"
 
       autoscaler:
