@@ -85,7 +85,7 @@ spec:
       topcp:
         enabled: true
         image: alexschmidty/codegen_topcp
-        tag: "2.5"
+        tag: "2.6"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
 
