@@ -85,19 +85,19 @@ spec:
       topcp:
         enabled: true
         image: kyungeonchoi/servicex_code_gen_topcp
-        tag: "develop7"
+        tag: "develop8"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
 
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
-      sidecarImage: sslhep/servicex_sidecar_transformer
-      sidecarTag: "develop"
+      sidecarImage: kyungeonchoi/servicex_sidecar_transformer
+      sidecarTag: "develop1"
 
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
-        minReplicas: 10
+        minReplicas: 5
         maxReplicas: 750
       pullPolicy: Always
       cpuLimit: 1
