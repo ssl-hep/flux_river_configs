@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: better-cancel-button
+      tag: rntuple
       # image: ponyisi/servicex_app
       # tag: keycloak
       adminEmail: bengal1@illinois.edu
@@ -100,6 +100,9 @@ spec:
         tag: develop
         defaultScienceContainerImage: sslhep/servicex_func_adl_xaod_transformer
         defaultScienceContainerTag: 25.2.41
+
+      uproot-raw:
+        tag: rntuple
         
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
