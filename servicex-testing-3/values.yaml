@@ -114,6 +114,7 @@ spec:
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
+      sidecarTag: rntuple
 
     postgres:
       enabled: true
