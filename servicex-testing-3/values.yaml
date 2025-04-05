@@ -103,6 +103,7 @@ spec:
 
       uproot-raw:
         tag: rntuple
+        defaultScienceContainerTag: 5.6.0
         
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
