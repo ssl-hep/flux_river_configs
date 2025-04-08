@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: rntuple
+      tag: store-transform-events
       # image: ponyisi/servicex_app
       # tag: keycloak
       adminEmail: bengal1@illinois.edu
