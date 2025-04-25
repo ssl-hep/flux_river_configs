@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.6.1-RC.2"
+      version: "1.6.1-RC.3"
   interval: 5m
   values:
     objectStore:
@@ -114,7 +114,6 @@ spec:
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
-      memoryLimit: 2147483648
       sidecarTag: sidecar-file-convert
       sidecarImage: ponyisi/servicex_sidecar_transformer
 
