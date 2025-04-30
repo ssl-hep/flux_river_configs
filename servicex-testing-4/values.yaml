@@ -78,8 +78,8 @@ spec:
       xrootd:
         enabled: true
     codeGen:
-      topcp:
-        enabled: true
+      # topcp:
+      #   enabled: true
         # image: kyungeonchoi/servicex_code_gen_topcp
         # tag: "develop11"
         # defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
