@@ -82,8 +82,6 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_topcp
         tag: "v1.6.1-RC.3"
-        # image: kyungeonchoi/servicex_code_gen_topcp
-        # tag: "develop11"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
         defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
       uproot-raw:
