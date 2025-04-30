@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.5.6"
+      version: "1.6.1-RC.3"
   interval: 5m
   values:
     objectStore:
@@ -22,28 +22,26 @@ spec:
       publicURL: testing-4-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
-
     app:
-      tag: "dashboard-sort-order"
-      adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      jwtIssuer: globus
-      replicas: 1
+      replicas: 3
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
-      slackSigningSecret: "dummy"
-      newSignupWebhook: "dummy"
+      slackSigningSecret: dummy
+      newSignupWebhook: dummy
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
+      allowAllAfterAuth: true
       ingress:
         enabled: true
         tls:
           enabled: true
           host: servicex-release-testing-4.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-
     rabbitmq:
       clusterDomain: river-dev
+      nodeselector:
+        storage: rook
       metrics:
         enabled: false
         plugins: rabbitmq_prometheus
@@ -59,62 +57,68 @@ spec:
           additionalLabels: {}
           enabled: true
           honorLabels: false
-          interval: 40s
+          interval: 30s
       persistence:
         enabled: false
         storageClass: rook-ceph-block
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-      nodeselector:
-        storage: rook
-
+    x509Secrets:
+      vomsOrg: atlas
     didFinder:
       rucio:
-        tag: "develop"
-        enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
-        memcache:
-          enabled: true
-          ttl: 86400
+        enabled: true
+        replicaSorterEnabled: true
+        geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
-        enabled: false
-
+        enabled: true
+      xrootd:
+        enabled: true
     codeGen:
       topcp:
         enabled: true
-        image: kyungeonchoi/servicex_code_gen_topcp
-        tag: "develop11"
-        defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
-        defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
-
+        # image: kyungeonchoi/servicex_code_gen_topcp
+        # tag: "develop11"
+        # defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
+        # defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
+      uproot-raw:
+        enabled: true
+        defaultScienceContainerTag: uproot5
+      uproot:
+        enabled: true
+        defaultScienceContainerTag: uproot5
+      python:
+        enabled: true
+        defaultScienceContainerTag: uproot5
+      atlasr21:
+        enabled: true
+        defaultScienceContainerTag: 21.2.231
+      atlasr22:
+        enabled: true
+        defaultScienceContainerTag: 22.2.107
+      cmssw-5-3-32:
+        enabled: true
+        defaultScienceContainerTag: cmssw-5-3-32
     transformer:
       cachePrefix: '"xcache.af.uchicago.edu:1094"'
-      sidecarImage: kyungeonchoi/servicex_sidecar_transformer
-      sidecarTag: "develop1"
-
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
         minReplicas: 5
         maxReplicas: 750
-      pullPolicy: Always
       cpuLimit: 1
-
-    x509Secrets:
-      image: sslhep/x509-secrets
-      pullPolicy: Always
-      tag: develop
-
     postgres:
       enabled: true
-
     postgresql:
       primary:
         persistence:
           enabled: false
           storageClass: rook-ceph-block
+        nodeSelector:
+          storage: rook
       global:
         postgresql:
           auth:
@@ -122,7 +126,6 @@ spec:
             existingSecret: servicex-secrets
             secretKeys:
               adminPasswordKey: postgresql-password
-
     minio:
       auth:
         existingSecret: servicex-secrets
@@ -147,11 +150,11 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-4-minio.servicex.ssl-hep.org"
-
+    minioCleanup:
+      enabled: true
     gridAccount: sxatlas
     rbacEnabled: true
     secrets: servicex-secrets
-
     logging:
       logstash:
         logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/2d2b3b40-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true"
