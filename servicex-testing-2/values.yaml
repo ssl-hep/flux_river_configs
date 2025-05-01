@@ -127,7 +127,7 @@ spec:
       sidecarTag: file_complete_transaction
       sidecarPullPolicy: Always
       scienceContainerPullPolicy: IfNotPresent
-      cachePrefix: '"xcache.af.uchicago.edu:1094"'
+      cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
       # cachePrefix: '""'
       autoscaler:
         enabled: true
