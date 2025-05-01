@@ -94,7 +94,7 @@ spec:
         tag: latest
   
       uproot-raw:
-        defaultScienceContainerTag: 5.6.0
+        defaultScienceContainerTag: 5.6.1
         
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
