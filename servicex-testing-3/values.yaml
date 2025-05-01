@@ -101,7 +101,6 @@ spec:
         defaultScienceContainerTag: 25.2.41
 
       uproot-raw:
-        tag: uproot-raw-ignore-missing-trees
         defaultScienceContainerTag: 5.6.1
         
     transformer:
