@@ -86,12 +86,11 @@ spec:
 
     codeGen:
       topcp:
-        defaultScienceContainerImage: ponyisi/science_topcp
-        defaultScienceContainerTag: latest
+        defaultScienceContainerImage: sslhep/servicex_science_image_topcp
+        defaultScienceContainerTag: 2.17.0-25.2.45
         enabled: true
-        image: ponyisi/codegen_topcp
-        pullPolicy: Always
-        tag: latest
+        image: sslhep/servicex_code_gen_topcp
+        tag: v1.6.1
   
       uproot-raw:
         tag: uproot-raw-compression
