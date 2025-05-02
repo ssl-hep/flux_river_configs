@@ -94,6 +94,7 @@ spec:
         tag: latest
   
       uproot-raw:
+        tag: uproot-raw-compression
         defaultScienceContainerTag: 5.6.1
         
     transformer:
