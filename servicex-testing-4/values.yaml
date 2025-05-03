@@ -83,7 +83,7 @@ spec:
         image: sslhep/servicex_code_gen_topcp
         tag: "v1.6.1-RC.3"
         defaultScienceContainerImage: kyungeonchoi/servicex_topcp_transformer
-        defaultScienceContainerTag: "25.2.45_v2.17.0_v0.1"
+        defaultScienceContainerTag: "25.2.50_v2.18.0_v0.2"
       uproot-raw:
         enabled: true
         defaultScienceContainerTag: uproot5
