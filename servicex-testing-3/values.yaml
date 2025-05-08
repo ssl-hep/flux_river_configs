@@ -102,6 +102,7 @@ spec:
         enabled: true
         image: sslhep/servicex_code_gen_python
         tag: more-general-python-codegen
+        pullPolicy: Always
         
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
