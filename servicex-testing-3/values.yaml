@@ -93,7 +93,8 @@ spec:
         tag: v1.6.1
   
       uproot-raw:
-        tag: uproot-raw-compression
+        image: ponyisi/servicex_code_gen_raw_uproot
+        tag: uproot-raw-iterate
         defaultScienceContainerTag: 5.6.1
 
       rdataframe:
