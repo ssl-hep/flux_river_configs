@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       # image: ponyisi/servicex_app
-      # tag: keycloak
+      tag: capabilities-endpoint
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
