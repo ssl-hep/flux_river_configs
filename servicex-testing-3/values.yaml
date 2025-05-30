@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.6.1-RC.3"
+      version: ">=1.6.1"
   interval: 5m
   values:
     objectStore:
@@ -94,7 +94,8 @@ spec:
   
       uproot-raw:
         tag: uproot-raw-iterate
-        defaultScienceContainerTag: 5.6.1
+        defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
+        defaultScienceContainerTag: 5.6.2
 
       rdataframe:
         defaultScienceContainerImage: ponyisi/servicex_science_image_root
