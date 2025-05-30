@@ -93,7 +93,6 @@ spec:
         tag: v1.6.1
   
       uproot-raw:
-        image: ponyisi/servicex_code_gen_raw_uproot
         tag: uproot-raw-iterate
         defaultScienceContainerTag: 5.6.1
 
