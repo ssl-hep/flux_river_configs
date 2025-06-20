@@ -95,7 +95,7 @@ spec:
       uproot-raw:
         image: ponyisi/servicex_code_gen_raw_uproot
         tag: uproot-raw-axis-1
-        defaultScienceContainerImage: ponyisi/servicex_func_adl_uproot_transformer
+        defaultScienceContainerImage: sslhep/servicex_func_adl_uproot_transformer
         defaultScienceContainerTag: 5.6.2
 
       rdataframe:
