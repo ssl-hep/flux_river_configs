@@ -79,22 +79,22 @@ spec:
     codeGen:
       uproot-raw:
         enabled: true
-        defaultScienceContainerTag: uproot5
+        # defaultScienceContainerTag: uproot5
       uproot:
         enabled: true
-        defaultScienceContainerTag: uproot5
+        # defaultScienceContainerTag: uproot5
       python:
         enabled: true
-        defaultScienceContainerTag: uproot5
+        # defaultScienceContainerTag: uproot5
       atlasr21:
         enabled: true
-        defaultScienceContainerTag: 21.2.231
+        # defaultScienceContainerTag: 21.2.231
       atlasr22:
         enabled: true
-        defaultScienceContainerTag: 22.2.107
+        # defaultScienceContainerTag: 22.2.107
       cmssw-5-3-32:
         enabled: true
-        defaultScienceContainerTag: cmssw-5-3-32
+        # defaultScienceContainerTag: cmssw-5-3-32
     transformer:
       cachePrefix: '""'
       autoscaler:
