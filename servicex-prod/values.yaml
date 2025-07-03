@@ -79,7 +79,6 @@ spec:
     codeGen:
       uproot-raw:
         enabled: true
-        # defaultScienceContainerTag: uproot5
       uproot:
         enabled: true
         # defaultScienceContainerTag: uproot5
