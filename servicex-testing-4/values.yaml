@@ -80,31 +80,18 @@ spec:
     codeGen:
       topcp:
         enabled: true
-        image: sslhep/servicex_code_gen_topcp
-        tag: "v1.6.1-RC.3"
-        defaultScienceContainerImage: sslhep/servicex_science_image_topcp
-        defaultScienceContainerTag: "25.2.50-v2.18.0_v0.2"
       uproot-raw:
         enabled: true
-        image: ponyisi/servicex_code_gen_raw_uproot
-        tag: uproot-raw-iterate
-        defaultScienceContainerTag: 5.6.1
-        # defaultScienceContainerTag: uproot5
       uproot:
         enabled: true
-        defaultScienceContainerTag: uproot5
       python:
         enabled: true
-        defaultScienceContainerTag: uproot5
       atlasr21:
         enabled: true
-        defaultScienceContainerTag: 21.2.231
       atlasr22:
         enabled: true
-        defaultScienceContainerTag: 22.2.107
       cmssw-5-3-32:
         enabled: true
-        defaultScienceContainerTag: cmssw-5-3-32
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
       autoscaler:
