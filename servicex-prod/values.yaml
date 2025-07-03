@@ -100,7 +100,7 @@ spec:
         enabled: true
         cpuScaleThreshold: 20
         minReplicas: 10
-        maxReplicas: 750
+        maxReplicas: 760
       cpuLimit: 1
     postgres:
       enabled: true
