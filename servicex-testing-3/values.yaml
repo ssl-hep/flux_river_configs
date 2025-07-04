@@ -22,8 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      # image: ponyisi/servicex_app
-      # tag: capabilities-endpoint
+      tag: further-extend-sample-titles
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -83,12 +82,6 @@ spec:
         enabled: true
 
     codeGen:
-      topcp:
-        defaultScienceContainerImage: sslhep/servicex_science_image_topcp
-        defaultScienceContainerTag: 2.17.0-25.2.45
-        enabled: true
-        image: sslhep/servicex_code_gen_topcp
-        tag: v1.6.1
         
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
