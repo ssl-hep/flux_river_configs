@@ -31,6 +31,7 @@ spec:
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: dummy
       newSignupWebhook: dummy
+      allowAllAfterAuth: true
       ingress:
         enabled: true
         tls:
