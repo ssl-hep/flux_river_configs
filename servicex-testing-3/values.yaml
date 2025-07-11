@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.7.0-rc.4"
+      version: "1.7.1"
   interval: 5m
   values:
     objectStore:
@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: further-extend-sample-titles
+      tag: merge
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
