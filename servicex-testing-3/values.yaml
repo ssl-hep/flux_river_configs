@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: celery-file-load
+      tag: xcache-updater
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -74,9 +74,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        #  "rollback-yields"
-        #  "v1.5.5-alpha.2"
-        #  replica_distance_service
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
