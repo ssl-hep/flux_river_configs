@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: xcache-updater
+      tag: celery-file-load
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
