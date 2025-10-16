@@ -74,6 +74,7 @@ spec:
     didFinder:
       rucio:
         enabled: true
+        tag: did-logstash
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
