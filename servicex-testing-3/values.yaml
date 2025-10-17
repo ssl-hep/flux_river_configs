@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: celery-file-load
+      tag: 1.7.3v1
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
