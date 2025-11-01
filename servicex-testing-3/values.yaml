@@ -79,6 +79,7 @@ spec:
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: true
+        tag: cernopendata-1.0
 
     # codeGen:
         
