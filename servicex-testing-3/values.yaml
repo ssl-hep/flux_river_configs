@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.7.3-rc.1"
+      version: "v1.7.5-rc.1"
   interval: 5m
   values:
     objectStore:
@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: 1.7.3v1
+      tag: dataset-cache-cleanup
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
