@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: dataset-cache-cleanup
+      tag: fix-amqp-retries-file-dispatch
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
