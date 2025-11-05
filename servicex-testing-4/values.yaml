@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.7.0-rc.2"
+      version: "v1.7.4"
   interval: 5m
   values:
     objectStore:
@@ -38,6 +38,11 @@ spec:
           enabled: true
           host: servicex-release-testing-4.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
+    
+    x509Secrets:
+      vomsOrg: atlas
+      pullPolicy: Always
+
     rabbitmq:
       clusterDomain: river-dev
       nodeselector:
@@ -64,19 +69,15 @@ spec:
       auth:
         existingErlangSecret: servicex-secrets
         existingPasswordSecret: servicex-secrets
-    x509Secrets:
-      vomsOrg: atlas
+    
     didFinder:
       rucio:
-        servicex_latitude: 41.78
-        servicex_longitude: -87.7
         enabled: true
-        replicaSorterEnabled: true
-        geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: true
       xrootd:
         enabled: true
+
     codeGen:
       topcp:
         enabled: true
@@ -92,6 +93,7 @@ spec:
         enabled: true
       cmssw-5-3-32:
         enabled: true
+
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
       autoscaler:
@@ -100,8 +102,10 @@ spec:
         minReplicas: 5
         maxReplicas: 750
       cpuLimit: 1
+    
     postgres:
       enabled: true
+    
     postgresql:
       primary:
         persistence:
@@ -140,11 +144,13 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-4-minio.servicex.ssl-hep.org"
-    minioCleanup:
-      enabled: true
+      
     gridAccount: sxatlas
+  
     rbacEnabled: true
+  
     secrets: servicex-secrets
+  
     logging:
       logstash:
         logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/2d2b3b40-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true"
