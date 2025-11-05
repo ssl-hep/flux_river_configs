@@ -81,6 +81,7 @@ spec:
     codeGen:
       topcp:
         enabled: true
+        tag: 25.2.66-v2.22.0
       uproot-raw:
         enabled: true
       uproot:
