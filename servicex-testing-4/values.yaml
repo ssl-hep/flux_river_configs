@@ -83,7 +83,6 @@ spec:
         enabled: true
         defaultScienceContainerImage: sslhep/servicex_science_image_topcp
         defaultScienceContainerTag: "25.2.66-v2.22.0"
-        imagePullPolicy: Always
       uproot-raw:
         enabled: true
       uproot:
@@ -105,6 +104,7 @@ spec:
         minReplicas: 5
         maxReplicas: 750
       cpuLimit: 1
+      scienceContainerPullPolicy: Always
     
     postgres:
       enabled: true
