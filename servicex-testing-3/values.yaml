@@ -96,6 +96,8 @@ spec:
         minReplicas: 10
         maxReplicas: 749
       cpuLimit: 1
+      sidecarImage: ponyisi/servicex_sidecar_transformer
+      sidecarTag: enable-davs
 
     postgres:
       enabled: true
