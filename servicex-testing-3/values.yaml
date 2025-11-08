@@ -22,8 +22,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app
-      tag: fix-amqp-retries-file-dispatch
+      # image: ponyisi/servicex_app
+      # tag: fix-amqp-retries-file-dispatch
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
