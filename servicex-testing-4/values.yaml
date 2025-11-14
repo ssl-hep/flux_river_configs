@@ -74,7 +74,7 @@ spec:
       rucio:
         enabled: true
         image: ponyisi/servicex-did-finder
-        tag: better-rucio-replicas
+        tag: enable-davs
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
@@ -102,6 +102,8 @@ spec:
 
     transformer:
       # cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
+      sidecarImage: ponyisi/servicex_sidecar_transformer
+      sidecarTag: enable-davs
       autoscaler:
         enabled: true
         cpuScaleThreshold: 30
