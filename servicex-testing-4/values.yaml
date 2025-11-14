@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.7.4"
+      version: ">=v1.7.4"
   interval: 5m
   values:
     objectStore:
@@ -73,6 +73,10 @@ spec:
     didFinder:
       rucio:
         enabled: true
+        image: ponyisi/servicex-did-finder
+        tag: better-rucio-replicas
+        replicaSorterEnabled: true
+        geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: true
       xrootd:
