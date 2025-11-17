@@ -23,6 +23,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
+      image: ponyisi/servicex_app
+      tag: dataset-cache-cleanup
       pullPolicy: Always
       auth: true
       replicas: 1
