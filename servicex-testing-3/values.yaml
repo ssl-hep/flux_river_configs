@@ -82,7 +82,13 @@ spec:
         enabled: true
         tag: cernopendata-1.0
 
-    # codeGen:
+    codeGen:
+      atlasr25:
+        tag: develop
+      atlasr22:
+        tag: develop
+      atlasr21:
+        tag: develop
         
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
