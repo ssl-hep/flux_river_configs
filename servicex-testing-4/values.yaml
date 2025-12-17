@@ -86,8 +86,8 @@ spec:
     codeGen:
       topcp:
         enabled: true
-        defaultScienceContainerImage: sslhep/servicex_science_image_topcp
-        defaultScienceContainerTag: "25.2.66-v2.22.0"
+        defaultScienceContainerImage: kyungeonchoi/servicex_science_image_topcp
+        defaultScienceContainerTag: "v2.23.0_v0.5"
       uproot-raw:
         enabled: true
       uproot:
