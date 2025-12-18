@@ -154,7 +154,10 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           acme.cert-manager.io/http01-edit-in-place: "true"
         hostname: "testing-4-minio.servicex.ssl-hep.org"
-      
+    
+    minioCleanup:
+      enabled: true
+
     gridAccount: sxatlas
   
     rbacEnabled: true
