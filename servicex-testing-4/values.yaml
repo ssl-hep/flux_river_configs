@@ -107,8 +107,8 @@ spec:
       sidecarTag: enable-davs
       autoscaler:
         enabled: true
-        cpuScaleThreshold: 30
-        minReplicas: 5
+        cpuScaleThreshold: 20
+        minReplicas: 20
         maxReplicas: 750
       cpuLimit: 1
       scienceContainerPullPolicy: Always
