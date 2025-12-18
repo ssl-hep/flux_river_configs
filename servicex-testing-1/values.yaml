@@ -23,7 +23,8 @@ spec:
       useClientTLS: true
 
     app:
-      image: sslhep/servicex_app
+      image: ponyisi/servicex_app
+      tag: email-in-session
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
