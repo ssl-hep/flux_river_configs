@@ -82,9 +82,6 @@ spec:
 
       atlasr21:
         enabled: true
-
-      atlasr22:
-        enabled: true
         
       uproot-raw:
         enabled: true
