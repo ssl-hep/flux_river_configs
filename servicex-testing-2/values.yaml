@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.7.4"
+      version: ">=1.7.5" 
   interval: 5m
   values:
     objectStore:
@@ -77,15 +77,6 @@ spec:
       uproot:
         enabled: true
 
-      python:
-        enabled: true
-
-      atlasr21:
-        enabled: true
-
-      atlasr22:
-        enabled: true
-        
       uproot-raw:
         enabled: true
         
