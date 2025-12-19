@@ -80,9 +80,6 @@ spec:
       python:
         enabled: true
 
-      atlasr21:
-        enabled: true
-        
       uproot-raw:
         enabled: true
         
