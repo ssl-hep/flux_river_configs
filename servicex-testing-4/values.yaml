@@ -138,6 +138,7 @@ spec:
       service:
         ports:
           api: 9000
+      replicas: 4
       ingress:
         enabled: true
         annotations:
