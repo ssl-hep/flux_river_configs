@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app
+      image: mattshirley/servicex_app
       tag: dataset-cache-cleanup
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
@@ -39,7 +39,9 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-
+    codeGen:
+      topcp:
+        image: mattshirley/servicex_code_gen_topcp
     x509Secrets:
       pullPolicy: Always
       #  override-voms-file
