@@ -91,7 +91,7 @@ spec:
         tag: develop
       atlasr21:
         tag: develop
-      uproot:
+      uproot-raw:
         defaultScienceContainerTag: uproot-5.6.9
         
     transformer:
