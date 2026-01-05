@@ -39,9 +39,7 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-    codeGen:
-      topcp:
-        image: mattshirley/servicex_code_gen_topcp
+
     x509Secrets:
       pullPolicy: Always
       #  override-voms-file
@@ -85,6 +83,8 @@ spec:
         tag: cernopendata-1.0
 
     codeGen:
+      topcp:
+        image: mattshirley/servicex_code_gen_topcp
       atlasr25:
         tag: develop
       atlasr22:
