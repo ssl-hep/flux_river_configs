@@ -32,7 +32,7 @@ spec:
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
-      # sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
+      sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
       ingress:
         enabled: true
         tls:
@@ -42,7 +42,6 @@ spec:
 
     x509Secrets:
       pullPolicy: Always
-      #  override-voms-file
 
     rabbitmq:
       clusterDomain: river-dev
