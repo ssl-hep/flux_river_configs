@@ -83,8 +83,6 @@ spec:
         tag: cernopendata-1.0
 
     codeGen:
-      # topcp:
-      #   image: mattshirley/servicex_code_gen_topcp
       atlasr25:
         tag: develop
       atlasr22:
