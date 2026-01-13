@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: mattshirley/servicex_app
+      image: ponyisi/servicex_app
       tag: dataset-cache-cleanup
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
