@@ -43,7 +43,7 @@ spec:
     x509Secrets:
       pullPolicy: Always
       #  override-voms-file
-  
+
     rabbitmq:
       clusterDomain: river-dev
       metrics:
@@ -83,8 +83,8 @@ spec:
         tag: cernopendata-1.0
 
     codeGen:
-      topcp:
-        image: mattshirley/servicex_code_gen_topcp
+      # topcp:
+      #   image: mattshirley/servicex_code_gen_topcp
       atlasr25:
         tag: develop
       atlasr22:
@@ -93,7 +93,7 @@ spec:
         tag: develop
       uproot-raw:
         defaultScienceContainerTag: uproot-5.6.9
-        
+
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
       cacheVPSSite: AF_200
