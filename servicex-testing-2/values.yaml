@@ -22,6 +22,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
+      image: mattshirley/servicex_app
+      tag: develop
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
@@ -74,6 +76,10 @@ spec:
         enabled: false
 
     codeGen:
+      topcp:
+        enabled: true
+        image: mattshirley/servicex_code_gen_topcp
+        tag: develop
       uproot:
         enabled: true
 
