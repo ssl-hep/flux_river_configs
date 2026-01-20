@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicex-release-testing-2-servicex-app
+spec:
+  template:
+    spec:
+      containers:
+      - name: servicex-release-testing-2-servicex-app
+        env:
+        - name: ALLOWED_IMAGE_PREFIXES
+          value: '["sslhep/", "gitlab-registry.cern.ch/"]'
