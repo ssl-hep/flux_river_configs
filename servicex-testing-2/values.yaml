@@ -24,6 +24,10 @@ spec:
     app:
       image: mattshirley/servicex_app
       tag: develop
+      allowedImagePrefixes:
+        - "docker.io/sslhep"
+        - "sslhep/"
+        - "gitlab-registry.cern.ch/"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
