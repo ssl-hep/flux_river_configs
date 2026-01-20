@@ -12,8 +12,20 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.7.5" 
+      version: ">=1.7.5"
   interval: 5m
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: Deployment
+              name: servicex-release-testing-2-servicex-app
+            patch: |
+              - op: add
+                path: /spec/template/spec/containers/0/env/-
+                value:
+                  name: ALLOWED_IMAGE_PREFIXES
+                  value: '["sslhep/", "gitlab-registry.cern.ch/"]'
   values:
     objectStore:
       enabled: true

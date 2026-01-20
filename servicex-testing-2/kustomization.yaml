@@ -11,5 +11,3 @@ resources:
   - servicex-slack-sealed.yaml
   - grid-certs-sealed.yaml
   - values.yaml
-patchesStrategicMerge:
-  - app-env-patch.yaml
