@@ -73,23 +73,12 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: ponyisi/servicex-did-finder
-        tag: better-rucio-replicas
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: true
-        tag: cernopendata-1.0
 
-    codeGen:
-      atlasr25:
-        tag: develop
-      atlasr22:
-        tag: develop
-      atlasr21:
-        tag: develop
-      uproot-raw:
-        defaultScienceContainerTag: 5.6.9
+    # codeGen:
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
@@ -103,8 +92,6 @@ spec:
         minReplicas: 10
         maxReplicas: 749
       cpuLimit: 1
-      sidecarImage: ponyisi/servicex_sidecar_transformer
-      sidecarTag: enable-davs
 
     postgres:
       enabled: true
