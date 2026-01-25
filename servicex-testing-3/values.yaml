@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: fix-dataset-lifecycle
+      tag: reaper
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
