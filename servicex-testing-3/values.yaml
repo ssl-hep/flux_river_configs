@@ -22,8 +22,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app
-      tag: reaper
+      # image: ponyisi/servicex_app
+      # tag: reaper
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
