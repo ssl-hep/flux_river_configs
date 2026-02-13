@@ -81,8 +81,8 @@ spec:
 
     codeGen:
       uproot-raw:
-        defaultScienceContainerImage: ponyisi/servicex_science_image_combined_root
-        defaultScienceContainerTag: latest
+        defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
+        defaultScienceContainerTag: 5.6.9-6.36.06
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
