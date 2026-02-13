@@ -24,6 +24,7 @@ spec:
     app:
       # image: ponyisi/servicex_app
       # tag: reaper
+      allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
