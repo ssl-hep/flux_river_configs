@@ -96,6 +96,7 @@ spec:
         minReplicas: 10
         maxReplicas: 749
       cpuLimit: 1
+      scienceContainerPullPolicy: Always
 
     postgres:
       enabled: true
