@@ -78,7 +78,10 @@ spec:
       CERNOpenData:
         enabled: true
 
-    # codeGen:
+    codeGen:
+      uproot-raw:
+        defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
+        defaultScienceContainerTag: 6.7-6.36.04
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
