@@ -31,6 +31,13 @@ spec:
       newSignupWebhook: dummy
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
       allowAllAfterAuth: true
+      resources:
+        requests:
+          memory: 256Mi
+        limits:
+          cpu: 1
+          memory: 2Gi
+
       ingress:
         enabled: true
         tls:
@@ -147,6 +154,3 @@ spec:
     gridAccount: sxatlas
     rbacEnabled: true
     secrets: servicex-secrets
-    logging:
-      logstash:
-        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/4f197320-f34e-11ed-a6d8-9f6a16cd6d78?embed=true&_g=()&show-time-filter=true"
