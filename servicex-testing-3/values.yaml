@@ -34,9 +34,6 @@ spec:
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
-      resources:
-        limits:
-          memory: 2Gi
       ingress:
         enabled: true
         tls:

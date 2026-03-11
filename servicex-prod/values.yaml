@@ -31,12 +31,6 @@ spec:
       newSignupWebhook: dummy
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
       allowAllAfterAuth: true
-      resources:
-        requests:
-          memory: 256Mi
-        limits:
-          cpu: 1
-          memory: 2Gi
       ingress:
         enabled: true
         tls:
