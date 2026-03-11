@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=v1.7.5-rc.1"
+      version: ">=v1.8.2-rc.1"
   interval: 5m
   values:
     objectStore:
@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       # image: ponyisi/servicex_app
-      # tag: reaper
+      tag: fix-transformrequest-init
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
