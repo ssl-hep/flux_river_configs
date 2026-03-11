@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.8.2-rc.1"
+      version: "1.8.2-rc.2"
   interval: 5m
   values:
     objectStore:
@@ -37,7 +37,6 @@ spec:
         limits:
           cpu: 1
           memory: 2Gi
-
       ingress:
         enabled: true
         tls:
