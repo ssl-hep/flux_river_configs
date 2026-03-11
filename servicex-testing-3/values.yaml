@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
     app:
       # image: ponyisi/servicex_app
-      tag: fix-transformrequest-init
+      #tag: fix-transformrequest-init
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
