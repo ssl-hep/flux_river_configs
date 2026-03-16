@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.8.2-rc.2"
+      version: "1.8.2"
   interval: 5m
   values:
     objectStore:
