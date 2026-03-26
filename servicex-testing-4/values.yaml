@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "v1.7.5-rc.2"
+      version: ">=v1.8.2"
   interval: 5m
   values:
     objectStore:
@@ -23,7 +23,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: fix-logouts
+      # tag: fix-logouts
       pullPolicy: Always
       auth: true
       replicas: 1
@@ -74,8 +74,8 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        image: ponyisi/servicex-did-finder
-        tag: enable-davs
+        # image: ponyisi/servicex-did-finder
+        # tag: enable-davs
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
@@ -103,8 +103,8 @@ spec:
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
-      sidecarImage: ponyisi/servicex_sidecar_transformer
-      sidecarTag: enable-davs
+      # sidecarImage: ponyisi/servicex_sidecar_transformer
+      # sidecarTag: enable-davs
       autoscaler:
         enabled: true
         cpuScaleThreshold: 20
