@@ -78,8 +78,8 @@ spec:
         enabled: true
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
-        image: ponyisi/servicex-did-finder
-        tag: py3.11
+        # image: ponyisi/servicex-did-finder
+        # tag: py3.11
       CERNOpenData:
         enabled: true
 
