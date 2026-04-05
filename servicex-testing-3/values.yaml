@@ -42,8 +42,8 @@ spec:
           clusterIssuer: letsencrypt-prod
 
     x509Secrets:
-      image: ponyisi/x509-secrets
-      tag: py3.11
+      # image: ponyisi/x509-secrets
+      # tag: py3.11
       pullPolicy: Always
 
     rabbitmq:
