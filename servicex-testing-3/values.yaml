@@ -94,7 +94,9 @@ spec:
 
       python:
         image: ponyisi/servicex_code_gen_python
-        tag: mount-cvmfs-in-transformers 
+        tag: mount-cvmfs-in-transformers
+        nodeSelector:
+          storage: rook
 
       # atlasr25:
       #   defaultScienceContainerTag: "25.2.80"
