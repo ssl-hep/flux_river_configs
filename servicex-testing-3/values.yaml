@@ -43,6 +43,7 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
+          
 
     x509Secrets:
       image: ponyisi/x509-secrets
