@@ -117,6 +117,8 @@ spec:
         maxReplicas: 749
       cpuLimit: 1
       scienceContainerPullPolicy: Always
+      sidecarImage: ponyisi/servicex_sidecar_transformer
+      sidecarTag: fix-1378
       nodeSelector:
         cvmfs: "True"
 
