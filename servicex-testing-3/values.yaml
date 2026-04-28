@@ -24,6 +24,7 @@ spec:
     app:
       image: ponyisi/servicex_app
       tag: mount-cvmfs-in-transformers
+      # tag: server-url-generation
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
@@ -42,6 +43,7 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
+          
 
     x509Secrets:
       image: ponyisi/x509-secrets
@@ -95,6 +97,8 @@ spec:
       python:
         image: ponyisi/servicex_code_gen_python
         tag: mount-cvmfs-in-transformers
+        defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
+        defaultScienceContainerTag: 5.7.3-6.38.04
         nodeSelector:
           storage: rook
 
@@ -114,6 +118,8 @@ spec:
         maxReplicas: 749
       cpuLimit: 1
       scienceContainerPullPolicy: Always
+      sidecarImage: ponyisi/servicex_sidecar_transformer
+      sidecarTag: fix-1378
       nodeSelector:
         cvmfs: "True"
 

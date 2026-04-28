@@ -29,7 +29,7 @@ spec:
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: dummy
       newSignupWebhook: dummy
-      sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
+      sqlalchemyEngineOptions: '{"pool_pre_ping": True }'
       allowAllAfterAuth: true
       ingress:
         enabled: true
@@ -84,7 +84,6 @@ spec:
         # defaultScienceContainerTag: uproot5
       python:
         enabled: true
-        # defaultScienceContainerTag: uproot5
       atlasr21:
         enabled: true
         # defaultScienceContainerTag: 21.2.231
