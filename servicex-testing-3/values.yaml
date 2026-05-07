@@ -102,8 +102,8 @@ spec:
         nodeSelector:
           storage: rook
 
-      # atlasr25:
-      #   defaultScienceContainerTag: "25.2.80"
+      atlasr25:
+        defaultScienceContainerTag: "25.2.80"
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
