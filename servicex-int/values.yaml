@@ -22,7 +22,6 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app # remove ASAP
       tag: develop
       pullPolicy: Always
       # defaultUsers: "users"
