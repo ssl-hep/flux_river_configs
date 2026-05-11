@@ -23,7 +23,8 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: mount-cvmfs-in-transformers
+      tag: develop
+      # tag: mount-cvmfs-in-transformers
       # tag: server-url-generation
       nodeSelector:
         storage: rook
