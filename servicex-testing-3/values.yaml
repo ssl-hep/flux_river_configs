@@ -116,7 +116,7 @@ spec:
       atlasr25:
         image: roger22011/servicex-func-adl-xaod
         tag: fix-runner-test
-        defaultScienceContainerTag: "25.2.80"
+        #defaultScienceContainerTag: "25.2.80"
 
 
 
