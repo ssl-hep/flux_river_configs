@@ -106,10 +106,12 @@ spec:
       atlasr21:
         image: roger22011/servicex-func-adl-xaod
         tag: fix-runner-test
+        defaultScienceContainerTag: "21.2.231"
 
       atlasr22:
         image: roger22011/servicex-func-adl-xaod
         tag: fix-runner-test
+        defaultScienceContainerTag: "22.2.107"
 
       atlasr25:
         image: roger22011/servicex-func-adl-xaod
