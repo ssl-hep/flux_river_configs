@@ -104,7 +104,10 @@ spec:
           storage: rook
 
       atlasr25:
+        image: roger22011/servicex-func-adl-xaod
+        tag: fix-runner-test
         defaultScienceContainerTag: "25.2.80"
+
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
