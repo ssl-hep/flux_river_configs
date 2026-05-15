@@ -103,10 +103,19 @@ spec:
         nodeSelector:
           storage: rook
 
+      atlasr21:
+        image: roger22011/servicex-func-adl-xaod
+        tag: fix-runner-test
+
+      atlasr22:
+        image: roger22011/servicex-func-adl-xaod
+        tag: fix-runner-test
+
       atlasr25:
         image: roger22011/servicex-func-adl-xaod
         tag: fix-runner-test
         defaultScienceContainerTag: "25.2.80"
+
 
 
     transformer:
