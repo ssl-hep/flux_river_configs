@@ -23,9 +23,9 @@ spec:
       useClientTLS: true
     app:
       image: ponyisi/servicex_app
-      tag: update-some-models
+      # tag: update-some-models
       # tag: mount-cvmfs-in-transformers
-      # tag: server-url-generation
+      tag: server-url-generation
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
