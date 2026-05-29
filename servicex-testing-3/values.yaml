@@ -24,7 +24,7 @@ spec:
     app:
       image: ponyisi/servicex_app
       # tag: update-some-models
-      tag: mount-cvmfs-in-transformers
+      tag: oidc-device-flow
       # tag: server-url-generation
       nodeSelector:
         storage: rook
