@@ -23,6 +23,8 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
+      image: ponyisi/servicex_app
+      tag: oidc-device-flow
       # tag: fix-logouts
       pullPolicy: Always
       auth: true
