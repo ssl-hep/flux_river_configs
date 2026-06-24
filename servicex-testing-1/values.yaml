@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.8.2"
+      version: ">=1.8.4"
   interval: 5m
   values:
     objectStore:
@@ -23,8 +23,7 @@ spec:
       useClientTLS: true
 
     app:
-      # image: ponyisi/servicex_app
-      # tag: email-in-session
+      tag: 1301_dashboard
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
