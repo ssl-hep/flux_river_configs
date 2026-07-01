@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
 
     app:
-#      tag: develop
+      tag: debug_login
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
