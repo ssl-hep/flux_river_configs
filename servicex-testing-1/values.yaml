@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.8.4"
+      version: ">=1.8.5-alpha.2"
   interval: 5m
   values:
     objectStore:
@@ -23,7 +23,6 @@ spec:
       useClientTLS: true
 
     app:
-      tag: debug_login
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
