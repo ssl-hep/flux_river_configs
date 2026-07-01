@@ -23,7 +23,7 @@ spec:
       useClientTLS: true
 
     app:
-      tag: 1301_dashboard
+      tag: develop
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
@@ -79,6 +79,8 @@ spec:
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
+        tag: did-logstash
+        PullPolicy: Always
       CERNOpenData:
         enabled: true
       xrootd:
@@ -161,6 +163,3 @@ spec:
     ### secrets location
     secrets: servicex-secrets
 
-    logging:
-      logstash:
-        logs: "https://atlas-kibana.mwt2.org:5601/s/servicex/app/dashboards?auth_provider_hint=anonymous1#/view/3a570940-f34c-11ed-a6d8-9f6a16cd6d78?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-24h%2Fh%2Cto%3Anow))&show-time-filter=true"
