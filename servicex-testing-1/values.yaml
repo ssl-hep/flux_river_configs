@@ -82,8 +82,16 @@ spec:
         PullPolicy: Always
       CERNOpenData:
         enabled: true
+        tag: did-logstash
+        PullPolicy: Always
       xrootd:
         enabled: true
+        tag: did-logstash
+        PullPolicy: Always
+      atlasopenmagic:
+        enabled: true
+        tag: did-logstash
+        PullPolicy: Always
 
     codeGen:
       uproot:
