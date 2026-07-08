@@ -12,20 +12,9 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.8.3"
+      version: ">=1.8.4"
   interval: 5m
-  postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              kind: Deployment
-              name: servicex-release-testing-2-servicex-app
-            patch: |
-              - op: add
-                path: /spec/template/spec/containers/0/env/-
-                value:
-                  name: ALLOWED_IMAGE_PREFIXES
-                  value: '["sslhep/", "gitlab-registry.cern.ch/"]'
+
   values:
     objectStore:
       enabled: true
@@ -37,7 +26,7 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      tag: develop
+      tag: flask3-migration
       replicas: 4
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
@@ -81,8 +70,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        replicaSorterEnabled: true
-        geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
         enabled: false
 
