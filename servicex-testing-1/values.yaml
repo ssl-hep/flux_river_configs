@@ -107,10 +107,8 @@ spec:
         enabled: true
 
       atlasr25:
-        image: roger22011/servicex-func-adl-xaod
-        tag: test-runner-fix
-        defaultScienceContainerTag: "25.2.80"
-
+        enabled: true
+        
       uproot-raw:
         enabled: true
 
