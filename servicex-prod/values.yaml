@@ -95,7 +95,10 @@ spec:
         # defaultScienceContainerTag: cmssw-5-3-32
     transformer:
       scienceContainerPullPolicy: Always
-      cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
+      # cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094"'
+      cacheVPSSite: AF_200
+      cacheVPSCheckInterval: 1800
+      cacheVPSLivenessURL: https://vps.cern.ch/liveness
       autoscaler:
         enabled: true
         cpuScaleThreshold: 20
