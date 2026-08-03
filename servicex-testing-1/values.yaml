@@ -26,6 +26,7 @@ spec:
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       pullPolicy: Always
+      tag: 1492_fold_selection_field
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
