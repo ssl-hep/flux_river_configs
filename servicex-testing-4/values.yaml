@@ -23,23 +23,24 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: 1478-download-usage-report-as-csv-file
+      logLevel: "debug"
+      adminEmail: bengal1@illinois.edu
       pullPolicy: Always
+      tag: 1478-download-usage-report-as-csv-file
       auth: true
       replicas: 1
-      logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
-      slackSigningSecret: dummy
-      newSignupWebhook: dummy
+      # need dummy values so that it's in the config file
+      slackSigningSecret: "dummy"
+      newSignupWebhook: "dummy"
       sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
-      allowAllAfterAuth: true
       ingress:
         enabled: true
         tls:
           enabled: true
           host: servicex-release-testing-4.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-    
+
     x509Secrets:
       vomsOrg: atlas
       pullPolicy: Always
