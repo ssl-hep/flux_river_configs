@@ -23,9 +23,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app
-      tag: oidc-device-flow
-      # tag: fix-logouts
+      tag: 1478-download-usage-report-as-csv-file
       pullPolicy: Always
       auth: true
       replicas: 1
@@ -76,8 +74,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        # image: ponyisi/servicex-did-finder
-        # tag: enable-davs
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
       CERNOpenData:
