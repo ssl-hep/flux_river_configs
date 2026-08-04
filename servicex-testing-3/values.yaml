@@ -22,10 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      image: ponyisi/servicex_app
-      # tag: update-some-models
-      tag: oidc-device-flow
-      # tag: server-url-generation
+      tag: 1478-download-usage-report-as-csv-file
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
