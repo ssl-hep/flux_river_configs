@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: 1478-dashboard_home
+      tag: dashboard_home
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
