@@ -26,8 +26,8 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      image: mattshirley/servicex_app
-      tag: jobs
+#      image: mattshirley/servicex_app
+#      tag: jobs
       replicas: 4
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
