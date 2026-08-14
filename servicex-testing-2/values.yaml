@@ -26,8 +26,6 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      image: mattshirley/servicex_app
-      tag: jobs
       replicas: 4
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
@@ -83,8 +81,6 @@ spec:
         enabled: true
         
     transformer:
-      image: mattshirley/transformer_sidecar
-      tag: jobs
       sidecarPullPolicy: Always
       scienceContainerPullPolicy: IfNotPresent
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
