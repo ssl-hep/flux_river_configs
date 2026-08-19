@@ -8,11 +8,11 @@ spec:
   serviceAccountName: servicex-testing-1
   chart:
     spec:
-      chart: servicex
+      chart: helm/servicex
       sourceRef:
-        kind: HelmRepository
-        name: servicex-repo
-      version: ">=1.8.5-alpha.3"
+        kind: GitRepository
+        name: servicex-jobs-branch
+      reconcileStrategy: Revision
   interval: 5m
   values:
     objectStore:
@@ -25,8 +25,9 @@ spec:
     app:
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
+      image: mattshirley/servicex_app
       pullPolicy: Always
-      tag: 1492_fold_selection_field
+      tag: jobs
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
@@ -115,11 +116,11 @@ spec:
 
     transformer:
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
-      autoscaler:
-        enabled: true
-        cpuScaleThreshold: 30
-        minReplicas: 50
-        maxReplicas: 750
+      sidecarImage: mattshirley/transformer_sidecar
+      sidecarTag: jobs
+      sidecarPullPolicy: Always
+      maxReplicas: 750
+      initialReplicas: 1
       cpuLimit: 1
 
     postgres:
