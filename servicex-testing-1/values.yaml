@@ -23,6 +23,7 @@ spec:
       useClientTLS: true
 
     app:
+      
       logLevel: "debug"
       adminEmail: ivukotic@uchicago.edu
       image: mattshirley/servicex_app
