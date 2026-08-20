@@ -27,7 +27,7 @@ spec:
       adminEmail: ivukotic@uchicago.edu
       image: mattshirley/servicex_app
       pullPolicy: Always
-      tag: jobs2
+      tag: jobs3
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
