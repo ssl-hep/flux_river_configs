@@ -85,6 +85,8 @@ spec:
       servicex:
         enabled: true
         tag: servicex-did-finder
+      xrootd:
+        enabled: true
 
     codeGen:
       uproot-raw:
