@@ -5,7 +5,8 @@ metadata:
   name: servicex-testing-3-kustomization
   namespace: servicex-testing-3
 resources:
-  - servicex-repository.yaml
+#  - servicex-repository.yaml
+  - servicex-git-repository.yaml
   - slack-notification.yaml
   - servicex-secrets-sealed.yaml
   - servicex-slack-sealed.yaml
