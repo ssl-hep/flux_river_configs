@@ -9,10 +9,13 @@ spec:
   chart:
     spec:
       chart: servicex
+      # sourceRef:
+      #   kind: HelmRepository
+      #   name: servicex-repo
+      # version: ">=v1.8.2-rc.1"
       sourceRef:
-        kind: HelmRepository
-        name: servicex-repo
-      version: ">=v1.8.2-rc.1"
+        kind: GitRepository
+        name: gitrepo
   interval: 5m
   values:
     objectStore:
