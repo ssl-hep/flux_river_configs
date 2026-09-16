@@ -8,11 +8,12 @@ spec:
   serviceAccountName: servicex-testing-3
   chart:
     spec:
-      chart: servicex
+      # chart: servicex
       # sourceRef:
       #   kind: HelmRepository
       #   name: servicex-repo
       # version: ">=v1.8.2-rc.1"
+      chart: helm/servicex
       sourceRef:
         kind: GitRepository
         name: gitrepo
