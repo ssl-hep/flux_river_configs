@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: servicex-jobs-branch
+  namespace: servicex-testing-3
+spec:
+  interval: 5m
+  url: https://github.com/ssl-hep/ServiceX.git
+  ref:
+    branch: servicex-did-finder
