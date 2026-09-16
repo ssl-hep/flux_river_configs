@@ -81,6 +81,9 @@ spec:
           storage: rook
       CERNOpenData:
         enabled: true
+      servicex:
+        enabled: true
+        tag: servicex-did-finder
 
     codeGen:
       uproot-raw:
