@@ -22,7 +22,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: flask3-migration
+      tag: develop
       pullPolicy: Always
       # defaultUsers: "users"
       auth: true
