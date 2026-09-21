@@ -73,7 +73,6 @@ spec:
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
         tag: 1538_rucio_RSE
-        rseExpression: 'istape=True&(*\type=SPECIAL|cloud=FOOBAR)'
 
       CERNOpenData:
         enabled: true
