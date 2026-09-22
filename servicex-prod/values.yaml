@@ -72,7 +72,6 @@ spec:
         enabled: true
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
-        tag: 1538_rucio_RSE
 
       CERNOpenData:
         enabled: true
