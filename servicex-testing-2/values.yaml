@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.8.6-rc.1"
+      version: "1.9.0-rc.1"
   interval: 5m
 
   values:
@@ -22,11 +22,17 @@ spec:
       publicURL: testing-2-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
+    logging:
+      vector:
+        enabled: true
+        transformer:
+          enabled: true
+
     app:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      replicas: 4
+      replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
@@ -69,7 +75,6 @@ spec:
     didFinder:
       rucio:
         enabled: true
-        tag: 1538_rucio_RSE
       CERNOpenData:
         enabled: false
 
