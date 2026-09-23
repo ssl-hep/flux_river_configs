@@ -23,9 +23,9 @@ spec:
       useClientTLS: true
     logging:
       vector:
-        enabled: true
+        enabled: false
         transformer:
-          enabled: true
+          enabled: false
 
     app:
       pullPolicy: Always
