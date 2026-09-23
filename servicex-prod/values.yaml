@@ -21,6 +21,12 @@ spec:
       publicURL: prod-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
+    logging:
+      vector:
+        enabled: true
+        transformer:
+          enabled: true
+
     app:
       pullPolicy: Always
       auth: true
