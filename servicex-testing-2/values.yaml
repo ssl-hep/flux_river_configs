@@ -32,6 +32,7 @@ spec:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
+      tag: vector_logging
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
