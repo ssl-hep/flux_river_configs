@@ -97,6 +97,9 @@ spec:
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
+      memoryLimit: 3Gi
+      cpuRequest: 500m
+      memoryRequest: 1Gi
 
     postgres:
       enabled: true
