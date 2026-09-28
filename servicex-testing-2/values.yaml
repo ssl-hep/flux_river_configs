@@ -33,7 +33,7 @@ spec:
       pullPolicy: Always
       auth: true
       tag: vector_logging
-      replicas: 1
+      replicas: 3
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
@@ -95,7 +95,7 @@ spec:
       autoscaler:
         enabled: true
         cpuScaleThreshold: 20
-        minReplicas: 1
+        minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
       memoryLimit: 3Gi
