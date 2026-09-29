@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.9.0-rc.1"
+      version: "1.9.0-rc.3"
   interval: 5m
   values:
     objectStore:
@@ -26,7 +26,6 @@ spec:
         enabled: false
         transformer:
           enabled: false
-
     app:
       pullPolicy: Always
       auth: true
@@ -114,7 +113,6 @@ spec:
       memoryLimit: 3Gi
       cpuRequest: 500m
       memoryRequest: 1Gi
-
     postgres:
       enabled: true
     postgresql:
