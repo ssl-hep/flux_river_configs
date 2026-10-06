@@ -8,11 +8,15 @@ spec:
   serviceAccountName: servicex-testing-3
   chart:
     spec:
-      chart: servicex
+      # chart: servicex
+      # sourceRef:
+      #   kind: HelmRepository
+      #   name: servicex-repo
+      # version: ">=v1.8.2-rc.1"
+      chart: helm/servicex
       sourceRef:
-        kind: HelmRepository
-        name: servicex-repo
-      version: ">=v1.8.2-rc.1"
+        kind: GitRepository
+        name: gitrepo
   interval: 5m
   values:
     objectStore:
@@ -22,7 +26,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: fix-request-id
+      tag: servicex-did-finder
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
@@ -41,12 +45,6 @@ spec:
           enabled: true
           host: servicex-release-testing-3.servicex.ssl-hep.org
           clusterIssuer: letsencrypt-prod
-          
-
-    x509Secrets:
-      image: ponyisi/x509-secrets
-      tag: py3.11
-      pullPolicy: Always
 
     rabbitmq:
       clusterDomain: river-dev
@@ -80,11 +78,14 @@ spec:
         enabled: true
         replicaSorterEnabled: true
         geoIPURL: https://ponyisi.web.cern.ch/public/GeoLite2-City.mmdb
-        image: ponyisi/servicex-did-finder
-        tag: py3.11
         nodeSelector:
           storage: rook
       CERNOpenData:
+        enabled: true
+      servicex:
+        enabled: true
+        tag: servicex-did-finder
+      xrootd:
         enabled: true
 
     codeGen:
@@ -95,8 +96,8 @@ spec:
       python:
         image: ponyisi/servicex_code_gen_python
         tag: mount-cvmfs-in-transformers
-        defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
-        defaultScienceContainerTag: 5.7.3-6.38.04
+        defaultScienceContainerImage: ponyisi/servicex_science_image_combined_root
+        defaultScienceContainerTag: 5.7.6-6.40.04
         nodeSelector:
           storage: rook
 

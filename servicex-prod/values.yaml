@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: "1.8.5"
+      version: "1.9.0-rc.5"
   interval: 5m
   values:
     objectStore:
@@ -21,6 +21,11 @@ spec:
       publicURL: prod-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
+    logging:
+      vector:
+        enabled: false
+        transformer:
+          enabled: false
     app:
       pullPolicy: Always
       auth: true
@@ -105,6 +110,9 @@ spec:
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
+      memoryLimit: 3Gi
+      cpuRequest: 500m
+      memoryRequest: 1Gi
     postgres:
       enabled: true
     postgresql:

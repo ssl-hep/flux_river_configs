@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: servicex-repo
-      version: ">=1.8.5-alpha.3"
+      version: "1.9.0-rc.4"
   interval: 5m
 
   values:
@@ -22,11 +22,20 @@ spec:
       publicURL: testing-2-minio.servicex.ssl-hep.org
       useTLS: false
       useClientTLS: true
+    logging:
+      vector:
+        enabled: true
+        transformer:
+          enabled: true
+
     app:
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
       auth: true
-      replicas: 4
+      tag: vector_logging
+      replicas: 3
+      sqlalchemyEngineOptions: '{"pool_pre_ping": True }'
+
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
       newSignupWebhook: "dummy"
@@ -82,6 +91,7 @@ spec:
         
     transformer:
       sidecarPullPolicy: Always
+      sidecarTag: vector_logging
       scienceContainerPullPolicy: IfNotPresent
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
       # cachePrefix: '""'
@@ -91,6 +101,9 @@ spec:
         minReplicas: 10
         maxReplicas: 750
       cpuLimit: 1
+      memoryLimit: 3Gi
+      cpuRequest: 500m
+      memoryRequest: 1Gi
 
     postgres:
       enabled: true
