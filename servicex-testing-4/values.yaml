@@ -7,13 +7,17 @@ metadata:
 spec:
   releaseName: servicex-release-testing-4
   serviceAccountName: servicex-testing-4
-  chart:
-    spec:
-      chart: servicex
-      sourceRef:
-        kind: HelmRepository
-        name: servicex-repo
-      version: ">=v1.8.2"
+  # chart:
+  #   spec:
+  #     chart: servicex
+  #     sourceRef:
+  #       kind: HelmRepository
+  #       name: servicex-repo
+  #     version: ">=v1.8.2"
+  chart: helm/servicex
+    sourceRef:
+      kind: GitRepository
+      name: gitrepo
   interval: 5m
   values:
     objectStore:
@@ -26,7 +30,9 @@ spec:
       logLevel: "debug"
       adminEmail: bengal1@illinois.edu
       pullPolicy: Always
-      tag: 1478-download-usage-report-as-csv-file
+      tag: oidc-device-flow
+      oauthDeviceFlowClientID: 2e207224-b86a-4dff-81b7-3dc2aafd672e
+      allowAllAfterAuth: true
       auth: true
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
