@@ -7,4 +7,4 @@ spec:
   interval: 5m
   url: https://github.com/ssl-hep/ServiceX.git
   ref:
-    branch: servicex-did-finder
+    branch: oidc-device-flow
