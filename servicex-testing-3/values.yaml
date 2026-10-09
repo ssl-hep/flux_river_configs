@@ -34,7 +34,7 @@ spec:
       pullPolicy: Always
       auth: true
       allowAllAfterAuth: true
-      oauthDeviceFlowClientID: servicex-pub
+      oauthDeviceFlowClientID: 2e207224-b86a-4dff-81b7-3dc2aafd672e
       replicas: 1
       mailgunDomain: servicex.ssl-hep.org
       slackSigningSecret: "dummy"
