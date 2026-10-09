@@ -26,7 +26,7 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: servicex-did-finder
+      tag: oidc-device-flow
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
