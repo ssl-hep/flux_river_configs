@@ -29,6 +29,7 @@ spec:
     app:
       pullPolicy: Always
       auth: true
+      tag: dataset-logs
       replicas: 3
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
