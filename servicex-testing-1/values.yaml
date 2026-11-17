@@ -8,10 +8,11 @@ spec:
   serviceAccountName: servicex-testing-1
   chart:
     spec:
-      chart: helm/servicex
+      chart: servicex
       sourceRef:
-        kind: GitRepository
-        name: servicex-jobs-branch
+        kind: HelmRepository
+        name: servicex-repo
+      version: "1.9.0-rc.8"
   interval: 5m
   values:
     objectStore:
@@ -22,18 +23,16 @@ spec:
       useClientTLS: true
 
     app:
-      logLevel: "debug"
-      adminEmail: ivukotic@uchicago.edu
-      image: mattshirley/servicex_app
       pullPolicy: Always
-      tag: jobs
       auth: true
-      replicas: 1
+      tag: v1.9.0-rc.8
+      replicas: 3
+      logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
-      # need dummy values so that it's in the config file
-      slackSigningSecret: "dummy"
-      newSignupWebhook: "dummy"
-      sqlalchemyEngineOptions: '{"pool_pre_ping": True}'
+      slackSigningSecret: dummy
+      newSignupWebhook: dummy
+      sqlalchemyEngineOptions: '{"pool_pre_ping": True }'
+      allowAllAfterAuth: true
       ingress:
         enabled: true
         tls:
@@ -83,48 +82,39 @@ spec:
         PullPolicy: Always
       CERNOpenData:
         enabled: true
-        tag: did-logstash
-        PullPolicy: Always
       xrootd:
         enabled: true
-        tag: did-logstash
-        PullPolicy: Always
       atlasopenmagic:
         enabled: true
-        tag: did-logstash
-        PullPolicy: Always
-
     codeGen:
       uproot:
         enabled: true
-
       python:
         enabled: true
-
       atlasr21:
         enabled: true
-
       atlasr22:
         enabled: true
-
       atlasr25:
         enabled: true
-        
       uproot-raw:
         enabled: true
-
     transformer:
+      scienceContainerPullPolicy: Always
       cacheVPSSite: AF_200
       cacheVPSCheckInterval: 1800
       cacheVPSLivenessURL: https://vps.cern.ch/liveness
       cachePrefix: '"c111.af.uchicago.edu:1094,c112.af.uchicago.edu:1094,c113.af.uchicago.edu:1094,c114.af.uchicago.edu:1094,c115.af.uchicago.edu:1094"'
       sidecarImage: mattshirley/transformer_sidecar
-      sidecarTag: jobs
       sidecarPullPolicy: Always
       maxReplicas: 100
       initialReplicas: 1
       cpuLimit: 1
-
+      autoscaler:
+        enabled: true
+        cpuScaleThreshold: 20
+        minReplicas: 10
+        maxReplicas: 200
     postgres:
       enabled: true
 
