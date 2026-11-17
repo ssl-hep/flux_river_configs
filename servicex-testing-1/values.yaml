@@ -25,7 +25,6 @@ spec:
     app:
       pullPolicy: Always
       auth: true
-      tag: v1.9.0-rc.8
       replicas: 3
       logLevel: INFO
       mailgunDomain: servicex.ssl-hep.org
