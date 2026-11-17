@@ -77,8 +77,6 @@ spec:
         enabled: true
         servicex_latitude: 41.78
         servicex_longitude: -87.7
-        tag: did-logstash
-        PullPolicy: Always
       CERNOpenData:
         enabled: true
       xrootd:
@@ -122,7 +120,7 @@ spec:
           enabled: true
           storageClass: rook-ceph-block
           # storageClass: local-volumes
-        nodeSelector:
+        nodeSelector:cio
           storage: "rook"
       global:
         postgresql:
