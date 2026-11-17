@@ -27,6 +27,7 @@ spec:
         transformer:
           enabled: true
     app:
+      tag: optional-secrets
       pullPolicy: Always
       auth: true
       replicas: 1
