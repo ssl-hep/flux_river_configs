@@ -36,6 +36,7 @@ spec:
       newSignupWebhook: dummy
       sqlalchemyEngineOptions: '{"pool_pre_ping": True }'
       allowAllAfterAuth: true
+      oauthDeviceFlowClientID: 2e207224-b86a-4dff-81b7-3dc2aafd672e
       ingress:
         enabled: true
         tls:
