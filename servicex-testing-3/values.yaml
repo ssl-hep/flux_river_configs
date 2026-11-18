@@ -8,15 +8,15 @@ spec:
   serviceAccountName: servicex-testing-3
   chart:
     spec:
-      # chart: servicex
-      # sourceRef:
-      #   kind: HelmRepository
-      #   name: servicex-repo
-      # version: ">=v1.8.2-rc.1"
-      chart: helm/servicex
+      chart: servicex
       sourceRef:
-        kind: GitRepository
-        name: gitrepo
+        kind: HelmRepository
+        name: servicex-repo
+      version: ">=v1.8.2-rc.8"
+      # chart: helm/servicex
+      # sourceRef:
+      #   kind: GitRepository
+      #   name: gitrepo
   interval: 5m
   values:
     objectStore:
@@ -26,7 +26,6 @@ spec:
       useTLS: false
       useClientTLS: true
     app:
-      tag: oidc-device-flow
       nodeSelector:
         storage: rook
       allowedImagePrefixes: ["sslhep/", "ponyisi/", "gitlab-registry.cern.ch/"]
@@ -85,40 +84,39 @@ spec:
         enabled: true
       servicex:
         enabled: true
-        tag: servicex-did-finder
       xrootd:
         enabled: true
 
-    codeGen:
-      uproot-raw:
-        defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
-        defaultScienceContainerTag: 5.6.9-6.36.06
-        image: ponyisi/servicex_code_gen_raw_uproot
-        tag: no-cuts
+    # codeGen:
+    #   uproot-raw:
+    #     defaultScienceContainerImage: sslhep/servicex_science_image_combined_root
+    #     defaultScienceContainerTag: 5.6.9-6.36.06
+    #     image: ponyisi/servicex_code_gen_raw_uproot
+    #     tag: no-cuts
 
-      python:
-        image: ponyisi/servicex_code_gen_python
-        tag: mount-cvmfs-in-transformers
-        defaultScienceContainerImage: ponyisi/servicex_science_image_combined_root
-        defaultScienceContainerTag: 5.7.6-6.40.04
-        nodeSelector:
-          storage: rook
+    #   python:
+    #     image: ponyisi/servicex_code_gen_python
+    #     tag: mount-cvmfs-in-transformers
+    #     defaultScienceContainerImage: ponyisi/servicex_science_image_combined_root
+    #     defaultScienceContainerTag: 5.7.6-6.40.04
+    #     nodeSelector:
+    #       storage: rook
 
-      atlasr21:
-        image: roger22011/servicex-func-adl-xaod
-        tag: test-runner-fix
-        defaultScienceContainerTag: "21.2.231"
+    #   atlasr21:
+    #     image: roger22011/servicex-func-adl-xaod
+    #     tag: test-runner-fix
+    #     defaultScienceContainerTag: "21.2.231"
 
-      atlasr22:
-        image: roger22011/servicex-func-adl-xaod
-        tag: test-runner-fix
-        defaultScienceContainerTag: "22.2.107"
+    #   atlasr22:
+    #     image: roger22011/servicex-func-adl-xaod
+    #     tag: test-runner-fix
+    #     defaultScienceContainerTag: "22.2.107"
 
-      atlasr25:
-        image: roger22011/servicex-func-adl-xaod
-        tag: test-runner-fix
-        #defaultScienceContainerTag: "25.2.80"
-        defaultScienceContainerTag: "25.2.80"
+    #   atlasr25:
+    #     image: roger22011/servicex-func-adl-xaod
+    #     tag: test-runner-fix
+    #     #defaultScienceContainerTag: "25.2.80"
+    #     defaultScienceContainerTag: "25.2.80"
 
 
 
